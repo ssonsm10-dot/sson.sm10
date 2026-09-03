@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>학원 관리 앱 — SON SUNGMIN</title>
+  <meta
+    name="description"
+    content="1,200명 규모 학원의 수기 학생 관리와 소통 오류를 개선하고자 기획한 앱 프로토타입"
+  />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+
+<body class="project-page">
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+  <header class="detail-header">
+    <a class="detail-back" href="../index.html#work">
+      <span class="detail-back-arrow" aria-hidden="true">←</span>
+      <span>Back to work</span>
+    </a>
+
+    <span class="detail-index">Project 01 / 05</span>
+  </header>
+
+
+  <main>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+    <section class="detail-hero">
+      <div class="detail-container">
+
+        <p class="detail-kicker">Service Planning · UI/UX · 2023</p>
+
+        <h1 class="detail-title">
+          종이 명단으로 운영되던<br />
+          1,200명 학원을 앱으로
+        </h1>
+
+        <p class="detail-subtitle">인정받고 싶어 시작해, 적성을 발견하다</p>
+
+        <p class="detail-lead-text">
+          1,200명 규모 학원의 수기 학생 관리와 소통 오류를 개선하고자
+          기획한 앱 프로토타입입니다. 출결, 일정, 보강, 학부모 소통으로
+          흩어져 있던 업무를 하나의 흐름으로 연결하고자 했습니다.
+        </p>
+
+        <dl class="detail-facts">
+          <div class="detail-fact">
+            <dt>Period</dt>
+            <dd>2023.05 – 2023.06 (약 1개월)</dd>
+          </div>
+
+          <div class="detail-fact">
+            <dt>Type</dt>
+            <dd>사내 자발적 제안 · 개인 프로젝트</dd>
+          </div>
+
+          <div class="detail-fact">
+            <dt>Contribution</dt>
+            <dd>100%</dd>
+          </div>
+
+          <div class="detail-fact">
+            <dt>Role</dt>
+            <dd>서비스 기획 · UI/UX 디자인 · 프로토타이핑 · 제안 발표</dd>
+          </div>
+
+          <div class="detail-fact">
+            <dt>Users</dt>
+            <dd>학원 교사 · 학부모</dd>
+          </div>
+
+          <div class="detail-fact">
+            <dt>Tools</dt>
+            <dd>Figma</dd>
+          </div>
+        </dl>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         MAIN IMAGE
+         ===================================================== -->
+    <section class="detail-visual">
+      <div class="detail-container">
+
+        <figure class="detail-figure">
+          <!--
+            실제 이미지로 교체:
+
+            <div class="detail-main-image">
+              <img
+                src="../Image/PJ1_images/project1_main.png"
+                alt="학원 관리 앱 프로토타입 화면 모음"
+              />
+            </div>
+          -->
+          <div class="detail-main-image">
+  <img
+    src="../Image/PJ1_images/project01_detail_main.png"
+    alt="Project 01 main visual"
+  />
+</div>
+
+          <figcaption class="detail-caption">
+            개발 착수 전 단계에서 Figma로 제작한 모바일 앱 프로토타입
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         01 / START
+         ===================================================== -->
+    <section class="detail-section">
+      <div class="detail-container detail-copy">
+
+        <div class="section-head">
+          <p class="detail-section-label">
+            <span class="label-num">01</span>Start
+          </p>
+
+          <h2>요청받지 않은 일에서 시작하다</h2>
+
+          <p class="detail-headline">
+            막내 강사였던 저는, 결과물로 가능성을 증명하고 싶었습니다
+          </p>
+        </div>
+
+        <p>
+          당시 저는 학원에서 가장 어린 강사였습니다. 주어진 업무를
+          수행하는 데 그치지 않고, 학원의 문제를 함께 고민하고 해결할 수
+          있는 구성원임을 보여주고 싶었습니다.
+        </p>
+
+        <p>
+          학생 관리 과정에서 반복되는 정보 누락과 소통 오류를 발견한 뒤,
+          <strong>누구의 요청도 없이</strong> 학원 관리 앱을 기획했습니다.
+          학업과 강사 업무를 병행하며 약 한 달 동안 기능 기획, UI/UX 디자인,
+          인터랙티브 프로토타입 제작을 혼자 진행했습니다.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         02 / PROBLEM
+         ===================================================== -->
+    <section class="detail-section">
+      <div class="detail-container detail-copy">
+
+        <div class="section-head">
+          <p class="detail-section-label">
+            <span class="label-num">02</span>Problem
+          </p>
+
+          <h2>종이와 기억에 의존하던 학원 운영</h2>
+
+          <p class="detail-headline">
+            <span class="hl">1,200명</span> 이상의 학생 정보가 종이와 메모에
+            흩어져 있었습니다
+          </p>
+        </div>
+
+        <p>
+          매일 등원 예정 학생 명단을 출력한 뒤, 학생이 도착하면 이름을
+          펜으로 지우며 출석을 확인했습니다. 결석·보강·시간 변경 요청은
+          전화를 받은 교사가 명단 옆에 직접 메모했고, 마감 전 이를 다시
+          정리해 다음 날 명단을 새로 출력했습니다.
+        </p>
+
+        <p>
+          하루 평균 <span class="hl">5장</span>의 명단이 출력됐고,
+          <span class="hl">7명</span>의 교사가 하루
+          <span class="hl">10건</span> 안팎의 변경 요청을 손으로 옮겨
+          적었습니다. 명단을 다시 정리하는 데만 매일
+          <span class="hl">30분</span>이 들었습니다.
+        </p>
+
+        <div class="flow">
+          <span class="flow-step">명단 출력</span>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-step">수기 출석 확인</span>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-step">전화 요청 메모</span>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-step">변경 사항 정리</span>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-step">다음 날 명단 재출력</span>
+        </div>
+
+        <div class="detail-summary">
+
+          <article class="summary-card">
+            <span class="summary-number">01</span>
+            <h3>동명이인 오안내</h3>
+            <p>학교·반 정보 부족으로 다른 학생에게 안내가 전달됐습니다.</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-number">02</span>
+            <h3>변경 사항 누락</h3>
+            <p>전화 메모와 교사의 기억에 따라 요청이 누락됐습니다.</p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-number">03</span>
+            <h3>인수인계 단절</h3>
+            <p>휴가·근무지 이동 시 학생 정보 전달이 끊겼습니다.</p>
+          </article>
+
+        </div>
+
+        <p class="detail-quote">
+          중요한 학생 정보가 시스템이 아닌 특정 교사의 기억에 의존하고
+          있었습니다.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         03 / SOLUTION
+         ===================================================== -->
+    <section class="detail-section">
+      <div class="detail-container detail-copy">
+
+        <div class="section-head">
+          <p class="detail-section-label">
+            <span class="label-num">03</span>Solution
+          </p>
+
+          <h2>흩어진 정보를 하나의 흐름으로 연결하다</h2>
+
+          <p class="detail-headline">
+            현장에서 반복된 문제를 세 가지 기능으로 풀고자 했습니다
+          </p>
+        </div>
+
+        <p>
+          전문적인 서비스 기획 방법론을 알고 시작한 프로젝트는
+          아니었습니다. 대신 실제 업무 중 가장 자주 발생했던 문제를
+          기준으로 필요한 기능을 정리했습니다.
+        </p>
+
+        <div class="map-list">
+
+          <div class="map-row">
+            <span class="map-index">01</span>
+            <span class="map-problem">동명이인 오안내</span>
+            <span class="map-arrow" aria-hidden="true">→</span>
+            <span class="map-solution">학생 상세 정보로 동명이인 구분</span>
+          </div>
+
+          <div class="map-row">
+            <span class="map-index">02</span>
+            <span class="map-problem">변경 사항 누락</span>
+            <span class="map-arrow" aria-hidden="true">→</span>
+            <span class="map-solution">익숙한 일정표로 변경 사항 확인</span>
+          </div>
+
+          <div class="map-row">
+            <span class="map-index">03</span>
+            <span class="map-problem">인수인계 단절</span>
+            <span class="map-arrow" aria-hidden="true">→</span>
+            <span class="map-solution">채팅과 일정으로 기록 연결</span>
+          </div>
+
+        </div>
+
+
+        <!-- FEATURE 01 -->
+        <div class="feature">
+
+          <div class="feature-body">
+            <span class="feature-number">001</span>
+            <h3>학생 상세 정보로 동명이인 구분</h3>
+
+            <p>
+              이름만으로 학생을 구분하던 방식에서 벗어나, 학교·나이·소속
+              반을 함께 확인할 수 있도록 구성했습니다. 이름이 같더라도
+              추가 정보를 통해 다른 학생에게 잘못 안내하는 상황을
+              줄이고자 했습니다.
+            </p>
+
+            <!-- ⚠️ 다른 두 기능과 형식을 맞추기 위한 회고 문장입니다. 실제 판단과 다르면 수정하세요. -->
+            <p class="detail-note">
+              학생 정보를 나열하는 데 그쳤습니다. 이후에는 교사가 자주 찾는
+              정보 순으로 위계를 정리할 필요가 있다고 판단했습니다.
+            </p>
+          </div>
+
+          <figure class="feature-figure">
+
+  <div class="feature-image">
+    <img
+      src="../Image/PJ1_images/student_list.png"
+      alt="학교·학년·소속 반을 함께 표시한 학생 목록"
+    />
+  </div>
+
+  <figcaption class="detail-caption">
+    학교·학년·소속 반을 함께 표시한 학생 목록
+  </figcaption>
+
+</figure>
+
+        </div>
+
+
+        <!-- FEATURE 02 (좌우 반전) -->
+        <div class="feature feature--reverse">
+
+          <div class="feature-body">
+            <span class="feature-number">002</span>
+            <h3>익숙한 일정표로 변경 사항을 빠르게 확인</h3>
+
+            <p>
+              기존에 출력해 사용하던 명단의 구조를 유지해, 교사가 별도의
+              학습 없이 일정을 확인할 수 있도록 구성했습니다. 익숙한
+              화면에서 학생과 수업 일정을 추가·수정해, 변경 사항의 누락을
+              줄이고자 했습니다.
+            </p>
+
+            <p class="detail-note">
+              초기 제안 단계에서는 사용자의 적응을 우선해 기존 명단의 구조를
+              유지했습니다. 이후 발전시킨다면 정보 위계와 가독성을 개선할
+              필요가 있다고 판단했습니다.
+            </p>
+          </div>
+
+          <figure class="feature-figure">
+
+  <div class="feature-image">
+    <img
+      src="../Image/PJ1_images/schedule.png"
+      alt="기존 출력 명단을 반영한 일정 관리 화면"
+    />
+  </div>
+
+  <figcaption class="detail-caption">
+    기존 출력 명단을 반영한 일정 관리 화면
+  </figcaption>
+
+</figure>
+
+        </div>
+
+
+        <!-- FEATURE 03 -->
+        <div class="feature">
+
+          <div class="feature-body">
+            <span class="feature-number">003</span>
+            <h3>채팅과 일정으로 인수인계의 단절을 줄이다</h3>
+
+            <p>
+              학생별 소통방과 공용 일정에서 변경 내용을 함께 확인할 수
+              있도록 구성했습니다. 담당자가 바뀌어도 이전 대화와 일정을
+              이어 확인해, 학생 정보가 특정 교사의 기억에만 머물지 않도록
+              했습니다.
+            </p>
+
+            <p class="detail-note">
+              채팅과 일정을 각각 제공해 정보 공유와 업무 확인을 돕고자
+              했습니다. 이후에는 두 기능을 학생별 기록으로 연결해 탐색
+              단계를 줄일 필요가 있다고 판단했습니다.
+            </p>
+          </div>
+
+          <figure class="feature-figure">
+
+  <div class="detail-gallery detail-gallery--large">
+
+    <div class="detail-gallery-image">
+      <img
+        src="../Image/PJ1_images/chat.png"
+        alt="학생별 채팅 목록 화면"
+      />
+    </div>
+
+    <div class="detail-gallery-image">
+      <img
+        src="../Image/PJ1_images/schedule1.png"
+        alt="학생별 일정 관리 화면"
+      />
+    </div>
+
+  </div>
+
+  <figcaption class="detail-caption">
+    학생별 소통 내용을 확인하는 채팅 목록 · 공유된 일정을 확인하는 학생 관리 화면
+  </figcaption>
+
+</figure>
+
+</figure>
+
+        </div>
+
+
+        <!-- BEFORE / AFTER -->
+        <div class="flow-compare">
+
+          <div class="flow-track flow-track--before">
+            <div class="flow-label">
+              Before
+              <span class="flow-meta">5단계 · 매일 반복</span>
+            </div>
+
+            <div class="flow">
+              <span class="flow-step">명단 출력</span>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <span class="flow-step">수기 출석 확인</span>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <span class="flow-step">전화 요청 메모</span>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <span class="flow-step">변경 사항 정리</span>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <span class="flow-step">명단 재출력</span>
+            </div>
+          </div>
+
+          <!-- ⚠️ 실제 설계한 화면 흐름에 맞게 단계를 조정하세요 -->
+          <div class="flow-track flow-track--after">
+            <div class="flow-label">
+              After
+              <span class="flow-meta">2단계 · 기록 자동 누적</span>
+            </div>
+
+            <div class="flow">
+              <span class="flow-step">앱에서 출석 확인</span>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <span class="flow-step">요청 즉시 일정 반영</span>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="detail-quote">
+          매일 다시 출력하고 다시 옮겨 적던 과정을, 한 번 입력하면 남는
+          기록으로 바꾸고자 했습니다.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         04 / PROPOSAL
+         ===================================================== -->
+    <section class="detail-section">
+      <div class="detail-container detail-copy">
+
+        <div class="section-head">
+          <p class="detail-section-label">
+            <span class="label-num">04</span>Proposal
+          </p>
+
+          <h2>프로토타입으로 가능성을 제안하다</h2>
+
+          <p class="detail-headline">
+            현장의 문제를 해결안으로 구체화해 직접 발표했습니다
+          </p>
+        </div>
+
+        <p>
+          혼자 진행한 기능 기획, UI 디자인, 인터랙티브 프로토타입을 학원
+          대표와 강사들에게 직접 제안했습니다.
+        </p>
+
+        <p class="detail-quote">
+          현장의 문제와 해결 방향에 공감을 얻어, 실제 도입을 위한 구체적인
+          검토까지 이어졌습니다.
+        </p>
+
+        <!--
+          ⚠️ 발표 자료나 발표 현장 이미지가 있다면 아래 주석을 해제하세요.
+
+          <figure class="detail-figure" style="margin-top: 40px;">
+            <div class="detail-main-image">
+              <img src="../Image/PJ1_images/proposal.png" alt="제안 발표 자료" />
+            </div>
+            <figcaption class="detail-caption">학원 대표와 강사들에게 발표한 제안 자료</figcaption>
+          </figure>
+        -->
+
+        <div class="detail-summary detail-summary--two">
+
+          <article class="summary-card">
+            <span class="summary-number">01</span>
+            <h3>도입 검토</h3>
+            <p>
+              학원 운영의 불편을 줄일 수 있다는 공감을 얻어, 실제 도입에
+              필요한 조건과 방향을 구체적으로 검토했습니다.
+            </p>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-number">02</span>
+            <h3>실행의 한계</h3>
+            <p>
+              검토 과정에서 별도의 개발 예산과 운영 여건이 필요하다는 점을
+              확인했고, 제안은 검토 단계에서 마무리됐습니다.
+            </p>
+          </article>
+
+        </div>
+
+        <p class="detail-note">
+          출시로 이어지지는 않았지만, 현장의 문제를 해결안으로 구체화해
+          조직의 공감을 얻고 도입 검토까지 이끌어낸 첫 제안 경험이었습니다.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         05 / REFLECTION
+         ===================================================== -->
+    <section class="detail-section">
+      <div class="detail-container detail-copy">
+
+        <div class="section-head">
+          <p class="detail-section-label">
+            <span class="label-num">05</span>Reflection
+          </p>
+
+          <h2>결과물보다, 문제를 정의한 경험이 남다</h2>
+        </div>
+
+        <p>
+          전문적인 방법론 없이 시작한 첫 프로젝트였지만, 서비스 기획과
+          UI/UX를 더 배우고 싶다고 생각한 출발점이 되었습니다.
+        </p>
+
+        <p>
+          인정받고 싶어 시작했지만, 문제를 정리하고 해결안을 화면으로
+          구체화하는 과정에서 더 큰 흥미를 느꼈습니다. 막내 강사로서
+          가능성을 보여주려던 시도가, 제가 어떤 일에 몰입하는 사람인지를
+          알려준 셈입니다.
+        </p>
+
+        <!--
+          ⚠️ 아래는 B안입니다. 당시 동료 교사에게 문제를 확인한 과정이 있었다면
+          아래 A안으로 교체하세요.
+
+          <p>
+            기획 과정에서 동료 교사들에게 실제 업무 흐름을 확인했지만,
+            정리된 질문지나 기록 없이 대화에 의존했습니다. 무엇을 물었고
+            무엇을 근거로 판단했는지 남기지 않은 점이 이후 가장 아쉬웠던
+            부분입니다.
+          </p>
+        -->
+        <p>
+          이 프로젝트의 문제 정의는 전적으로 제 경험에서 나왔습니다. 매일
+          겪는 일이었기에 확신이 있었지만, 그 확신을 다른 교사의 업무
+          흐름으로 확인하는 과정은 없었습니다. 지금이라면 기획보다 먼저
+          현장을 듣는 일부터 시작했을 것입니다.
+        </p>
+
+        <p class="detail-note">
+          결과물의 완성도보다, 현장의 문제를 스스로 발견하고 해결안으로
+          구체화해 제안한 경험에 더 큰 의미가 있었습니다.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         NEXT PROJECT
+         ===================================================== -->
+    <section class="next-project">
+      <div class="detail-container">
+
+        <p class="next-project-label">Next project</p>
+
+        <a class="next-project-link" href="./project2.html">
+          <div>
+            <h2>제안으로 얻은 신뢰, 구현으로 이어진 기회</h2>
+            <p class="next-project-sub">Project 02</p>
+          </div>
+          <span class="next-arrow" aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="detail-footer">
+    <div class="detail-container">
+      <span>© 2026 SON SUNGMIN</span>
+      <a href="../index.html#work">Back to all projects</a>
+    </div>
+  </footer>
+
+  <script src="../JS/main.js"></script>
+</body>
+</html>

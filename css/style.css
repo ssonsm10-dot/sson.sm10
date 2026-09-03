@@ -1,0 +1,6780 @@
+
+   Portfolio — style.css
+   One-page portfolio inspired by editorial / creative developer sites
+   /*========================================================= */
+
+/* -----------------------------
+   1. RESET / BASE
+----------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: #f4f2ed;
+  color: #1d1d1f;
+  font-family:
+    Inter,
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+::selection {
+  background: #1d1d1f;
+  color: #f4f2ed;
+}
+
+
+/* -----------------------------
+   2. DESIGN TOKENS
+----------------------------- */
+:root {
+  --page-bg: #f4f2ed;
+  --text: #1d1d1f;
+  --muted: #767676;
+  --line: rgba(29, 29, 31, 0.16);
+  --dark: #1c1c1e;
+  --dark-text: #f3f1eb;
+  --dark-muted: #9b9b9d;
+  --placeholder: #dedbd4;
+
+  --page-x: clamp(24px, 5vw, 82px);
+  --section-y: clamp(96px, 12vw, 190px);
+
+  --radius-sm: 14px;
+  --radius-md: 24px;
+  --radius-pill: 999px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* -----------------------------
+   3. SHARED
+----------------------------- */
+.section {
+  position: relative;
+  padding:
+    var(--section-y)
+    var(--page-x);
+}
+
+.section-label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin-top: 10px;
+  font-size: clamp(3.2rem, 8vw, 8.5rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+}
+
+.section-number {
+  margin-bottom: clamp(48px, 8vw, 110px);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.section-heading-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: clamp(70px, 9vw, 130px);
+}
+
+.project-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.body-copy {
+  color: #555;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.7;
+}
+
+
+/* -----------------------------
+   4. HEADER
+----------------------------- */
+
+.site-header {
+  position: absolute;
+  z-index: 1000;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  color: #ffffff;
+
+  pointer-events: none;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 35px 42px;
+
+  pointer-events: auto;
+}
+
+
+/* -----------------------------
+   LOGO
+----------------------------- */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* 기존 동그란 © 디자인 제거 */
+
+.logo-mark {
+  display: inline;
+
+  width: auto;
+  height: auto;
+
+  border: none;
+  border-radius: 0;
+
+  font-size: inherit;
+}
+
+
+/* -----------------------------
+   DESKTOP NAVIGATION
+----------------------------- */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 44px;
+}
+
+.desktop-nav a {
+  position: relative;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* hover underline */
+
+.desktop-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  height: 1px;
+
+  background: #ffffff;
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform 0.3s ease;
+}
+
+.desktop-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+/* -----------------------------
+   MOBILE BUTTON
+----------------------------- */
+
+.menu-button {
+  display: none;
+
+  width: 54px;
+  height: 54px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #1c1c1e;
+
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+
+  width: 18px;
+  height: 1px;
+
+  margin: 5px auto;
+
+  background: #ffffff;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* -----------------------------
+   5. HERO
+----------------------------- */
+.hero-section {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+
+  padding: 0;
+  overflow: hidden;
+
+  background-color: #a6aaab;
+  background-image: url("../Image/intro_images/index_main.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  color: #ffffff;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-top {
+  margin-bottom: clamp(30px, 5vw, 70px);
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-title-wrap {
+  width: min(1180px, 92%);
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(4rem, 10.5vw, 10.5rem);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+}
+
+.hero-title span:nth-child(2) {
+  padding-left: clamp(0px, 7vw, 120px);
+}
+
+.hero-title span:nth-child(3) {
+  padding-left: clamp(30px, 15vw, 250px);
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: clamp(70px, 10vw, 140px);
+}
+
+.hero-location,
+.hero-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.82rem;
+}
+
+.hero-location-label,
+.hero-scroll {
+  color: var(--muted);
+}
+
+.hero-location-value {
+  color: var(--text);
+}
+
+.hero-scroll {
+  align-items: flex-end;
+}
+
+.scroll-arrow {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 1.2rem;
+  animation: arrowMove 1.8s ease-in-out infinite;
+}
+
+@keyframes arrowMove {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.hero-image-wrap {
+  position: absolute;
+  z-index: 2;
+
+  left: 50%;
+  bottom: 0;
+
+  width: clamp(430px, 44vw, 760px);
+  height: 100vh;
+
+  transform: translateX(-50%);
+
+  overflow: visible;
+  border-radius: 0;
+}
+
+.hero-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+
+/* -----------------------------
+   6. PLACEHOLDERS
+----------------------------- */
+.image-placeholder {
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(
+      135deg,
+      #dedbd4 0%,
+      #ebe8e2 50%,
+      #d7d3cc 100%
+    );
+  color: #8b8984;
+}
+
+.image-placeholder span {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+/* -----------------------------
+   7. ABOUT
+----------------------------- */
+.about-section {
+  border-top: 1px solid var(--line);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.85fr) minmax(0, 2fr);
+  gap: clamp(40px, 8vw, 140px);
+}
+
+.about-copy {
+  max-width: 1050px;
+}
+
+.about-copy h2 {
+  max-width: 980px;
+  font-size: clamp(2.5rem, 5.7vw, 6.4rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.about-copy .body-copy {
+  max-width: 650px;
+  margin-top: clamp(35px, 5vw, 70px);
+}
+
+.round-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 160px;
+  margin-top: 48px;
+  padding: 18px 23px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  transition:
+    background 0.35s var(--ease),
+    color 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+.round-link:hover {
+  background: var(--dark);
+  color: var(--dark-text);
+  transform: translateY(-2px);
+}
+
+
+/* -----------------------------
+   8. WORK / PROJECTS
+----------------------------- */
+.work-section {
+  padding-top: clamp(110px, 14vw, 210px);
+  background: #eeece7;
+}
+
+.project {
+  padding: clamp(70px, 9vw, 130px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.project:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: clamp(24px, 4vw, 50px);
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: clamp(36px, 5vw, 76px);
+}
+
+.project-title-row h3 {
+  max-width: 1100px;
+  font-size: clamp(3rem, 8vw, 8.8rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+}
+
+.project-arrow {
+  flex: 0 0 auto;
+  font-size: clamp(2rem, 4vw, 4rem);
+  transition: transform 0.45s var(--ease);
+}
+
+.project:hover .project-arrow {
+  transform: translate(8px, -8px);
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.001);
+  transition: transform 0.9s var(--ease);
+}
+
+.project:hover .project-image img {
+  transform: scale(1.025);
+}
+
+.project-description {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.75fr) minmax(0, 1.65fr);
+  gap: clamp(30px, 6vw, 100px);
+  margin-top: clamp(30px, 5vw, 62px);
+}
+
+.project-description-title {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.project-description-copy {
+  max-width: 820px;
+}
+
+.project-description-copy > p {
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.project-tags li {
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: #5d5d5f;
+  font-size: 0.73rem;
+}
+
+
+/* -----------------------------
+   9. PROFILE
+----------------------------- */
+.profile-section {
+  background: var(--page-bg);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(50px, 9vw, 150px);
+}
+
+.profile-heading h2 {
+  max-width: 850px;
+  margin-top: 22px;
+  font-size: clamp(2.8rem, 5.9vw, 6.2rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.profile-content {
+  padding-top: 18px;
+}
+
+.profile-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-text {
+  display: grid;
+  gap: 22px;
+  margin-top: 36px;
+  color: #565658;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* -----------------------------
+   10. EXPERIENCE
+----------------------------- */
+.experience-section {
+  background: #eeece7;
+}
+
+.experience-list {
+  border-top: 1px solid var(--line);
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 0.8fr 1.1fr 1.2fr;
+  gap: clamp(24px, 5vw, 70px);
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-year {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.experience-main h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.experience-main p,
+.experience-description p {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+
+/* -----------------------------
+   11. SKILLS
+----------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr);
+  gap: clamp(50px, 9vw, 150px);
+}
+
+.skills-heading h2 {
+  max-width: 620px;
+  margin-top: 18px;
+  font-size: clamp(2.6rem, 5vw, 5.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.skills-list {
+  border-top: 1px solid var(--line);
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 55px minmax(150px, 0.8fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-index {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.skill-row h3 {
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  font-weight: 500;
+}
+
+.skill-row p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+
+/* -----------------------------
+   12. CONTACT
+----------------------------- */
+.contact-section {
+  background: var(--dark);
+  color: var(--dark-text);
+}
+
+.contact-inner {
+  padding:
+    clamp(110px, 14vw, 210px)
+    var(--page-x)
+    clamp(80px, 10vw, 150px);
+}
+
+.contact-label {
+  color: var(--dark-muted);
+}
+
+.contact-title {
+  max-width: 1200px;
+  margin-top: 24px;
+  font-size: clamp(3.7rem, 8.7vw, 9.8rem);
+  font-weight: 400;
+  line-height: 0.91;
+  letter-spacing: -0.07em;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(60px, 8vw, 110px);
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  padding: 0 25px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  transition:
+    background 0.35s var(--ease),
+    color 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+
+.contact-button:hover {
+  background: var(--dark-text);
+  color: var(--dark);
+  border-color: var(--dark-text);
+}
+
+
+/* -----------------------------
+   13. FOOTER
+----------------------------- */
+.site-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  padding:
+    28px
+    var(--page-x)
+    36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--dark-text);
+}
+
+.footer-meta {
+  display: flex;
+  gap: clamp(28px, 5vw, 80px);
+}
+
+.footer-meta > div,
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.78rem;
+}
+
+.footer-label {
+  color: var(--dark-muted);
+  font-size: 0.67rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.footer-social nav {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-social a {
+  position: relative;
+}
+
+.footer-social a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--ease);
+}
+
+.footer-social a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+/* -----------------------------
+   14. CUSTOM CURSOR
+   JS 연결 후 활성화 예정
+----------------------------- */
+.custom-cursor {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #1d1d1f;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+
+/* -----------------------------
+   15. SIMPLE REVEAL HOOKS
+   JS를 연결하면 .is-visible을 추가해서 사용 가능
+----------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* -----------------------------
+   16. TABLET
+----------------------------- */
+@media (max-width: 1024px) {
+
+  .hero-title {
+    font-size: clamp(4rem, 11vw, 8rem);
+  }
+
+  .about-grid,
+  .profile-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-heading {
+    margin-bottom: 10px;
+  }
+
+  .profile-content {
+    max-width: 720px;
+  }
+
+  .experience-item {
+    grid-template-columns: 0.7fr 1fr;
+  }
+
+  .experience-description {
+    grid-column: 2;
+  }
+}
+
+
+/* -----------------------------
+   17. MOBILE
+----------------------------- */
+@media (max-width: 760px) {
+
+  :root {
+    --page-x: 20px;
+    --section-y: 90px;
+  }
+
+  .header-inner {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    display: flex;
+    align-items: flex-end;
+    padding: 120px var(--page-x) 60px;
+    background: var(--dark);
+    color: var(--dark-text);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.4s var(--ease),
+      visibility 0.4s;
+  }
+
+  body.menu-open .mobile-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobile-menu a {
+    font-size: clamp(3rem, 15vw, 5rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+  }
+
+  .hero-section {
+    min-height: 100svh;
+    padding-top: 120px;
+  }
+
+  .hero-title-wrap {
+  position: absolute !important;
+
+  left: 0 !important;
+  bottom: -1.5vw !important;
+
+  z-index: 5;
+
+  width: 100%;
+  overflow: hidden;
+
+  margin: 0 !important;
+
+  pointer-events: none;
+}
+
+  .hero-title {
+  display: flex !important;
+  align-items: center;
+
+  width: max-content;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(8rem, 15vw, 18rem) !important;
+  font-weight: 400;
+
+  line-height: 0.78 !important;
+  letter-spacing: -0.075em;
+
+  white-space: nowrap;
+
+  animation: name-marquee-right 14s linear infinite;
+}
+
+
+/* 여기부터 추가 */
+
+.hero-title span {
+  display: inline-block !important;
+  flex-shrink: 0;
+
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.hero-title span:not(:last-child)::after {
+  content: " — ";
+}
+
+@keyframes name-marquee-right {
+  from {
+    transform: translateX(-33.333%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+/* 기존 코드 */
+.hero-title span:nth-child(2),
+.hero-title span:nth-child(3) {
+  padding-left: 0;
+}
+
+  .hero-bottom {
+    align-items: flex-start;
+    margin-top: 80px;
+  }
+
+  .hero-image-wrap {
+    right: -60px;
+    bottom: 40px;
+    width: 220px;
+    opacity: 0.42;
+  }
+
+  .section-heading-row {
+    align-items: flex-start;
+  }
+
+  .project-title-row h3 {
+    font-size: clamp(3rem, 15vw, 5.5rem);
+  }
+
+  .project-description {
+    grid-template-columns: 1fr;
+  }
+
+  .project-description-title {
+    margin-bottom: -10px;
+  }
+
+  .project-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .profile-image {
+    aspect-ratio: 1 / 1.18;
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 27px 0;
+  }
+
+  .experience-description {
+    grid-column: auto;
+  }
+
+  .skill-row {
+    grid-template-columns: 38px 1fr;
+  }
+
+  .skill-row p {
+    grid-column: 2;
+    margin-top: -10px;
+  }
+
+  .contact-title {
+    font-size: clamp(3.5rem, 15vw, 6.5rem);
+  }
+
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-button {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* -----------------------------
+   18. SMALL MOBILE
+----------------------------- */
+@media (max-width: 430px) {
+
+  .logo-text {
+    display: none;
+  }
+
+  .hero-bottom {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .hero-scroll {
+    align-items: flex-start;
+  }
+
+  .project-meta {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .project-title-row {
+    gap: 12px;
+  }
+
+  .project-arrow {
+    font-size: 1.8rem;
+  }
+
+  .footer-meta {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+
+/* -----------------------------
+   19. REDUCED MOTION
+----------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   HERO OVERRIDE
+   Dennis-style first screen
+   ========================================================= */
+
+
+/* 가로 스크롤 방지 */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
+
+.hero-section {
+  position: relative;
+
+  width: 100%;
+  height: 111vh;
+  min-height: 720px;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  background-image: url("../Image/intro_images/index_main1.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  color: #ffffff;
+}
+
+
+/* hero 내부를 화면 전체 크기로 */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+}
+
+/* 기존 위쪽 작은 문구 숨김 */
+.hero-top {
+  display: none !important;
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+   ========================================================= */
+
+.hero-image-wrap {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  z-index: 3;
+
+  width: 58vw;
+  max-width: 900px;
+
+  height: 100vh;
+
+  transform: translateX(-50%) !important;
+
+  border-radius: 0 !important;
+
+  overflow: visible !important;
+}
+
+
+/* 인물 */
+.hero-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+
+/* =========================================================
+   GIANT BOTTOM TITLE
+   ========================================================= */
+
+.hero-title-wrap {
+  position: absolute !important;
+  left: 0 !important;
+
+  bottom: calc(15vh + 1.5vw) !important;
+
+  z-index: 5;
+
+  width: 100%;
+  overflow: hidden;
+
+  margin: 0 !important;
+  pointer-events: none;
+
+  will-change: transform;
+}
+
+
+.hero-title {
+  display: block !important;
+
+  width: max-content;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(7rem, 12vw, 15rem) !important;
+  font-weight: 400;
+
+  line-height: 0.78 !important;
+
+  letter-spacing: -0.075em;
+
+  white-space: nowrap;
+}
+
+
+/* 기존 세로 배치 제거 */
+.hero-title span {
+  display: inline !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+/* 각 문구 사이 연결 */
+.hero-title span:not(:last-child)::after {
+  content: " — ";
+}
+
+
+/* =========================================================
+   HERO INFORMATION
+   ========================================================= */
+
+.hero-bottom {
+  position: absolute !important;
+
+  z-index: 7;
+
+  top: 44vh;
+  left: 0;
+
+  width: 100%;
+
+  margin: 0 !important;
+
+  display: block !important;
+}
+
+
+/* =========================================================
+   LOCATION BADGE
+   ========================================================= */
+
+.hero-location {
+  width: 180px;
+  height: 80px;
+
+  padding:
+    19px
+    73px
+    15px
+    30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: #1d1d1f;
+
+  border-radius: 0 60px 60px 0;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.15;
+
+  will-change: transform;
+}
+
+
+.hero-location-label,
+.hero-location-value {
+  color: #ffffff !important;
+}
+
+
+/* location 오른쪽 원 */
+/* -----------------------------
+   MOVING LOCATION GLOBE
+----------------------------- */
+
+/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================
+   GLOBE MOTION
+========================================= */
+
+@keyframes globe-meridian-move {
+
+  0% {
+    width: 15px;
+  }
+
+  50% {
+    width: 5px;
+  }
+
+  100% {
+    width: 15px;
+  }
+}/* =========================================
+   LOCATION GLOBE
+========================================= */
+
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+
+/* 실제 지구본 */
+
+.globe {
+  --globe-line: 2px;
+
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  border: var(--globe-line) solid #ffffff;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+
+/* -----------------------------------------
+   중앙 세로선
+----------------------------------------- */
+
+.globe-meridian-1 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 0;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   둥근 세로 경선
+----------------------------------------- */
+
+.globe-meridian-2 {
+  position: absolute;
+
+  left: 50%;
+  top: 1px;
+
+  width: 15px;
+  height: calc(100% - 2px);
+
+  border-left: var(--globe-line) solid #ffffff;
+  border-right: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation: globe-meridian-move 3s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------
+   중앙 가로선
+----------------------------------------- */
+
+.globe-equator {
+  position: absolute;
+
+  left: 1px;
+  top: 50%;
+
+  width: calc(100% - 2px);
+  height: 0;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  transform: translateY(-50%);
+}
+
+
+/* -----------------------------------------
+   위쪽 위도선
+----------------------------------------- */
+
+.globe::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-top: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   아래쪽 위도선
+----------------------------------------- */
+
+.globe::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  width: 27px;
+  height: 9px;
+
+  border-bottom: var(--globe-line) solid #ffffff;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+/* =========================================
+   LOCATION GLOBE
+========================================= */
+.location-globe {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  width: 75px;
+  height: 75px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a8a9;
+}
+
+#location-globe-canvas {
+  display: block;
+
+  width: 50px;
+  height: 50px;
+}
+
+/* =========================================================
+   RIGHT DESCRIPTION
+   ========================================================= */
+
+.hero-scroll {
+  position: absolute !important;
+
+  right: 9vw;
+  top: -10px;
+
+  width: 340px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+
+  color: #ffffff !important;
+
+  font-size: clamp(1.7rem, 2.7vw, 2.8rem);
+  font-weight: 400;
+
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+}
+
+
+.hero-scroll span:first-child {
+  color: #ffffff !important;
+}
+
+
+/* 화살표 */
+.scroll-arrow {
+  position: absolute;
+
+  left: 0;
+  top: -110px;
+
+  width: 46px;
+  height: 46px;
+
+  animation: none !important;
+}
+
+
+/* 대각선 몸통 */
+.scroll-arrow::before {
+  content: "";
+
+  position: absolute;
+
+  left: 5px;
+  top: 5px;
+
+  width: 30px;       /* 몸통 길이 */
+  height: 2.4px;       /* 몸통 두께 */
+
+  background: #ffffff;
+
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+
+/* 정사각형 느낌의 긴 화살촉 */
+.scroll-arrow::after {
+  content: "";
+
+  position: absolute;
+
+  left: 8px;
+  top: 8px;
+
+  width: 19px;       /* 촉 가로 길이 */
+  height: 19px;      /* 촉 세로 길이 */
+
+  border-right: 2.5px solid #ffffff;
+  border-bottom: 2.5px solid #ffffff;
+}
+
+/* ==============================
+   NAME MARQUEE
+============================== */
+
+.hero-title {
+  animation: name-marquee-right 14s linear infinite !important;
+}
+
+@keyframes name-marquee-right {
+  from {
+    transform: translateX(-33.333%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   ABOUT SECTION - FINAL OVERRIDE
+   ========================================================= */
+
+.about-section {
+  background: #f4f2ed;
+
+  padding:
+    140px
+    6vw
+    160px;
+
+  border-top: none;
+}
+
+.about-copy {
+  width: 100%;
+  max-width: none;
+}
+
+.about-copy h2 {
+  max-width: 1050px;
+
+  margin: 0;
+
+  font-size: clamp(2.6rem, 4vw, 4.8rem);
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+
+  color: #1d1d1f;
+}
+
+.about-copy .body-copy {
+  max-width: 650px;
+
+  margin-top: 50px;
+
+  color: #555555;
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+/* =========================================================
+   ABOUT SECTION + ABOUT BUTTON
+   ========================================================= */
+
+.about-section {
+  position: relative;
+
+  background: #f4f2ed;
+
+  padding:
+    140px
+    6vw
+    160px;
+
+  border-top: none;
+}
+
+
+/* 텍스트 + 버튼 전체 배치 */
+.about-content {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 80px;
+
+  width: 100%;
+}
+
+
+/* 왼쪽 텍스트 */
+.about-copy {
+  width: 100%;
+  max-width: 1050px;
+}
+
+
+.about-copy h2 {
+  max-width: 1050px;
+
+  margin: 0;
+
+  font-size: clamp(2.6rem, 4vw, 4.8rem);
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+
+  color: #1d1d1f;
+}
+
+
+.about-copy .body-copy {
+  max-width: 650px;
+
+  margin-top: 50px;
+
+  color: #555555;
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+
+/* 오른쪽 About me 원형 버튼 */
+.about-circle-button {
+  flex-shrink: 0;
+
+  width: 190px;
+  height: 190px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1d1d1f;
+  color: #ffffff;
+
+  font-size: 1.05rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s ease;
+}
+
+
+/* hover */
+.about-circle-button:hover {
+  transform: scale(1.08);
+  background: #2a2a2c;
+}
+
+/* =========================================================
+   ABOUT SECTION - FINAL
+   ========================================================= */
+
+.about-section {
+  position: relative;
+
+  background: #f4f2ed;
+
+  padding:
+    140px
+    6vw
+    170px;
+
+  overflow: hidden;
+
+  border-top: none;
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.about-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 850px)
+    180px
+    190px;
+
+  align-items: center;
+
+  column-gap: 55px;
+
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   LEFT TEXT
+   ========================================================= */
+
+.about-copy {
+  width: 100%;
+  max-width: 850px;
+}
+
+
+/* Main title */
+
+.about-title {
+  color: #1d1d1f;
+
+  font-size: clamp(2.6rem, 4vw, 4.8rem);
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+
+/* Each line acts as a mask */
+
+.about-line {
+  display: block;
+
+  overflow: hidden;
+}
+
+
+/* Actual moving text */
+
+.about-line > span {
+  display: block;
+
+  transform: translateY(115%);
+
+  transition:
+    transform 1.05s
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* Stagger */
+
+.about-line:nth-child(1) > span {
+  transition-delay: 0s;
+}
+
+.about-line:nth-child(2) > span {
+  transition-delay: 0.08s;
+}
+
+.about-line:nth-child(3) > span {
+  transition-delay: 0.16s;
+}
+
+
+/* When visible */
+
+.about-section.about-inview
+.about-line > span {
+  transform: translateY(0);
+}
+
+
+/* Description */
+
+.about-description {
+  max-width: 650px;
+
+  margin-top: 50px;
+
+  color: #555555;
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition:
+    opacity 0.9s ease 0.28s,
+    transform 0.9s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    0.28s;
+}
+
+
+.about-section.about-inview
+.about-description {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   CONNECTION NODES
+   ========================================================= */
+
+.about-bridge {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 0 8px;
+}
+
+
+.bridge-node {
+  display: block;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #1d1d1f;
+
+  opacity: 0;
+
+  scale: 0;
+
+  transition:
+    opacity 0.6s ease,
+    scale 0.8s
+    cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform;
+}
+
+
+/* Problem */
+
+.bridge-node-1 {
+  width: 8px;
+  height: 8px;
+
+  transition-delay: 0.25s;
+}
+
+
+/* People */
+
+.bridge-node-2 {
+  width: 14px;
+  height: 14px;
+
+  transition-delay: 0.35s;
+}
+
+
+/* Technology */
+
+.bridge-node-3 {
+  width: 22px;
+  height: 22px;
+
+  transition-delay: 0.45s;
+}
+
+
+.about-section.about-inview
+.bridge-node {
+  opacity: 1;
+
+  scale: 1;
+}
+
+
+/* =========================================================
+   ABOUT BUTTON
+   ========================================================= */
+
+.about-button-wrap {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  will-change: transform;
+}
+
+
+.about-circle-button {
+  width: 190px;
+  height: 190px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1d1d1f;
+  color: #ffffff;
+
+  font-size: 1.05rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  opacity: 0;
+
+  transform:
+    translateY(45px)
+    scale(0.92);
+
+  transition:
+    opacity 0.8s ease 0.35s,
+    transform 1s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    0.35s,
+    background 0.35s ease;
+}
+
+
+.about-section.about-inview
+.about-circle-button {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* Hover */
+
+.about-circle-button:hover {
+  transform:
+    translateY(0)
+    scale(1.06);
+
+  background: #29292b;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .about-content {
+    grid-template-columns:
+      minmax(0, 1fr)
+      130px
+      160px;
+
+    column-gap: 30px;
+  }
+
+
+  .about-circle-button {
+    width: 160px;
+    height: 160px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .about-section {
+    padding:
+      100px
+      7vw
+      120px;
+  }
+
+
+  .about-content {
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 55px;
+  }
+
+
+  .about-title {
+    font-size: clamp(
+      2.5rem,
+      11vw,
+      4rem
+    );
+  }
+
+
+  .about-bridge {
+    width: 150px;
+  }
+
+
+  .about-button-wrap {
+    align-self: flex-end;
+  }
+
+
+  .about-circle-button {
+    width: 140px;
+    height: 140px;
+  }
+
+}
+
+/* =========================================================
+   SELECTED WORK - CLEAN LIST STYLE
+   ========================================================= */
+
+.work-section {
+  width: 100%;
+
+  padding:
+    140px
+    6vw
+    180px;
+
+  background: #ffffff;
+
+  color: #1d1d1f;
+}
+
+
+/* 전체 프로젝트 영역 */
+
+.work-container {
+  width: 100%;
+  max-width: 920px;
+
+  margin: 0 auto;
+}
+
+
+/* Selected Work */
+
+.work-heading {
+  margin:
+    0
+    0
+    85px;
+
+  font-size: 2rem;
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+
+  color: #1d1d1f;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+   ========================================================= */
+
+.work-card {
+  display: block;
+
+  width: 100%;
+
+  margin-bottom: 70px;
+
+  color: inherit;
+
+  text-decoration: none;
+}
+
+/* =========================================================
+   PROJECT IMAGE + HOVER ANIMATION
+   ========================================================= */
+
+.work-image {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 5.5;
+
+  overflow: hidden;
+
+  /* 평소에는 살짝 둥글게 */
+  border-radius: 12px;
+
+  background: #e9e7e2;
+
+  transition:
+    border-radius 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change:
+    border-radius,
+    transform;
+}
+
+
+.work-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scale(1);
+
+  transition:
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   DESKTOP HOVER
+   ========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .work-card:hover .work-image {
+
+    /* 영상처럼 모서리가 크게 둥글어짐 */
+    border-radius: 50px;
+
+    /* 아주 미세하게 떠오르는 느낌 */
+    transform: translateY(-2px);
+  }
+
+
+  .work-card:hover .work-image img {
+
+    /* 과하지 않은 이미지 확대 */
+    transform: scale(1.025);
+  }
+
+}
+
+
+
+/* =========================================================
+   PROJECT INFORMATION
+   ========================================================= */
+
+.work-info {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  min-height: 68px;
+
+  padding:
+    18px
+    0;
+
+  border-bottom:
+    1px solid
+    rgba(29, 29, 31, 0.12);
+}
+
+
+/* LEFT TITLE */
+
+.work-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  font-size: 1.1rem;
+  font-weight: 500;
+
+  letter-spacing: -0.025em;
+
+  white-space: nowrap;
+}
+
+
+/* 작은 점 */
+
+.work-dot {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #1d1d1f;
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.work-tags {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+
+.work-tags span {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 30px;
+
+  padding:
+    0
+    13px;
+
+  border:
+    1px solid
+    rgba(29, 29, 31, 0.16);
+
+  border-radius: 9px;
+
+  font-size: 0.7rem;
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+
+  color: #505050;
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.work-card .work-title,
+.work-card .work-tags {
+  transition:
+    transform 0.45s
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.work-card:hover .work-title {
+  transform: translateX(5px);
+}
+
+
+.work-card:hover .work-tags {
+  transform: translateX(-5px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .work-container {
+    max-width: 780px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .work-section {
+    padding:
+      100px
+      6vw
+      120px;
+  }
+
+
+  .work-heading {
+    margin-bottom: 55px;
+
+    font-size: 1.35rem;
+  }
+
+
+  .work-card {
+    margin-bottom: 50px;
+  }
+
+
+  .work-image {
+    aspect-ratio: 16 / 9;
+
+    border-radius: 10px;
+  }
+
+
+  .work-info {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding:
+      16px
+      0
+      18px;
+  }
+
+
+  .work-tags {
+    justify-content: flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   PROFILE SECTION — REDESIGN
+   style.css 맨 아래에 붙여넣으세요.
+   (기존 .profile-grid / .profile-content 규칙을 덮어씁니다)
+   ========================================================= */
+
+.profile-section {
+  --profile-accent: #b0472b;   /* 프로젝트 상세 페이지와 동일한 강조색 */
+
+  padding:
+    var(--section-y)
+    var(--page-x);
+
+  background: var(--page-bg);
+}
+
+
+/* 메인 Projects 섹션(.work-container)과 같은 폭 */
+
+.profile-container {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.profile-section h2,
+.profile-section p,
+.profile-section span {
+  word-break: keep-all;
+}
+
+
+/* ---------------------------------------------------------
+   HEADING
+--------------------------------------------------------- */
+
+.profile-label {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.profile-title {
+  max-width: 700px;
+  margin-top: 26px;
+
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.04em;
+
+  color: var(--text);
+}
+
+.profile-subtitle {
+  max-width: 640px;
+  margin-top: 22px;
+
+  color: var(--profile-accent);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+
+/* ---------------------------------------------------------
+   BODY — 작은 인물 사진 + 본문
+--------------------------------------------------------- */
+
+.profile-body {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: clamp(36px, 5vw, 70px);
+
+  margin-top: clamp(52px, 6vw, 84px);
+  padding-top: clamp(44px, 5vw, 64px);
+  border-top: 1px solid var(--line);
+}
+
+.profile-figure {
+  margin: 0;
+}
+
+.profile-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+
+  overflow: hidden;
+  border-radius: 14px;
+  background: #eeeae2;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-caption {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+}
+
+
+/* 본문 */
+
+.profile-text {
+  display: block;
+  max-width: 620px;
+  margin-top: 0;
+}
+
+.profile-text p {
+  color: #56565a;
+  font-size: 0.95rem;
+  line-height: 1.95;
+  letter-spacing: -0.01em;
+}
+
+.profile-text p + p {
+  margin-top: 26px;
+}
+
+.profile-text strong {
+  color: var(--text);
+  font-weight: 500;
+  box-shadow: inset 0 -0.5em 0 rgba(176, 71, 43, 0.14);
+}
+
+
+/* 마지막 한 줄 — 프로젝트 페이지의 인용 문장과 같은 어법 */
+
+.profile-closing {
+  margin-top: 34px !important;
+  padding-left: 22px;
+  border-left: 2px solid var(--profile-accent);
+
+  color: var(--text) !important;
+  font-size: 1rem !important;
+  line-height: 1.85 !important;
+  letter-spacing: -0.025em;
+}
+
+
+/* 플레이스홀더를 평평한 톤으로 */
+
+.profile-section .image-placeholder {
+  background: #eeeae2;
+  border: 1px dashed rgba(29, 29, 31, 0.16);
+  color: #a9a7a2;
+}
+
+.profile-section .image-placeholder span {
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 860px) {
+
+  .profile-body {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .profile-image {
+    max-width: 200px;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (max-width: 620px) {
+
+  .profile-title {
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
+  }
+
+  .profile-subtitle {
+    font-size: 0.86rem;
+  }
+
+  .profile-image {
+    max-width: 168px;
+  }
+
+  .profile-closing {
+    padding-left: 18px;
+  }
+}
+
+/* =========================================================
+   CAPABILITIES SECTION — REDESIGN
+   style.css 맨 아래에 붙여넣으세요.
+   (PROFILE 추가분 다음에 두면 됩니다)
+   ========================================================= */
+
+.skills-section {
+  background: #f4f2ed;
+
+  border-top: 1px solid rgba(29, 29, 31, 0.12);
+
+  padding-top: 130px;
+  padding-bottom: 150px;
+}
+
+
+/* 메인 Projects 섹션 · Profile 섹션과 같은 폭 */
+
+.skills-container {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.skills-section h2,
+.skills-section h3,
+.skills-section p,
+.skills-section span {
+  word-break: keep-all;
+}
+
+
+/* ---------------------------------------------------------
+   HEADING
+--------------------------------------------------------- */
+
+.skills-label {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skills-title {
+  margin-top: 26px;
+
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+
+  color: var(--text);
+}
+
+.skills-note {
+  max-width: 620px;
+  margin-top: 24px;
+
+  color: #56565a;
+  font-size: 0.93rem;
+  line-height: 1.9;
+  letter-spacing: -0.01em;
+}
+
+
+/* ---------------------------------------------------------
+   LIST
+--------------------------------------------------------- */
+
+.skills-list {
+  margin-top: clamp(48px, 6vw, 76px);
+  border-top: 1px solid var(--line);
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 20px;
+  align-items: baseline;
+
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-index {
+  color: #c94f2d;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.skill-row {
+  transition:
+    background 0.35s var(--ease);
+}
+
+.skill-row h3 {
+  transition:
+    color 0.35s var(--ease),
+    transform 0.4s var(--ease);
+}
+
+.skill-row:hover h3 {
+  color: #c94f2d;
+  transform: translateX(6px);
+}
+
+.skills-list .skill-body h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.skills-list .skill-items {
+  margin-top: 13px;
+  max-width: 640px;
+
+  color: #6a6a6d;
+  font-size: 0.88rem;
+  line-height: 1.95;
+  letter-spacing: -0.01em;
+}
+
+
+/* hover — 메인 .work-card와 같은 미세한 반응 */
+
+.skill-row .skill-body {
+  transition: transform 0.45s var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .skill-row:hover .skill-body {
+    transform: translateX(5px);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   TOOLS
+--------------------------------------------------------- */
+
+.skills-tools {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 20px;
+  align-items: baseline;
+
+  margin-top: 32px;
+}
+
+.skills-tools-label {
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skills-tools p {
+  color: #6a6a6d;
+  font-size: 0.88rem;
+  line-height: 1.9;
+  letter-spacing: -0.01em;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 620px) {
+
+  .skills-title {
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
+  }
+
+  .skills-note {
+    font-size: 0.88rem;
+  }
+
+  .skill-row,
+  .skills-tools {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .skill-row {
+    padding: 24px 0;
+  }
+
+  .skills-list .skill-items {
+    margin-top: 11px;
+    font-size: 0.84rem;
+  }
+}
+
+/* =========================================================
+   CONTACT CURVE — FINAL
+   ========================================================= */
+
+.contact-section {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #1d1d1f;
+  color: #ffffff;
+
+  padding-top: 220px;
+}
+
+
+/* 밝은 이전 섹션이 둥글게 내려오는 부분 */
+
+.contact-curve {
+  position: absolute;
+
+  top: -1px;
+  left: 0;
+
+  width: 100%;
+  height: 220px;
+
+  display: block;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  overflow: visible;
+
+  transform: translate3d(0, 0, 0);
+
+  will-change: transform;
+}
+
+
+.contact-curve-path {
+  fill: #f4f2ed;
+}
+
+
+/* Contact 내용 */
+
+.contact-inner,
+.site-footer {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+
+/* =========================================================
+   CONTACT — GET IN TOUCH BUTTON
+   ========================================================= */
+
+.contact-cta-row {
+  position: relative;
+
+  width: 100%;
+
+  height: 210px;
+
+  margin-top: 45px;
+}
+
+
+/* 가로 구분선 */
+
+.contact-cta-line {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  transform: translateY(-50%);
+}
+
+
+/* 버튼 + 화살표 전체 */
+
+.get-in-touch-wrap {
+  position: absolute;
+
+  top: 50%;
+  right: 7vw;
+
+  width: 190px;
+  height: 190px;
+
+  transform: translateY(-50%);
+
+  z-index: 2;
+}
+
+
+/* 작은 화살표 */
+
+.contact-cta-arrow {
+  position: absolute;
+
+  top: -52px;
+  right: -20px;
+
+  color: #ffffff;
+
+  font-size: 1.7rem;
+  font-weight: 300;
+  line-height: 1;
+
+  pointer-events: none;
+
+  opacity: 0.95;
+}
+
+/* 원형 버튼 */
+
+.get-in-touch-button {
+  width: 190px;
+  height: 190px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #4f5ff7;
+  color: #ffffff;
+
+  font-size: 1.05rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transform: translate3d(0, 0, 0) scale(1);
+
+  transition:
+    background 0.35s ease,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform;
+}
+
+
+/* 기본 hover */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .get-in-touch-button:hover {
+    background: #5c6bff;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .contact-cta-row {
+    height: 170px;
+    margin-top: 35px;
+  }
+
+
+  .get-in-touch-wrap {
+    right: 5vw;
+
+    width: 145px;
+    height: 145px;
+  }
+
+
+  .get-in-touch-button {
+    width: 145px;
+    height: 145px;
+
+    font-size: 0.9rem;
+  }
+
+
+  .contact-cta-arrow {
+    top: -55px;
+    right: 78px;
+
+    font-size: 1.5rem;
+  }
+
+}
+
+/* =========================================================
+   CONTACT PAGE TRANSITION
+   ========================================================= */
+
+.page-transition {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #171719;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.42s ease,
+    visibility 0.42s;
+}
+
+
+.page-transition.is-active {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: all;
+}
+
+
+.page-transition-inner {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  opacity: 0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity 0.5s ease 0.15s,
+    transform 0.65s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s;
+}
+
+
+.page-transition.is-active
+.page-transition-inner {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+.page-transition-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+
+.page-transition-text {
+  color: #ffffff;
+
+  font-size: clamp(
+    2.1rem,
+    3.2vw,
+    3.4rem
+  );
+
+  font-weight: 400;
+
+  letter-spacing: -0.045em;
+}
+
+
+.page-transition-loader {
+  position: absolute;
+
+  right: -185px;
+  top: 50%;
+
+  width: 20px;
+  height: 20px;
+
+  border:
+    4px solid
+    rgba(47, 157, 255, 0.25);
+
+  border-top-color:
+    #2f9dff;
+
+  border-radius: 50%;
+
+  animation:
+    contactLoaderSpin
+    0.8s
+    linear
+    infinite;
+}
+
+
+@keyframes contactLoaderSpin {
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+
+}
+
+/* =========================================================
+   HEADER NAV — POSITION FIX
+   ========================================================= */
+
+.header-inner {
+  position: relative;
+}
+
+.desktop-nav {
+  position: absolute;
+
+  top: 50%;
+  right: 140px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: clamp(24px, 3vw, 48px);
+}
+
+
+/* =========================================================
+   PROFILE — REPLAY SCROLL ANIMATION
+   ========================================================= */
+
+.profile-animation-ready .profile-heading,
+.profile-animation-ready .profile-image,
+.profile-animation-ready .profile-text {
+  opacity: 0;
+
+  transform: translateY(40px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change:
+    opacity,
+    transform;
+}
+
+
+/* 약간의 순차 등장 */
+
+.profile-animation-ready .profile-image {
+  transition-delay: 0.08s;
+}
+
+.profile-animation-ready .profile-text {
+  transition-delay: 0.16s;
+}
+
+
+/* 보이는 상태 */
+
+.profile-animation-ready.profile-is-visible .profile-heading,
+.profile-animation-ready.profile-is-visible .profile-image,
+.profile-animation-ready.profile-is-visible .profile-text {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* 화면 밖으로 나갈 때는 delay 제거 */
+
+.profile-animation-ready:not(.profile-is-visible) .profile-heading,
+.profile-animation-ready:not(.profile-is-visible) .profile-image,
+.profile-animation-ready:not(.profile-is-visible) .profile-text {
+  transition-delay: 0s;
+}
+
+
+
+/* =========================================================
+   PROJECTS — REPLAY SCROLL ANIMATION
+   ========================================================= */
+
+.work-animation-ready {
+  opacity: 0;
+
+  transform: translateY(45px);
+
+  transition:
+    opacity 0.85s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change:
+    opacity,
+    transform;
+}
+
+
+.work-animation-ready.work-is-visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* =========================================================
+   GENERAL PAGE REVEAL
+   How I work / Contact / Footer
+   ========================================================= */
+
+.page-reveal {
+  opacity: 0;
+
+  transform:
+    translateY(38px)
+    scale(0.992);
+
+  transition:
+    opacity 0.8s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change:
+    opacity,
+    transform;
+}
+
+
+.page-reveal.page-reveal-visible {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+.skills-heading.page-reveal {
+  transition-duration:
+    0.9s,
+    1.05s;
+}
+
+
+.skill-row.page-reveal {
+  transform:
+    translateY(28px)
+    scale(0.995);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.skill-row.page-reveal.page-reveal-visible {
+  transform:
+    translateY(0)
+    scale(1);
+}
+.contact-top.page-reveal {
+  transform:
+    translateY(55px);
+
+  transition:
+    opacity 0.9s ease,
+    transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.contact-top.page-reveal.page-reveal-visible {
+  transform:
+    translateY(0);
+}
+
+
+.contact-actions.page-reveal {
+  transform:
+    translateY(30px);
+
+  transition:
+    opacity 0.75s ease,
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.contact-actions.page-reveal.page-reveal-visible {
+  transform:
+    translateY(0);
+}
