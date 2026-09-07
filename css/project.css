@@ -1682,3 +1682,894 @@
   width: 80%;
   margin-inline: auto;
 }
+
+/* PROJECT 04 — POSITIONING MAP */
+
+.positioning-map-figure {
+  width: 82%;
+  margin-inline: auto;
+}
+
+/* PROJECT 04 — CUSTOMER JOURNEY MAP */
+
+.customer-journey-figure {
+  width: 95%;
+  margin-inline: auto;
+}
+
+/* PROJECT 04 — HYPOTHESIS CARDS */
+
+.hypothesis-cards-figure {
+  width: 105%;
+  margin-inline: auto;
+}
+
+/* PROJECT 04 — TASK RESULT MATRIX */
+
+.task-result-matrix-figure {
+  width: 60%;
+  margin-inline: auto;
+}
+
+/* PROJECT 04 — KANO MODEL */
+
+.kano-model-figure {
+  width: 105%;
+  margin-inline: auto;
+}
+
+/* PROJECT 04 — AS-IS / TO-BE IA */
+
+.asis-tobe-figure {
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* =========================================================
+   PROJECT 04 — AS-IS / TO-BE MAIN COMPARE
+   ========================================================= */
+
+.main-compare-figure {
+  width: 65%;
+  margin-inline: auto;
+}
+
+.main-compare-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+  width: 100%;
+
+  align-items: start;
+}
+
+.main-compare-item {
+  width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--tint);
+}
+
+.main-compare-item img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  margin: 0;
+  padding: 0;
+}s
+
+/* =========================================================
+   PROJECT 04 — MOMENT / CONDITION FILTER SIZE
+   ========================================================= */
+
+.gift-filter-figure {
+  width: 100%;
+}
+
+.gift-filter-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+
+  width: 65% !important;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.gift-filter-item {
+  width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.gift-filter-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* PROJECT 04 — MESSAGE CARD / GIFT BOX */
+
+.message-gift-figure {
+  width: 35%;
+  margin-inline: auto;
+}
+
+/* =========================================================
+   PROJECT 04 — DELIVERY CHECK / GIFT DELIVERED
+   ========================================================= */
+
+.delivery-compare-figure {
+  width: 100%;
+}
+
+.delivery-compare-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+
+  /* 두 이미지 전체 크기 */
+  width: 70%;
+
+  /* 왼쪽 본문 시작선에 맞춤 */
+  margin-left: 0;
+  margin-right: auto;
+
+  align-items: start;
+}
+
+.delivery-compare-item {
+  width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--tint);
+}
+
+.delivery-compare-item img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   PROJECT 04 — METRIC DEFINITION TOGGLE IMAGE
+   ========================================================= */
+
+.metric-definition-toggle {
+  padding-top: 24px;
+}
+
+.metric-definition-img {
+  display: block;
+
+  width: 150%;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 14px;
+}
+
+/* =========================================================
+   INLINE CHART — 본문 안에 직접 그리는 그래프
+   project.css 맨 아래에 붙여넣으세요.
+   ========================================================= */
+
+.chart-figure {
+  margin: var(--gap-md) 0 0;
+}
+
+.chart-frame {
+  padding: clamp(18px, 2.5vw, 30px);
+  border-radius: 16px;
+  background: var(--tint);
+}
+
+.chart-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.inline-chart {
+  display: block;
+  width: 100%;
+  min-width: 620px;   /* 좁은 화면에서는 좌우 스크롤 */
+  height: auto;
+}
+
+
+/* 격자 */
+
+.chart-grid line {
+  stroke: rgba(29, 29, 31, 0.10);
+  stroke-width: 1;
+}
+
+.chart-grid line.is-base {
+  stroke: rgba(29, 29, 31, 0.22);
+}
+
+
+/* 축 라벨 */
+
+.chart-axis text {
+  fill: var(--muted);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+
+/* 선 */
+
+.chart-line {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-line--down {
+  stroke: #a9a7a2;
+}
+
+.chart-line--up {
+  stroke: var(--accent);
+}
+
+
+/* 점 */
+
+.chart-dot--down circle {
+  fill: #a9a7a2;
+}
+
+.chart-dot--up circle {
+  fill: var(--accent);
+}
+
+
+/* 끝점 라벨 */
+
+.chart-endlabel text {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.chart-endlabel .is-up {
+  fill: var(--accent);
+}
+
+.chart-endlabel .is-down {
+  fill: #8b8b8e;
+}
+
+.chart-endlabel .is-value {
+  font-size: 20px;
+}
+
+
+/* 기준 안내 */
+
+.chart-note {
+  fill: var(--muted);
+  font-size: 16px;
+  letter-spacing: 0.01em;
+}
+
+.whys-table {
+  min-width: 780px;
+}
+ 
+.whys-table tbody th {
+  width: 66px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  vertical-align: top;
+  padding-top: 20px;
+}
+ 
+.whys-table td {
+  font-size: 0.8rem;
+  line-height: 1.85;
+}
+ 
+/* 마지막 '근본 원인' 행 강조 */
+.whys-table tbody tr:last-child th,
+.whys-table tbody tr:last-child td {
+  border-bottom: 0;
+  font-weight: 500;
+}
+ 
+.whys-table tbody tr:last-child {
+  border-top: 1px solid var(--ink);
+}
+
+/* =========================================================
+   FUNNEL — TAM / SAM / SOM 단계별 축소
+   project.css 맨 아래에 붙여넣으세요.
+   ========================================================= */
+
+.funnel {
+  margin-top: var(--gap-md);
+  border-top: 1px solid var(--line);
+}
+
+.funnel-row {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr) 116px;
+  gap: 24px;
+  align-items: center;
+
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+
+/* 단계명 */
+
+.funnel-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.funnel-name {
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.funnel-pct {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+
+/* 설명 + 막대 */
+
+.funnel-desc {
+  margin: 0 0 12px;
+  color: var(--body-text);
+  font-size: 0.84rem;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+.funnel-track {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(29, 29, 31, 0.06);
+  overflow: hidden;
+}
+
+.funnel-fill {
+  display: block;
+  height: 100%;
+  min-width: 5px;
+  border-radius: 999px;
+  background: #c4bfb5;
+}
+
+
+/* 마지막 단계 강조 */
+
+.funnel-row.is-final .funnel-name {
+  color: var(--accent);
+}
+
+.funnel-row.is-final .funnel-pct {
+  color: var(--accent);
+}
+
+.funnel-row.is-final .funnel-fill {
+  background: var(--accent);
+}
+
+.funnel-row.is-final .funnel-value {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+
+/* 규모 */
+
+.funnel-value {
+  color: var(--ink);
+  font-size: 0.87rem;
+  letter-spacing: -0.015em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+
+/* 안내 */
+
+.funnel-note {
+  max-width: var(--read-max);
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+  .funnel-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 16px;
+    padding: 20px 0;
+  }
+
+  .funnel-stage {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .funnel-value {
+    align-self: baseline;
+  }
+
+  .funnel-body {
+    grid-column: 1 / -1;
+    margin-top: 6px;
+  }
+
+  .funnel-desc {
+    margin-bottom: 10px;
+  }
+}
+
+/* =========================================================
+   POSITIONING MAP
+   project.css 맨 아래에 붙여넣으세요.
+   ※ .chart-figure / .chart-frame / .chart-scroll / .inline-chart /
+     .chart-note 는 앞서 넣은 차트 스타일을 그대로 씁니다.
+   ========================================================= */
+
+.posmap {
+  min-width: 720px;
+}
+
+
+/* 비어 있던 영역 */
+
+.posmap-zone {
+  fill: rgba(176, 71, 43, 0.06);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 5;
+  opacity: 0.75;
+}
+
+.posmap-zone-label {
+  fill: var(--accent);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+
+/* 축 */
+
+.posmap-axis {
+  stroke: rgba(29, 29, 31, 0.22);
+  stroke-width: 1;
+}
+
+.posmap-arrow {
+  fill: rgba(29, 29, 31, 0.3);
+}
+
+.posmap-axis-label {
+  fill: var(--muted);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+
+/* 서비스 노드 */
+
+.posmap-node circle {
+  fill: #b7b2a8;
+}
+
+.posmap-node text {
+  fill: #6a6a6d;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+
+
+/* 잇담 */
+
+.posmap-node.is-own circle {
+  fill: var(--accent);
+}
+
+.posmap-node.is-own text {
+  fill: var(--accent);
+  font-size: 19px;
+  font-weight: 500;
+}
+
+/* PROJECT 05 — POSITIONING MAP */
+
+.pj5-positioning-map-figure {
+  width: 75%;
+  margin-inline: auto;
+}
+/* ---------------------------------------------------------
+   5점 척도 누적 막대
+--------------------------------------------------------- */
+
+.scale-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 40px);
+  margin-top: var(--gap-md);
+}
+
+.scale-item {
+  padding: 26px 24px;
+  border-radius: 16px;
+  background: var(--tint);
+}
+
+.scale-q {
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+}
+
+.scale-who {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.scale-bar {
+  display: flex;
+  width: 100%;
+  height: 12px;
+  margin-top: 20px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(29, 29, 31, 0.06);
+}
+
+.scale-seg {
+  display: block;
+  height: 100%;
+}
+
+.scale-seg--strong {
+  background: var(--accent);
+}
+
+.scale-seg--mid {
+  background: rgba(176, 71, 43, 0.42);
+}
+
+.scale-seg--neutral {
+  background: #d3cec4;
+}
+
+.scale-seg--weak {
+  background: #e3dfd6;
+}
+
+.scale-total {
+  margin-top: 16px;
+  color: var(--accent);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.scale-detail {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   복수응답 막대 목록
+--------------------------------------------------------- */
+
+.barlist-title {
+  margin-top: var(--gap-md);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.barlist-title span {
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.barlist {
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.barlist-row {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) 58px;
+  gap: 20px;
+  align-items: center;
+
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.barlist-label {
+  color: var(--body-text);
+  font-size: 0.85rem;
+  letter-spacing: -0.015em;
+}
+
+.barlist-track {
+  display: block;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(29, 29, 31, 0.06);
+  overflow: hidden;
+}
+
+.barlist-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: #c4bfb5;
+}
+
+.barlist-value {
+  color: var(--body-text);
+  font-size: 0.8rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+
+/* 상위 항목 강조 */
+
+.barlist-row.is-top .barlist-label {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.barlist-row.is-top .barlist-fill {
+  background: var(--accent);
+}
+
+.barlist-row.is-top .barlist-value {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+  .scale-group {
+    grid-template-columns: 1fr;
+  }
+
+  .barlist-row {
+    grid-template-columns: minmax(0, 1fr) 58px;
+    gap: 8px 16px;
+    padding: 16px 0;
+  }
+
+  .barlist-track {
+    grid-column: 1 / -1;
+  }
+}
+
+.req-split {
+  margin-top: var(--gap-md);
+}
+ 
+ 
+/* ---------------------------------------------------------
+   도메인 그리드
+--------------------------------------------------------- */
+ 
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+}
+ 
+.domain-item {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: baseline;
+ 
+  padding: 14px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #ffffff;
+}
+ 
+.domain-key {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+ 
+.domain-name {
+  color: var(--body-text);
+  font-size: 0.8rem;
+  letter-spacing: -0.015em;
+}
+ 
+.domain-count {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+ 
+ 
+/* 잇담만의 기능 그룹 */
+ 
+.domain-item.is-key {
+  border-color: rgba(176, 71, 43, 0.35);
+  background: var(--tint);
+}
+ 
+.domain-item.is-key .domain-key,
+.domain-item.is-key .domain-count {
+  color: var(--accent);
+}
+ 
+.domain-item.is-key .domain-name {
+  color: var(--ink);
+  font-weight: 500;
+}
+ 
+ 
+/* ---------------------------------------------------------
+   요건 표
+--------------------------------------------------------- */
+ 
+.req-table {
+  min-width: 760px;
+}
+ 
+.req-table tbody th {
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  vertical-align: top;
+}
+ 
+.req-table td {
+  font-size: 0.82rem;
+}
+ 
+ 
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+ 
+@media (max-width: 900px) {
+ 
+  .domain-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+ 
+@media (max-width: 620px) {
+ 
+  .domain-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+ 
+  .domain-item {
+    padding: 12px 11px;
+    gap: 8px;
+  }
+ 
+  .domain-name {
+    font-size: 0.76rem;
+  }
+}
+
+/* =========================================================
+   PROJECT 05 — SELLER REGISTER IMAGE
+   ========================================================= */
+
+.pj5-seller-image {
+  width: 100%;
+  margin: 52px 0 0;
+}
+
+.pj5-seller-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  border-radius: 14px;
+}
+
+/* =========================================================
+   PROJECT 05 — MARKET MEAL SINGLE IMAGE
+   ========================================================= */
+
+.pj5-market-meal-figure {
+  width: 100%;
+  margin: 52px 0 0;
+}
+
+.pj5-market-meal-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.pj5-market-meal-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  margin: 0;
+  padding: 0;
+}

@@ -186,21 +186,20 @@
     <section class="detail-visual">
       <div class="detail-container">
 
-        <figure class="detail-figure">
-          <!--
-            <div class="detail-main-image">
-              <img src="../Image/PJ5_images/project5_main.png" alt="잇담 메인 화면" />
-            </div>
-          -->
-          <div class="detail-main-image image-placeholder">
-            <span>PJ5 MAIN IMAGE</span>
-          </div>
+        <figure class="pj5-main-figure">
 
-          <figcaption class="detail-caption">
-            내 위치 주변 전통시장의 마감 상품 · 상품 등록 화면 · 시장한끼
-            장보기 화면
-          </figcaption>
-        </figure>
+  <div class="detail-main-image detail-main-image--natural">
+    <img
+      src="../Image/PJ5_images/project05_detail_main.png"
+      alt="내 위치 주변 전통시장의 마감 상품과 상품 등록, 장보기 화면"
+    />
+  </div>
+
+  <figcaption class="detail-caption">
+    내 위치 주변 전통시장의 마감 상품 · 상품 등록 화면 · 시장한끼 장보기 화면
+  </figcaption>
+
+</figure>
 
         <p class="detail-headline" style="margin-top: 34px;">
           마감 20분 전의 상품을, 퇴근길 30분 안으로
@@ -285,15 +284,112 @@
           </table>
         </div>
 
-        <figure>
-          <div class="detail-main-image detail-main-image--wide image-placeholder">
-            <span>MARKET STATISTICS</span>
-          </div>
+        <!-- =========================================================
+     project5.html의 01장(ch01) 안에 있는
 
-          <figcaption class="detail-caption">
-            전통시장 수 추이 · 영업점포와 빈 점포 추이 · 업종 구조
-          </figcaption>
-        </figure>
+       <figure>
+         <div class="detail-main-image detail-main-image--wide image-placeholder">
+           <span>MARKET STATISTICS</span>
+         </div>
+         <figcaption class="detail-caption">
+           전통시장 수 추이 · 영업점포와 빈 점포 추이 · 업종 구조
+         </figcaption>
+       </figure>
+
+     이 블록을 아래 내용으로 교체하세요.
+     ⚠️ 중간 연도 값은 발표 슬라이드 그래프를 눈으로 읽어 추정한 값입니다.
+        원자료가 있으면 data-* 주석의 숫자를 정확한 값으로 바꾸세요.
+     ========================================================= -->
+
+<figure class="chart-figure">
+  <div class="chart-frame">
+    <div class="chart-scroll">
+
+      <svg
+        class="inline-chart"
+        viewBox="0 0 920 380"
+        role="img"
+        aria-label="2013년을 100으로 한 지수 기준, 전통시장 영업 점포는 감소하고 빈 점포는 증가하는 추이 그래프"
+      >
+        <!-- 기준선 -->
+        <g class="chart-grid">
+          <line x1="60" y1="60"  x2="770" y2="60" />
+          <line x1="60" y1="120" x2="770" y2="120" />
+          <line x1="60" y1="180" x2="770" y2="180" class="is-base" />
+          <line x1="60" y1="240" x2="770" y2="240" />
+          <line x1="60" y1="300" x2="770" y2="300" />
+        </g>
+
+        <!-- y축 라벨 -->
+        <g class="chart-axis">
+          <text x="46" y="65"  text-anchor="end">120</text>
+          <text x="46" y="125" text-anchor="end">110</text>
+          <text x="46" y="185" text-anchor="end">100</text>
+          <text x="46" y="245" text-anchor="end">90</text>
+          <text x="46" y="305" text-anchor="end">80</text>
+        </g>
+
+        <!-- x축 라벨 -->
+        <g class="chart-axis">
+          <text x="60"  y="332" text-anchor="middle">2013</text>
+          <text x="202" y="332" text-anchor="middle">2015</text>
+          <text x="344" y="332" text-anchor="middle">2017</text>
+          <text x="486" y="332" text-anchor="middle">2019</text>
+          <text x="628" y="332" text-anchor="middle">2021</text>
+          <text x="770" y="332" text-anchor="middle">2023</text>
+        </g>
+
+        <!-- 영업 점포 (감소) -->
+        <polyline
+          class="chart-line chart-line--down"
+          points="60,180 202,190 344,180 486,191 628,208 770,229"
+        />
+        <g class="chart-dot chart-dot--down">
+          <circle cx="60"  cy="180" r="4" />
+          <circle cx="202" cy="190" r="4" />
+          <circle cx="344" cy="180" r="4" />
+          <circle cx="486" cy="191" r="4" />
+          <circle cx="628" cy="208" r="4" />
+          <circle cx="770" cy="229" r="5" />
+        </g>
+
+        <!-- 빈 점포 (증가) -->
+        <polyline
+          class="chart-line chart-line--up"
+          points="60,180 202,202 344,277 486,202 628,97 770,80"
+        />
+        <g class="chart-dot chart-dot--up">
+          <circle cx="60"  cy="180" r="4" />
+          <circle cx="202" cy="202" r="4" />
+          <circle cx="344" cy="277" r="4" />
+          <circle cx="486" cy="202" r="4" />
+          <circle cx="628" cy="97"  r="4" />
+          <circle cx="770" cy="80"  r="5" />
+        </g>
+
+        <!-- 끝점 라벨 -->
+        <g class="chart-endlabel">
+          <text x="788" y="76" class="is-up">빈 점포</text>
+          <text x="788" y="98" class="is-up is-value">+16.57%</text>
+
+          <text x="788" y="225" class="is-down">영업 점포</text>
+          <text x="788" y="247" class="is-down is-value">−8.09%</text>
+        </g>
+
+        <!-- 기준 안내 -->
+        <text x="920" y="377" text-anchor="end" class="chart-note">
+  2013년 = 100 기준 지수 · KOSIS 전통시장 점포현황
+</text>
+      </svg>
+
+    </div>
+  </div>
+
+  <figcaption class="detail-caption">
+    영업 점포는 11년 사이 8.09% 줄고, 빈 점포는 16.57% 늘었습니다.
+    두 선이 2019년을 지나며 벌어지기 시작합니다.
+  </figcaption>
+</figure>
 
 
         <!-- 001 -->
@@ -355,51 +451,150 @@
             <h3>왜 그런 일이 반복되는지 끝까지 물었습니다</h3>
           </div>
 
-          <p>
-            세 갈래의 불편을 각각 네 번씩 파고들었습니다.
+           <p>
+            세 갈래의 불편을 각각 네 번씩 파고들었습니다. 표면의 증상에서
+            멈추지 않고, <strong>구조적인 원인이 나올 때까지</strong>
+            질문을 이어갔습니다.
           </p>
-
+ 
           <div class="compare-table-wrap">
             <table class="compare-table">
               <thead>
                 <tr>
-                  <th scope="col">점점 줄어드는 이용객</th>
-                  <th scope="col">매출의 불균형</th>
-                  <th scope="col">식품 점포의 재고 한계</th>
+                  <th scope="col">Pain Point 1</th>
+                  <th scope="col">Pain Point 2</th>
+                  <th scope="col">Pain Point 3</th>
                 </tr>
               </thead>
-
+ 
               <tbody>
                 <tr>
-                  <td>가격도 재고도 온라인에 없어 <strong>가보기 전엔 알 수 없음</strong></td>
-                  <td>비교 비용이 높으니 <strong>'사람 몰린 곳'을 신호로 삼음</strong></td>
-                  <td>팔릴지 예측할 <strong>데이터가 없고</strong> 알릴 채널도 없음</td>
+                  <td>점점 줄어드는 전통시장 이용객</td>
+                  <td>매출의 불균형</td>
+                  <td>식품 점포의 재고 관리 한계</td>
                 </tr>
-
+ 
                 <tr>
-                  <td>→ 구매 경험의 불확실성</td>
-                  <td>→ 신호 누적에 따른 쏠림</td>
-                  <td>→ 시간에 의한 가치 하락</td>
+                  <td class="is-own">구매 경험의 불확실성<br />정보 디지털화 부족</td>
+                  <td class="is-own">신뢰 신호 누적에 따른 승자독식<br />비교 비용이 높은 시장 환경</td>
+                  <td class="is-own">시간 경과에 따른 가치 하락<br />재고 관리 인사이트 부족</td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <figure>
-            <div class="detail-main-image detail-main-image--wide image-placeholder">
-              <span>5 WHYS DIAGRAM</span>
+ 
+          <details class="detail-toggle">
+            <summary>5 Whys 전체 단계 · 세 갈래 × 네 질문</summary>
+ 
+            <div class="toggle-body">
+              <div class="compare-table-wrap">
+                <table class="compare-table whys-table">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">이용객 감소</th>
+                      <th scope="col">매출 불균형</th>
+                      <th scope="col">재고 관리 한계</th>
+                    </tr>
+                  </thead>
+ 
+                  <tbody>
+                    <tr>
+                      <th scope="row">Why 1</th>
+                      <td>
+                        젊은 세대는 가격이 투명하고 비교가 쉬운 디지털
+                        플랫폼에 익숙해, 전통시장을 구매 경험이 불확실한
+                        공간으로 인식한다.
+                      </td>
+                      <td>
+                        시장 내 구매가 일부 점포에 집중되고, 나머지 점포는
+                        고객 접점이 부족해 매출 격차가 벌어진다.
+                      </td>
+                      <td>
+                        당일에 판매되어야 하는 식품이 팔리지 않고 남으면
+                        판매 가능성이 급격히 낮아진다.
+                      </td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">Why 2</th>
+                      <td>
+                        온라인과 달리 가격·재고·품질을 사전에 확인할 방법이
+                        없어, 방문 전 판단에 필요한 정보가 부족하다.
+                      </td>
+                      <td>
+                        오프라인에서는 "어디서 살지"를 정할 때 눈에 보이는
+                        위치·간판·붐빔이 판단 근거가 되어, 사람이 많은 곳을
+                        우선 선택한다.
+                      </td>
+                      <td>
+                        시간이 지날수록 신선도·상품성이 떨어지고, 구매
+                        매력도가 함께 낮아진다.
+                      </td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">Why 3</th>
+                      <td>
+                        바가지 우려, 서비스 편차, 카드 결제 가능 여부 등
+                        불확실 요소가 남아 "가봐야 안다"는 상황이
+                        반복된다.
+                      </td>
+                      <td>
+                        전통시장에는 점포·상품 정보를 비교할 노력이 들기
+                        때문에, 실제 가능성을 줄이려 '사람이 많다'는 신호에
+                        의존해 결정한다.
+                      </td>
+                      <td>
+                        당일 수요를 예측하기 어려워 판매량 예측이 빗나가고,
+                        그 결과 필요 이상의 재고가 자주 발생한다.
+                      </td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">Why 4</th>
+                      <td>
+                        시장 방문 전에 핵심 정보가 한눈에 확인 가능한
+                        형태로 표준화되어 공개되지 않아, 소비자가 스스로
+                        비교·검증해야 한다.
+                      </td>
+                      <td>
+                        한 번 형성된 신호는 그 자체가 다시 강한 신뢰
+                        신호가 되어 신규 고객을 유입시키고, 격차가 시간이
+                        지날수록 벌어진다.
+                      </td>
+                      <td>
+                        대형마트·온라인 쇼핑은 판매·재고 데이터를 기반으로
+                        수요를 예측하지만, 전통시장은 품목·판매 기록이
+                        체계화되지 않아 근거로 쓸 데이터가 부족하다.
+                      </td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row" class="is-own">근본 원인</th>
+                      <td class="is-own">
+                        구매 경험의 불확실성<br />
+                        전통시장 정보의 디지털 활용 부족
+                      </td>
+                      <td class="is-own">
+                        신뢰 신호 누적에 따른 승자독식<br />
+                        비교 비용이 높은 시장 환경
+                      </td>
+                      <td class="is-own">
+                        시간 경과에 따른 가치 하락<br />
+                        재고 관리 인사이트 부족<br />
+                        정보 노출 채널 부족
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-
-            <figcaption class="detail-caption">
-              세 갈래의 불편을 각각 네 단계까지 파고든 5 Whys 다이어그램
-            </figcaption>
-          </figure>
-
+          </details>
+ 
           <p class="detail-quote">
             세 갈래는 결국 한 곳에서 만났습니다. 팔 수 있는 상품이 있는데,
-            그 정보가 어디에도 없다는 것.
-          </p>
-
+            그 정보가 어디에도 없다는 
         </div>
 
       </div>
@@ -547,29 +742,106 @@
             전체 시장이 아니라 처음 6개월 안에 만날 사람의 수가
             필요했습니다. 조건을 하나씩 걸어 퍼널로 좁혔습니다.
           </p>
-
-          <div class="flow">
-            <span class="flow-step">2,580만 명</span>
-            <span class="flow-arrow" aria-hidden="true">→</span>
-            <span class="flow-step">1,000만 (전통시장 접근 가능)</span>
-            <span class="flow-arrow" aria-hidden="true">→</span>
-            <span class="flow-step">256만 (가격 민감층)</span>
-            <span class="flow-arrow" aria-hidden="true">→</span>
-            <span class="flow-step">120만 (절약·소용량 니즈)</span>
-            <span class="flow-arrow" aria-hidden="true">→</span>
-            <span class="flow-step">약 30만 (MVP 실사용 예상)</span>
-          </div>
-
-          <figure>
-            <div class="detail-main-image detail-main-image--wide image-placeholder">
-              <span>TAM SAM SOM FUNNEL</span>
+ 
+          <div class="funnel">
+ 
+            <div class="funnel-row">
+              <div class="funnel-stage">
+                <span class="funnel-name">TAM</span>
+                <span class="funnel-pct">100%</span>
+              </div>
+ 
+              <div class="funnel-body">
+                <p class="funnel-desc">
+                  전통시장에 접근이 가능하며 식재료를 구매하는 인구
+                </p>
+                <div class="funnel-track">
+                  <span class="funnel-fill" style="width: 100%;"></span>
+                </div>
+              </div>
+ 
+              <div class="funnel-value">약 2,580만 명</div>
             </div>
-
-            <figcaption class="detail-caption">
-              조건을 단계별로 적용해 초기 목표 사용자를 좁힌 퍼널
-            </figcaption>
-          </figure>
-
+ 
+ 
+            <div class="funnel-row">
+              <div class="funnel-stage">
+                <span class="funnel-name">SAM</span>
+                <span class="funnel-pct">38.8%</span>
+              </div>
+ 
+              <div class="funnel-body">
+                <p class="funnel-desc">
+                  가격에 민감하고 전통시장 이용 가능성을 가진 인구
+                </p>
+                <div class="funnel-track">
+                  <span class="funnel-fill" style="width: 38.8%;"></span>
+                </div>
+              </div>
+ 
+              <div class="funnel-value">약 1,000만 명</div>
+            </div>
+ 
+ 
+            <div class="funnel-row">
+              <div class="funnel-stage">
+                <span class="funnel-name">SOM</span>
+                <span class="funnel-pct">9.9%</span>
+              </div>
+ 
+              <div class="funnel-body">
+                <p class="funnel-desc">
+                  절약·소용량 구매를 선호하고 문제 정의에 공감하는 고객군
+                </p>
+                <div class="funnel-track">
+                  <span class="funnel-fill" style="width: 9.9%;"></span>
+                </div>
+              </div>
+ 
+              <div class="funnel-value">약 256만 명</div>
+            </div>
+ 
+ 
+            <div class="funnel-row">
+              <div class="funnel-stage">
+                <span class="funnel-name">Intent</span>
+                <span class="funnel-pct">4.6%</span>
+              </div>
+ 
+              <div class="funnel-body">
+                <p class="funnel-desc">
+                  전통시장 디지털 구매를 수용할 수 있는 층
+                </p>
+                <div class="funnel-track">
+                  <span class="funnel-fill" style="width: 4.6%;"></span>
+                </div>
+              </div>
+ 
+              <div class="funnel-value">약 120만 명</div>
+            </div>
+ 
+ 
+            <div class="funnel-row is-final">
+              <div class="funnel-stage">
+                <span class="funnel-name">Activation</span>
+                <span class="funnel-pct">1.2%</span>
+              </div>
+ 
+              <div class="funnel-body">
+                <p class="funnel-desc">
+                  MVP 실사용이 예상되는 초기 고객
+                </p>
+                <div class="funnel-track">
+                  <span class="funnel-fill" style="width: 1.2%;"></span>
+                </div>
+              </div>
+ 
+              <div class="funnel-value">약 30만 명</div>
+            </div>
+ 
+          </div>
+ 
+          <p class="funnel-note">막대 길이는 TAM 대비 비율입니다.</p>
         </div>
 
 
@@ -606,15 +878,20 @@
             </table>
           </div>
 
-          <figure>
-            <div class="detail-main-image detail-main-image--wide image-placeholder">
-              <span>POSITIONING MAP</span>
-            </div>
+                    <figure class="pj5-positioning-map-figure">
 
-            <figcaption class="detail-caption">
-              국내 · 해외 경쟁 서비스 포지셔닝 맵
-            </figcaption>
-          </figure>
+  <div class="detail-main-image detail-main-image--natural">
+    <img
+      src="../Image/PJ5_images/positioning_map.png"
+      alt="국내·해외 경쟁 서비스를 비교한 포지셔닝 맵"
+    />
+  </div>
+
+  <figcaption class="detail-caption">
+    국내·해외 경쟁 서비스 포지셔닝 맵
+  </figcaption>
+
+</figure>
 
           <p class="detail-quote">
             전통시장 × 신선식품 × 폐기 직전. 세 조건이 겹치는 자리는 비어
@@ -671,11 +948,11 @@
             <h3>질문지를 만들어 시장으로 나갔습니다</h3>
           </div>
 
-          <p>
+           <p>
             확인하고 싶은 것을 여섯 개로 정리하고, 상인용·소비자용 질문지를
             직접 만들었습니다.
           </p>
-
+ 
           <div class="compare-table-wrap">
             <table class="compare-table">
               <thead>
@@ -684,18 +961,18 @@
                   <th scope="col">소비자에게</th>
                 </tr>
               </thead>
-
+ 
               <tbody>
                 <tr>
                   <td>미판매·폐기가 실제로 생기는가</td>
                   <td>전통시장에 갈 때 뭐가 불편한가</td>
                 </tr>
-
+ 
                 <tr>
                   <td>추가 판매 채널이 필요한가</td>
                   <td>가격·재고를 미리 알면 갈 의향이 생기는가</td>
                 </tr>
-
+ 
                 <tr>
                   <td class="is-own">스마트폰을 어디까지 쓰는가</td>
                   <td>마감 할인 상품에 거부감이 있는가</td>
@@ -703,30 +980,82 @@
               </tbody>
             </table>
           </div>
-
+ 
           <p>
-            그리고 시장에 직접 나가
-            <span class="hl">34명</span>의 상인에게 물었습니다. 장사 중인
-            분들이라 짧게 묻고, 대신 옆에서 관찰했습니다. 소비자는
-            온라인으로 <span class="hl">49명</span>을 모았습니다.
+            문제는 응답자를 어떻게 모으느냐였습니다. 장사 중인 상인에게
+            설문을 부탁하는 일은 온라인 모집으로 해결되지 않습니다. 그래서
+            <strong>네 가지 경로를 동시에 열었습니다.</strong>
           </p>
-
+ 
+          <div class="detail-summary detail-summary--four">
+ 
+            <article class="summary-card">
+              <span class="summary-number">01</span>
+              <h3>현장 방문</h3>
+              <p>
+                시장에 직접 방문해 점포를 둘러보는 과정에서 상인에게 설문
+                참여를 요청했습니다.
+              </p>
+            </article>
+ 
+            <article class="summary-card">
+              <span class="summary-number">02</span>
+              <h3>지인 연결</h3>
+              <p>
+                시장 내 점포를 운영하는 지인에게 부탁해 상인회 안에서 참여자를
+                연결받았습니다.
+              </p>
+            </article>
+ 
+            <article class="summary-card">
+              <span class="summary-number">03</span>
+              <h3>커뮤니티 연결</h3>
+              <p>
+                교회를 함께 다니는 시장 상인에게 요청해 추가 참여를
+                확보했습니다.
+              </p>
+            </article>
+ 
+            <article class="summary-card">
+              <span class="summary-number">04</span>
+              <h3>온라인 폼</h3>
+              <p>
+                Google Forms로 만든 질문지 링크를 공유해 소비자 응답을
+                모았습니다.
+              </p>
+            </article>
+ 
+          </div>
+ 
+          <p>
+            그 결과 상인 <span class="hl">34명</span>, 소비자
+            <span class="hl">49명</span>의 응답을 모았습니다. 장사 중인
+            분들이라 짧게 묻고, 대신 옆에서 관찰했습니다.
+          </p>
+ 
           <figure>
-            <div class="detail-gallery detail-gallery--photo">
-              <div class="detail-gallery-image image-placeholder">
-                <span>FIELD SURVEY</span>
-              </div>
-
-              <div class="detail-gallery-image image-placeholder">
-                <span>SURVEY RESULT</span>
-              </div>
+            <!--
+              ⚠️ 설문지 사진 파일명을 실제 경로로 바꾸세요.
+                 손글씨가 읽히면 개인정보가 노출될 수 있으니
+                 확대해서 확인하고, 필요하면 흐리게 처리하세요.
+            -->
+            <div class="detail-main-image detail-main-image--wide detail-main-image--photo">
+              <img
+                src="../Image/PJ5_images/survey_papers.png"
+                alt="현장에서 수거한 상인용 종이 설문지"
+              />
             </div>
-
+ 
             <figcaption class="detail-caption">
-              전통시장 현장에서 진행한 상인 설문 · 설문 결과 차트
+              현장에서 직접 배포하고 수거한 상인용 질문지
             </figcaption>
           </figure>
-
+ 
+          <p class="detail-note">
+            상인 응답은 현장 방문과 지인·커뮤니티 연결을 함께 사용했기 때문에
+            무작위 표본은 아닙니다. 통계적 대표성보다 현장의 실제 조건을
+            확인하는 데 목적이 있었습니다.
+          </p>
         </div>
 
 
@@ -740,48 +1069,128 @@
 
           <p>
             <strong>첫째, 소비자는 전통시장을 싫어하지 않았습니다.</strong>
-            전통시장에 부정적이라고 답한 사람은 극소수(2%)였습니다.
-            불편하다고 꼽은 건 주차·동선(59.2%)과 가격 정보가 명확하지
-            않다는 것(42.9%)이었습니다. 공간이 싫은 게 아니라
+            불편하다고 꼽은 건 주차·동선과 가격 정보가 명확하지 않다는
+            것이었습니다. 공간이 싫은 게 아니라
             <strong>가보기 전에 알 수 없는 것</strong>이 문제였습니다.
           </p>
-
+ 
           <p>
             <strong>둘째, 상인은 스마트폰을 못 쓰지 않았습니다.</strong>
-            대다수가 일상적인 사용에는 무리가 없다고 답했습니다. 그리고
-            폐기 직전 상품을 알릴 수 있는 서비스가 있다면 쓰겠다는 응답이
+            대다수가 일상적인 사용에는 무리가 없다고 답했습니다. 상인이
+            꼽은 고객 감소 원인 1위는 대형마트·온라인 쇼핑의 증가
+            (<span class="hl">79.4%</span>)였고, 폐기 직전 상품을 알릴 수
+            있는 서비스가 있다면 쓰겠다는 응답이
             <span class="hl">79%</span>였습니다.
           </p>
 
-          <div class="compare-table-wrap">
-            <table class="compare-table">
-              <thead>
-                <tr>
-                  <th scope="col">상인이 꼽은 고객 감소 원인</th>
-                  <th scope="col" class="is-own">서비스 사용 의향</th>
-                  <th scope="col">소비자의 최대 불편</th>
-                  <th scope="col">사전 정보가 있다면</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td>대형마트·온라인 증가 79.4%</td>
-                  <td class="is-own">79%<br />(매우 47% + 어느 정도 32%)</td>
-                  <td>주차·동선 59.2%<br />가격 불명확 42.9%</td>
-                  <td>방문 의향 80%대</td>
-                </tr>
-              </tbody>
-            </table>
+          <!-- 이용 의향 · 방문 의향 -->
+          <div class="scale-group">
+ 
+            <div class="scale-item">
+              <p class="scale-q">
+                폐기 직전 상품을 알릴 수 있는 서비스가 있다면
+                쓰시겠습니까? <span class="scale-who">상인 34명</span>
+              </p>
+ 
+              <div class="scale-bar">
+                <span class="scale-seg scale-seg--strong"  style="width: 47%;"></span>
+                <span class="scale-seg scale-seg--mid"     style="width: 32%;"></span>
+                <span class="scale-seg scale-seg--neutral" style="width: 18%;"></span>
+                <span class="scale-seg scale-seg--weak"    style="width: 3%;"></span>
+              </div>
+ 
+              <p class="scale-total">긍정 79%</p>
+              <p class="scale-detail">
+                매우 있음 47% · 어느 정도 32% · 보통 18% · 별로 없음 3%
+              </p>
+            </div>
+ 
+ 
+            <div class="scale-item">
+              <p class="scale-q">
+                가격·재고를 방문 전에 확인할 수 있다면 시장에 가서
+                구매하시겠습니까? <span class="scale-who">소비자 49명</span>
+              </p>
+ 
+              <div class="scale-bar">
+                <span class="scale-seg scale-seg--strong"  style="width: 16%;"></span>
+                <span class="scale-seg scale-seg--mid"     style="width: 43%;"></span>
+                <span class="scale-seg scale-seg--neutral" style="width: 31%;"></span>
+                <span class="scale-seg scale-seg--weak"    style="width: 10%;"></span>
+              </div>
+ 
+              <p class="scale-total">긍정 59%</p>
+              <p class="scale-detail">
+                매우 있음 16% · 어느 정도 43% · 보통 31% · 별로 없음 8% ·
+                전혀 없음 2%
+              </p>
+            </div>
+ 
           </div>
-
+ 
+ 
+          <!-- 소비자가 꼽은 불편 요소 -->
+          <p class="barlist-title">
+            소비자가 꼽은 전통시장의 불편 요소 <span>복수응답 · 49명</span>
+          </p>
+ 
+          <div class="barlist">
+ 
+            <div class="barlist-row is-top">
+              <span class="barlist-label">주차 · 동선 불편</span>
+              <span class="barlist-track">
+                <span class="barlist-fill" style="width: 59.2%;"></span>
+              </span>
+              <span class="barlist-value">59.2%</span>
+            </div>
+ 
+            <div class="barlist-row is-top">
+              <span class="barlist-label">가격 정보가 명확하지 않음</span>
+              <span class="barlist-track">
+                <span class="barlist-fill" style="width: 42.9%;"></span>
+              </span>
+              <span class="barlist-value">42.9%</span>
+            </div>
+ 
+            <div class="barlist-row">
+              <span class="barlist-label">위생에 대한 거부감</span>
+              <span class="barlist-track">
+                <span class="barlist-fill" style="width: 36.7%;"></span>
+              </span>
+              <span class="barlist-value">36.7%</span>
+            </div>
+ 
+            <div class="barlist-row">
+              <span class="barlist-label">결제 방식 등 불편 요소</span>
+              <span class="barlist-track">
+                <span class="barlist-fill" style="width: 26.5%;"></span>
+              </span>
+              <span class="barlist-value">26.5%</span>
+            </div>
+ 
+            <div class="barlist-row">
+              <span class="barlist-label">신선도에 대한 확신 부족</span>
+              <span class="barlist-track">
+                <span class="barlist-fill" style="width: 22.4%;"></span>
+              </span>
+              <span class="barlist-value">22.4%</span>
+            </div>
+ 
+            <div class="barlist-row">
+              <span class="barlist-label">시장 분위기 · 호객 등 부담</span>
+              <span class="barlist-track">
+                <span class="barlist-fill" style="width: 16.3%;"></span>
+              </span>
+              <span class="barlist-value">16.3%</span>
+            </div>
+ 
+          </div>
+ 
           <p class="detail-quote">
             문제는 사람도, 기술도 아니었습니다. 양쪽 다 준비되어 있는데
             연결하는 구조가 없었을 뿐이었습니다.
           </p>
-
         </div>
-
 
         <!-- 003 -->
         <div class="subsection">
@@ -1279,26 +1688,132 @@
             근거가 남습니다.
           </p>
 
-          <figure>
-            <div class="detail-main-image detail-main-image--wide image-placeholder">
-              <span>REQUIREMENTS v0.1</span>
+          <!-- ⚠️ MVP 78건 / Update 1 10건은 캡처에서 센 값입니다.
+                 원본 스프레드시트에서 비고 열을 필터링해 확인하세요. -->
+          <div class="scale-item req-split">
+            <p class="scale-q">
+              88건을 언제 만들지까지 정했습니다
+              <span class="scale-who">MVP 78건 · Update 1 10건</span>
+            </p>
+ 
+            <div class="scale-bar">
+              <span class="scale-seg scale-seg--strong" style="width: 88.6%;"></span>
+              <span class="scale-seg scale-seg--neutral" style="width: 11.4%;"></span>
             </div>
-
-            <figcaption class="detail-caption">
-              5개 도메인으로 분류한 요구사항 정의서 88건
-            </figcaption>
-          </figure>
-
+ 
+            <p class="scale-detail">
+              MVP 88.6% · Update 1 11.4%. 뒤로 미룬 10건은 운영 리스크
+              관리, 분쟁 처리, 전환율 개선처럼 서비스가 돌아가기 시작한
+              뒤에야 판단할 수 있는 항목이었습니다.
+            </p>
+          </div>
+ 
+ 
+          <p class="barlist-title">
+            요구사항 도메인 구조 <span>17개 그룹 · 88건</span>
+          </p>
+ 
+          <div class="domain-grid">
+            <div class="domain-item"><span class="domain-key">A</span><span class="domain-name">계정 · 인증</span><span class="domain-count">6</span></div>
+            <div class="domain-item"><span class="domain-key">B</span><span class="domain-name">서비스 정책</span><span class="domain-count">6</span></div>
+            <div class="domain-item"><span class="domain-key">C</span><span class="domain-name">운영 관리</span><span class="domain-count">6</span></div>
+            <div class="domain-item"><span class="domain-key">D</span><span class="domain-name">탐색 · 구매</span><span class="domain-count">5</span></div>
+            <div class="domain-item"><span class="domain-key">E</span><span class="domain-name">거래</span><span class="domain-count">5</span></div>
+            <div class="domain-item"><span class="domain-key">F</span><span class="domain-name">시장 · 가게</span><span class="domain-count">6</span></div>
+            <div class="domain-item is-key"><span class="domain-key">G</span><span class="domain-name">마감</span><span class="domain-count">6</span></div>
+            <div class="domain-item"><span class="domain-key">H</span><span class="domain-name">상품 관리</span><span class="domain-count">6</span></div>
+            <div class="domain-item"><span class="domain-key">I</span><span class="domain-name">기본 인사이트</span><span class="domain-count">2</span></div>
+            <div class="domain-item"><span class="domain-key">J</span><span class="domain-name">알림</span><span class="domain-count">6</span></div>
+            <div class="domain-item"><span class="domain-key">K</span><span class="domain-name">계정 관리</span><span class="domain-count">2</span></div>
+            <div class="domain-item"><span class="domain-key">L</span><span class="domain-name">신뢰도</span><span class="domain-count">6</span></div>
+            <div class="domain-item"><span class="domain-key">M</span><span class="domain-name">시스템 · 데이터</span><span class="domain-count">5</span></div>
+            <div class="domain-item is-key"><span class="domain-key">N</span><span class="domain-name">레시피</span><span class="domain-count">5</span></div>
+            <div class="domain-item"><span class="domain-key">O</span><span class="domain-name">탐색 편의</span><span class="domain-count">6</span></div>
+            <div class="domain-item"><span class="domain-key">P</span><span class="domain-name">가이드 · 공지</span><span class="domain-count">4</span></div>
+            <div class="domain-item is-key"><span class="domain-key">R</span><span class="domain-name">심화 인사이트</span><span class="domain-count">6</span></div>
+          </div>
+ 
+          <p class="detail-note">
+            강조된 세 그룹이 잇담만의 기능입니다. 마감(G), 레시피(N), 심화
+            인사이트(R). 나머지 열네 그룹은 커머스라면 갖춰야 하는
+            기본기였고, 개발 순서를 정할 때도 이 구분이 기준이 됐습니다.
+          </p>
+ 
+ 
           <details class="detail-toggle">
-            <summary>요구사항 도메인 구조와 대표 8건</summary>
-
+            <summary>대표 요건 8건</summary>
+ 
             <div class="toggle-body">
-              <!-- ⚠️ A 계정·인증 / B 정책 / G 마감 / H 상품관리 / N 레시피 / R 심화 인사이트 등
-                   그룹표와 대표 요건을 여기에 넣으세요. -->
-              <p>
-                A 계정·인증 / B 정책 / G 마감 / H 상품관리 / N 레시피 / R
-                심화 인사이트 등 도메인 그룹과 대표 요건을 여기에 넣으세요.
-              </p>
+              <div class="compare-table-wrap">
+                <table class="compare-table req-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">요건 ID</th>
+                      <th scope="col">요구사항명</th>
+                      <th scope="col">적용 방안</th>
+                      <th scope="col">우선순위</th>
+                    </tr>
+                  </thead>
+ 
+                  <tbody>
+                    <tr>
+                      <th scope="row">REQ_A-02</th>
+                      <td>사용자 유형 선택 및 분기</td>
+                      <td>사용자 Role 필드 분리, 화면 접근 제어</td>
+                      <td class="is-own">MVP (IA 분기 기준 핵심)</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">REQ_G-06</th>
+                      <td>마감 상품 노출 우선순위</td>
+                      <td>상품 정렬 로직에 마감 가중치 적용</td>
+                      <td class="is-own">MVP (폐기 감소 목적)</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">REQ_H-01</th>
+                      <td>상품 등록</td>
+                      <td>상품 등록 폼 및 필수값 검증</td>
+                      <td class="is-own">MVP (판매자 핵심 기능)</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">REQ_N-01</th>
+                      <td>레시피 기반 상품 추천</td>
+                      <td>레시피–식재료 매핑 테이블 + 판매 중 상품 필터링</td>
+                      <td class="is-own">MVP (시장한끼 핵심 로직)</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">REQ_M-04</th>
+                      <td>서비스 품질 지표 관리</td>
+                      <td>핵심 KPI 정의 및 집계</td>
+                      <td class="is-own">MVP (개선 판단 근거)</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">REQ_R-06</th>
+                      <td>심화 인사이트 구독 관리</td>
+                      <td>구독 상태 플래그 및 접근 제어</td>
+                      <td class="is-own">MVP (핵심 수익 모델)</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">REQ_G-04</th>
+                      <td>마감 임박 상품 강조</td>
+                      <td>시간 임계값 기준 강조 UI 적용</td>
+                      <td>Update 1 (전환율 개선 요소)</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">REQ_B-05</th>
+                      <td>제재·복구 프로세스 관리</td>
+                      <td>제재 상태 코드 관리, 기간 기반 자동 해제</td>
+                      <td>Update 1 (운영 리스크 관리)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </details>
 
@@ -1334,39 +1849,50 @@
 
 
         <!-- 001 -->
-        <div class="subsection">
+<div class="subsection">
 
-          <div class="subsection-head">
-            <span class="subsection-number">001</span>
-            <h3>판매자 — 사진을 찍으면 등록이 시작됩니다</h3>
-          </div>
+  <div class="subsection-head">
+    <span class="subsection-number">001</span>
+    <h3>판매자 — 사진을 찍으면 등록이 시작됩니다</h3>
+  </div>
 
-          <div class="flow">
-            <span class="flow-step">사진 촬영</span>
-            <span class="flow-arrow" aria-hidden="true">→</span>
-            <span class="flow-step">AI 자동 분류</span>
-            <span class="flow-arrow" aria-hidden="true">→</span>
-            <span class="flow-step">원가·할인율 입력</span>
-            <span class="flow-arrow" aria-hidden="true">→</span>
-            <span class="flow-step">등록 완료</span>
-          </div>
+  <div class="flow">
+    <span class="flow-step">사진 촬영</span>
+    <span class="flow-arrow" aria-hidden="true">→</span>
+    <span class="flow-step">AI 자동 분류</span>
+    <span class="flow-arrow" aria-hidden="true">→</span>
+    <span class="flow-step">원가·할인율 입력</span>
+    <span class="flow-arrow" aria-hidden="true">→</span>
+    <span class="flow-step">등록 완료</span>
+  </div>
 
-          <p>
-            상품명과 카테고리는 AI가 채웁니다. 판매자가 직접 넣는 건
-            원산지·단위·수량·원가·할인율뿐이고,
-            <strong>판매가는 자동으로 계산됩니다.</strong> 판매가 = 원가 ×
-            (1 − 할인율)이고, 직접 수정은 막았습니다. 가격을 얼마로 할지
-            고민하는 시간 자체가 부담이라는 걸 리서치에서 확인했기
-            때문입니다.
-          </p>
+  <p>
+    상품명과 카테고리는 AI가 채웁니다. 판매자가 직접 넣는 건
+    원산지·단위·수량·원가·할인율뿐이고,
+    <strong>판매가는 자동으로 계산됩니다.</strong>
+    판매가 = 원가 × (1 - 할인율)이고, 직접 수정은 막았습니다.
+    가격을 얼마로 할지 고민하는 시간 자체가 부담이라는 걸
+    리서치에서 확인했기 때문입니다.
+  </p>
 
-          <p>
-            마감은 개별·일괄·자동 중에 고를 수 있게 했습니다. 나중에
-            테스트에서 "선택권을 준다는 점이 가장 좋다"는 반응이 여기서
-            나왔습니다.
-          </p>
+  <p>
+    마감은 개별·일괄·자동 중에 고를 수 있게 했습니다.
+    나중에 테스트에서 “선택권을 준다는 점이 가장 좋다”는 반응이
+    여기서 나왔습니다.
+  </p>
 
-        </div>
+
+  <!-- 001 IMAGE -->
+  <figure class="pj5-seller-image">
+    <img
+      src="../Image/PJ5_images/product_register_detail.png"
+      alt="판매자가 사진 촬영 후 마감 상품을 등록하는 화면"
+    />
+  </figure>
+
+
+</div>
+
 
 
         <!-- 002 -->
@@ -1400,21 +1926,16 @@
             구조</strong>였습니다.
           </p>
 
-          <figure>
-            <div class="detail-gallery">
-              <div class="detail-gallery-image image-placeholder">
-                <span>PRODUCT REGISTER</span>
-              </div>
+          <figure class="pj5-market-meal-figure">
 
-              <div class="detail-gallery-image image-placeholder">
-                <span>MARKET MEAL</span>
-              </div>
-            </div>
+  <div class="pj5-market-meal-image">
+    <img
+      src="../Image/PJ5_images/market_meal.png"
+      alt="한 끼 메뉴를 기준으로 주변 전통시장 상품을 비교하고 장바구니에 담는 시장한끼 화면"
+    />
+  </div>
 
-            <figcaption class="detail-caption">
-              상품 등록 화면 · 시장한끼 화면 · 상품 상세 · 성장 인사이트
-            </figcaption>
-          </figure>
+</figure>
 
         </div>
 
