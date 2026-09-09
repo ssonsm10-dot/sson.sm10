@@ -1896,10 +1896,23 @@ function initDetailProgressBar() {
 
 
 /* =========================================================
-   8-2. PROJECT DETAIL SCROLL REVEAL
+   8-2. PROJECT DETAIL — REPLAY SCROLL REVEAL
+   Project 01 ~ 05 공통
    ========================================================= */
 
 function initDetailReveal() {
+
+  const page =
+    document.querySelector(".project-page");
+
+  if (!page) return;
+
+
+  /* =======================================================
+     1. HERO
+     페이지 진입 시 한 번 재생
+     ======================================================= */
+
   const heroTargets =
     Array.from(
       document.querySelectorAll(
@@ -1921,21 +1934,273 @@ function initDetailReveal() {
     );
 
 
-  const soloTargets =
+  /* =======================================================
+     2. 여러 요소가 연속된 영역
+     각 아이템을 약간의 시간차로 등장
+     ======================================================= */
+
+  const groupConfigs = [
+
+    /* 업무 흐름 */
+    {
+      root: ".flow",
+      item: ":scope > *",
+      step: 45
+    },
+
+    /* 대표 지표 */
+    {
+      root: ".metric-band",
+      item: ":scope > .metric",
+      step: 90
+    },
+
+    /* 요약 카드 */
+    {
+      root: ".detail-summary",
+      item: ":scope > .summary-card",
+      step: 80
+    },
+
+    /* 문제 → 해결 */
+    {
+      root: ".map-list",
+      item: ":scope > .map-row",
+      step: 65
+    },
+
+    /* 좌우 기능 블록 */
+    {
+      root: ".feature",
+      item:
+        ":scope > .feature-body, :scope > .feature-figure",
+      step: 100
+    },
+
+    /* Before / After */
+    {
+      root: ".flow-compare",
+      item: ":scope > .flow-track",
+      step: 110
+    },
+
+    /* 기본 갤러리 */
+    {
+      root: ".detail-gallery",
+      item: ":scope > .detail-gallery-image",
+      step: 90
+    },
+
+    /* TAM / SAM / SOM */
+    {
+      root: ".funnel",
+      item: ":scope > .funnel-row",
+      step: 55
+    },
+
+    /* 5점 척도 */
+    {
+      root: ".scale-group",
+      item: ":scope > .scale-item",
+      step: 80
+    },
+
+    /* 막대 목록 */
+    {
+      root: ".barlist",
+      item: ":scope > .barlist-row",
+      step: 45
+    },
+
+    /* 도메인 카드 */
+    {
+      root: ".domain-grid",
+      item: ":scope > .domain-item",
+      step: 40
+    },
+
+    /* 가설 / 시나리오 목록 */
+    {
+      root: ".spec-list",
+      item: ":scope > .spec-row",
+      step: 50
+    }
+  ];
+
+
+  /* =======================================================
+     HELPERS
+     ======================================================= */
+
+  const unique = (elements) =>
+    Array.from(
+      new Set(
+        elements.filter(Boolean)
+      )
+    );
+
+
+  const prepare = (
+    elements,
+    step = 0,
+    base = 0
+  ) => {
+
+    elements.forEach(
+      (element, index) => {
+
+        element.classList.add(
+          "detail-reveal"
+        );
+
+
+        element.style.setProperty(
+          "--detail-reveal-delay",
+          `${
+            base +
+            index * step
+          }ms`
+        );
+
+      }
+    );
+
+  };
+
+
+  const show = (elements) => {
+
+    elements.forEach((element) => {
+
+      element.classList.add(
+        "detail-reveal-visible"
+      );
+
+    });
+
+  };
+
+
+  const hide = (elements) => {
+
+    elements.forEach((element) => {
+
+      element.classList.remove(
+        "detail-reveal-visible"
+      );
+
+    });
+
+  };
+
+
+  /* =======================================================
+     3. GROUP 수집
+     ======================================================= */
+
+  const groupEntries = [];
+
+  const groupRoots =
+    new Set();
+
+
+  /*
+    detail-copy / subsection 바로 아래에 있는 그룹만
+    내부 아이템을 stagger 처리.
+
+    figure 안쪽처럼 깊게 들어간 커스텀 구조는
+    figure 전체를 하나의 블록으로 띄운다.
+  */
+
+  const isTopLevelGroup = (root) => {
+
+    const parent =
+      root.parentElement;
+
+
+    if (!parent) return false;
+
+
+    return parent.matches(
+      ".detail-copy, .subsection, .feature"
+    );
+
+  };
+
+
+  groupConfigs.forEach((config) => {
+
+    document
+      .querySelectorAll(config.root)
+      .forEach((root) => {
+
+        /*
+          Before / After 안쪽의 .flow는
+          .flow-track 자체에서 처리
+        */
+
+        if (
+          config.root === ".flow" &&
+          root.closest(".flow-track")
+        ) {
+          return;
+        }
+
+
+        /*
+          너무 깊은 곳의 그룹은
+          부모 블록 전체를 애니메이션
+        */
+
+        if (!isTopLevelGroup(root)) {
+          return;
+        }
+
+
+        const items =
+          Array.from(
+            root.querySelectorAll(
+              config.item
+            )
+          );
+
+
+        if (!items.length) return;
+
+
+        groupRoots.add(root);
+
+
+        groupEntries.push({
+          root,
+          items,
+          step: config.step
+        });
+
+      });
+
+  });
+
+
+  /* =======================================================
+     4. SOLO TARGETS
+     최근 추가한 Project 03~05 커스텀 요소도
+     자동으로 포함됨
+     ======================================================= */
+
+  const soloCandidates =
     Array.from(
       document.querySelectorAll(
         [
-          ".detail-visual .detail-figure",
-          ".detail-copy .section-head",
-          ".detail-copy > p",
-          ".detail-copy > figure",
-          ".detail-copy > .compare-table-wrap",
-          ".subsection > .subsection-head",
-          ".subsection > p",
-          ".subsection > figure",
-          ".subsection > .compare-table-wrap",
-          ".metric-caption",
-          ".table-scroll-hint",
+          ".detail-visual > .detail-figure",
+
+          /* 각 챕터의 바로 아래 요소 */
+          ".detail-copy > *",
+
+          /* 001 / 002 등의 하위 챕터 */
+          ".subsection > *",
+
+          /* 마지막 다음 프로젝트 */
           ".next-project-label",
           ".next-project-link"
         ].join(",")
@@ -1943,80 +2208,82 @@ function initDetailReveal() {
     );
 
 
-  const groupConfigs = [
-    {
-      root: ".flow",
-      item: ":scope > *",
-      step: 55
-    },
-    {
-      root: ".metric-band",
-      item: ".metric",
-      step: 110
-    },
-    {
-      root: ".detail-summary",
-      item: ".summary-card",
-      step: 90
-    },
-    {
-      root: ".map-list",
-      item: ".map-row",
-      step: 80
-    },
-    {
-      root: ".feature",
-      item:
-        ".feature-body, .feature-figure",
-      step: 120
-    },
-    {
-      root: ".flow-compare",
-      item: ".flow-track",
-      step: 140
-    },
-    {
-      root: ".detail-gallery",
-      item:
-        ".detail-gallery-image",
-      step: 110
-    }
-  ];
+  const soloTargets =
+    unique(
+      soloCandidates.filter((element) => {
 
+        /*
+          subsection은 껍데기이므로
+          내부 요소를 각각 움직임
+        */
+
+        if (
+          element.matches(".subsection")
+        ) {
+          return false;
+        }
+
+
+        /*
+          stagger 그룹 자체에는
+          reveal을 중복 적용하지 않음
+        */
+
+        if (
+          groupRoots.has(element)
+        ) {
+          return false;
+        }
+
+
+        /*
+          HERO / FACT 중복 방지
+        */
+
+        if (
+          heroTargets.includes(element) ||
+          factItems.includes(element)
+        ) {
+          return false;
+        }
+
+
+        return true;
+
+      })
+    );
+
+
+  /* =======================================================
+     REDUCED MOTION
+     ======================================================= */
 
   if (prefersReducedMotion()) {
-    [
+
+    const allTargets = [
       ...heroTargets,
       ...factItems,
       ...soloTargets
-    ].forEach((element) => {
-      element.classList.add(
-        "reveal",
-        "is-visible"
-      );
-    });
+    ];
 
 
-    groupConfigs.forEach(
-      (config) => {
-        document
-          .querySelectorAll(
-            config.root
-          )
-          .forEach((root) => {
-            root
-              .querySelectorAll(
-                config.item
-              )
-              .forEach(
-                (element) => {
-                  element.classList.add(
-                    "reveal",
-                    "is-visible"
-                  );
-                }
-              );
-          });
+    groupEntries.forEach(
+      ({ items }) => {
+
+        allTargets.push(...items);
+
+      }
+    );
+
+
+    unique(allTargets).forEach(
+      (element) => {
+
+        element.classList.add(
+          "detail-reveal",
+          "detail-reveal-visible"
+        );
+
       }
     );
 
@@ -2025,70 +2292,40 @@ function initDetailReveal() {
   }
 
 
-  const prepare = (
-    elements,
-    step,
-    base = 0
-  ) => {
-    elements.forEach(
-      (element, index) => {
-        element.classList.add(
-          "reveal"
-        );
-
-
-        element.style.transitionDelay =
-          `${
-            base +
-            index * step
-          }ms`;
-      }
-    );
-  };
-
-
-  const show = (elements) => {
-    elements.forEach((element) => {
-      element.classList.add(
-        "is-visible"
-      );
-    });
-  };
-
-
-  /* -----------------------------------------
-     HERO
-  ----------------------------------------- */
+  /* =======================================================
+     5. HERO
+     처음 페이지를 열었을 때 한 번
+     ======================================================= */
 
   prepare(
     heroTargets,
-    110,
-    80
+    100,
+    60
   );
 
 
   prepare(
     factItems,
     55,
-    520
+    430
   );
 
 
-  window.requestAnimationFrame(
-    () => {
-      window.requestAnimationFrame(
-        () => {
-          show(heroTargets);
-          show(factItems);
-        }
-      );
-    }
-  );
+  window.requestAnimationFrame(() => {
+
+    window.requestAnimationFrame(() => {
+
+      show(heroTargets);
+      show(factItems);
+
+    });
+
+  });
 
 
-  /* -----------------------------------------
-     SOLO TARGETS
-  ----------------------------------------- */
+  /* =======================================================
+     6. SOLO
+     ======================================================= */
 
   prepare(
     soloTargets,
@@ -2098,130 +2335,117 @@ function initDetailReveal() {
 
   const soloObserver =
     new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(
-          (entry) => {
-            if (
-              !entry.isIntersecting
-            ) {
-              return;
-            }
 
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
 
             entry.target.classList.add(
-              "is-visible"
+              "detail-reveal-visible"
             );
 
+          } else {
 
-            observer.unobserve(
-              entry.target
+            /*
+              화면 밖으로 빠지면 초기화.
+              다시 들어올 때 재생.
+            */
+
+            entry.target.classList.remove(
+              "detail-reveal-visible"
             );
+
           }
-        );
+
+        });
+
       },
+
       {
-        threshold: 0.15,
+        threshold: 0.01,
+
+        /*
+          화면 아래쪽 약 8% 안으로 들어왔을 때
+          애니메이션 시작
+        */
+
         rootMargin:
           "0px 0px -8% 0px"
       }
+
     );
 
 
-  soloTargets.forEach(
-    (element) => {
-      soloObserver.observe(
-        element
+  soloTargets.forEach((element) => {
+
+    soloObserver.observe(element);
+
+  });
+
+
+  /* =======================================================
+     7. GROUPS
+     ======================================================= */
+
+  groupEntries.forEach(
+    ({ items, step }) => {
+
+      prepare(
+        items,
+        step
       );
+
     }
   );
 
-
-  /* -----------------------------------------
-     GROUP TARGETS
-  ----------------------------------------- */
 
   const groupObserver =
     new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(
-          (entry) => {
-            if (
-              !entry.isIntersecting
-            ) {
-              return;
-            }
+
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          const items =
+            entry.target.__detailRevealItems ||
+            [];
 
 
-            show(
-              entry.target
-                .__revealItems ||
-              []
-            );
+          if (entry.isIntersecting) {
 
+            show(items);
 
-            observer.unobserve(
-              entry.target
-            );
+          } else {
+
+            hide(items);
+
           }
-        );
+
+        });
+
       },
+
       {
-        threshold: 0.12,
+        threshold: 0.01,
         rootMargin:
-          "0px 0px -6% 0px"
+          "0px 0px -8% 0px"
       }
+
     );
 
 
-  groupConfigs.forEach(
-    (config) => {
-      document
-        .querySelectorAll(
-          config.root
-        )
-        .forEach((root) => {
-          /*
-            Before / After 내부의 .flow는
-            .flow-track에서 처리
-          */
+  groupEntries.forEach(
+    ({ root, items }) => {
 
-          if (
-            config.root === ".flow" &&
-            root.closest(
-              ".flow-track"
-            )
-          ) {
-            return;
-          }
+      root.__detailRevealItems =
+        items;
 
 
-          const items =
-            Array.from(
-              root.querySelectorAll(
-                config.item
-              )
-            );
+      groupObserver.observe(root);
 
-
-          if (!items.length) {
-            return;
-          }
-
-
-          prepare(
-            items,
-            config.step
-          );
-
-
-          root.__revealItems =
-            items;
-
-
-          groupObserver.observe(
-            root
-          );
-        });
     }
   );
+
 }

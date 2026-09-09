@@ -1501,10 +1501,6 @@
   object-fit: cover;
   object-position: center;
 }
-.detail-gallery-image img {
-  transform: scale(1.1
-  0);
-}
 /* =========================================================
    PROJECT 02 — ORIGINAL IMAGE RATIO
    ========================================================= */
@@ -1513,7 +1509,7 @@
   width: 108%;
   height: auto;
 
-   margin-left: -5%;
+  margin-left: -5%;
 
   aspect-ratio: auto;
   padding: 0;
@@ -1763,7 +1759,7 @@
 
   margin: 0;
   padding: 0;
-}s
+}
 
 /* =========================================================
    PROJECT 04 — MOMENT / CONDITION FILTER SIZE
@@ -2572,4 +2568,796 @@
 
   margin: 0;
   padding: 0;
+}
+
+/* =========================================================
+   RICE TABLE
+   project.css 맨 아래에 붙여넣으세요.
+   ========================================================= */
+
+.rice-table {
+  min-width: 800px;
+}
+
+.rice-table thead th {
+  text-align: center;
+}
+
+.rice-table thead th:nth-child(2),
+.rice-table thead th:last-child {
+  text-align: left;
+}
+
+.rice-table tbody th {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.rice-table td {
+  font-size: 0.82rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.rice-table td:nth-child(2),
+.rice-table td:last-child {
+  text-align: left;
+  white-space: normal;
+}
+
+/* 채택된 기능 */
+.rice-table td.is-own {
+  background: var(--tint);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* 뒤로 미룬 기능 */
+.rice-table td.is-no {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.rice-note {
+  max-width: var(--read-max);
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.85;
+}
+
+.toggle-body .detail-summary--four {
+  margin-top: 18px;
+}
+
+/* =========================================================
+   IA MAP — 공통 진입점 + 역할별 분리 구조
+   project.css 맨 아래에 붙여넣으세요.
+   ========================================================= */
+
+.ia-map {
+  margin-top: var(--gap-md);
+}
+
+
+/* ---------------------------------------------------------
+   공통 진입점
+--------------------------------------------------------- */
+
+.ia-entry {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 24px 26px;
+
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.ia-entry-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ia-entry-name {
+  margin-top: 12px;
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.ia-entry-desc {
+  margin-top: 10px;
+  color: var(--body-text);
+  font-size: 0.83rem;
+  line-height: 1.75;
+}
+
+
+/* 아래로 뻗는 연결선 */
+
+.ia-entry::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -28px;
+  width: 1px;
+  height: 28px;
+  background: var(--line);
+}
+
+
+/* ---------------------------------------------------------
+   역할별 분기
+--------------------------------------------------------- */
+
+.ia-split {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 28px;
+}
+
+/* 좌우로 갈라지는 가로선 */
+.ia-split::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 1px;
+  background: var(--line);
+}
+
+.ia-branch {
+  position: relative;
+  padding: 22px 20px 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--tint);
+}
+
+/* 각 분기로 내려오는 세로선 */
+.ia-branch::before {
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  width: 1px;
+  height: 28px;
+  background: var(--line);
+}
+
+.ia-branch-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.ia-branch-head span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.ia-branch.is-buyer .ia-branch-head {
+  color: var(--accent);
+}
+
+.ia-branch.is-seller .ia-branch-head {
+  color: var(--ink);
+}
+
+
+/* 노드 */
+
+.ia-node {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(29, 29, 31, 0.08);
+}
+
+.ia-node:last-child {
+  border-bottom: 0;
+}
+
+.ia-node-name {
+  color: var(--ink);
+  font-size: 0.87rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.ia-node-sub {
+  margin-top: 6px;
+  color: var(--body-text);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROJECT 05 — WIREFRAME
+   ========================================================= */
+
+.wireframe-figure {
+  width: 100%;
+  margin: 0;
+  overflow: visible;
+}
+
+.wireframe-image {
+  width: 150%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+
+.wireframe-image img {
+  display: block;
+
+  width: 100% !important;
+  height: auto !important;
+
+  max-width: none !important;
+
+  object-fit: contain !important;
+  object-position: center;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   SCREEN SPEC — 화면 설계서 발췌
+   project.css 맨 아래에 붙여넣으세요.
+   ========================================================= */
+
+.spec-doc {
+  margin-top: var(--gap-md);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.spec-doc-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+
+  padding: 16px 20px;
+  background: var(--tint);
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-doc-id {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.spec-doc-name {
+  color: var(--ink);
+  font-size: 0.87rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.spec-doc-date {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.spec-doc .compare-table-wrap {
+  margin-top: 0;
+}
+
+.spec-table {
+  min-width: 620px;
+}
+
+.spec-table thead th {
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-table thead th:first-child,
+.spec-table tbody th {
+  width: 48px;
+  text-align: center;
+}
+
+.spec-table tbody th {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 400;
+}
+
+.spec-table td:first-of-type {
+  width: 190px;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.83rem;
+}
+
+.spec-table td {
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.spec-table tbody tr:last-child th,
+.spec-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+/* 예외 흐름이 정의된 행 */
+
+.spec-table tr.is-exception td,
+.spec-table tr.is-exception th {
+  background: rgba(176, 71, 43, 0.05);
+}
+
+.spec-table tr.is-exception strong {
+  color: var(--accent);
+  font-weight: 500;
+  box-shadow: none;
+}
+
+
+@media (max-width: 620px) {
+
+  .spec-doc-date {
+    margin-left: 0;
+  }
+
+  .spec-table td:first-of-type {
+    width: 140px;
+  }
+}
+
+/* =========================================================
+   PROJECT 05 — SCREEN SPEC IMAGE FIX
+   ========================================================= */
+
+/* 화면 설계서 이미지가 들어간 spec-doc만 잘리지 않게 */
+.spec-doc.spec-doc--image {
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+}
+
+/* 이미지 박스 */
+.spec-doc--image .spec-image {
+  width: 115%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 실제 이미지 */
+.spec-doc--image .spec-image img {
+  display: block;
+
+  width: 100% !important;
+  height: auto !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: contain !important;
+  object-position: center top !important;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   PROJECT 05 — SCREEN SPEC IMAGES
+   전체 이미지 표시 + 약간 확대
+   ========================================================= */
+
+/* 화면 설계서 5장에 한해서 기존 tall 고정 높이 해제 */
+.detail-main-image--tall:has(.screen-spec-img) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  aspect-ratio: auto !important;
+
+  overflow: visible !important;
+
+  padding: 0 !important;
+  background: transparent;
+}
+
+/* 실제 설계서 이미지 */
+.screen-spec-img {
+  display: block;
+
+  width: 130% !important;
+  height: auto !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: contain !important;
+  object-position: center top !important;
+
+  /* 확대된 이미지를 현재 위치 기준으로 정렬 */
+  margin-left: -10% !important;
+  margin-right: 0 !important;
+
+  transform: none !important;
+
+  border-radius: 0;
+}
+
+/* =========================================================
+   ERD CARD — 핵심 테이블 발췌
+   project.css 맨 아래에 붙여넣으세요.
+   ========================================================= */
+
+.erd-card {
+  margin-top: var(--gap-md);
+  padding: 26px 26px 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.erd-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.erd-name {
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.erd-role {
+  color: var(--ink);
+  font-size: 0.87rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+
+/* 컬럼 목록 */
+
+.erd-cols {
+  margin-top: 4px;
+}
+
+.erd-col {
+  display: grid;
+  grid-template-columns: 190px 130px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(29, 29, 31, 0.08);
+}
+
+.erd-col:last-child {
+  border-bottom: 0;
+}
+
+.erd-key {
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  letter-spacing: -0.01em;
+}
+
+.erd-type {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.erd-desc {
+  color: var(--body-text);
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+
+/* 이 설계의 핵심이 되는 컬럼 */
+
+.erd-col.is-key .erd-key {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.erd-col.is-key .erd-desc {
+  color: var(--ink);
+}
+
+
+.erd-note {
+  max-width: var(--read-max);
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+
+  color: var(--body-text);
+  font-size: 0.83rem;
+  line-height: 1.85;
+}
+
+.erd-card .formula-block {
+  max-width: none;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+  .erd-card {
+    padding: 22px 20px 20px;
+  }
+
+  .erd-col {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 12px;
+    padding: 16px 0;
+  }
+
+  .erd-desc {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================================================
+   PROJECT 05 — ERD IMAGE
+   ========================================================= */
+
+/* ERD가 들어있는 토글은 바깥으로 확장 허용 */
+.detail-toggle:has(.erd-figure),
+.detail-toggle:has(.erd-figure) .toggle-body {
+  overflow: visible;
+}
+
+
+/* ERD figure 자체를 본문보다 크게 */
+.erd-figure {
+  position: relative;
+
+  width: min(900px, 82vw) !important;
+  max-width: none !important;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* 기존 16:7 강제 비율 해제 */
+.erd-figure .detail-main-image--wide {
+  width: 100% !important;
+  height: auto !important;
+
+  aspect-ratio: auto !important;
+
+  padding: 0 !important;
+  overflow: visible !important;
+
+  background: transparent;
+}
+
+
+/* 실제 ERD 이미지 전체 표시 */
+.erd-figure .detail-main-image--wide img {
+  display: block;
+
+  width: 100% !important;
+  height: auto !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* --- 07 TESTING : 판정 규칙 표 --- */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.crit-table th[scope="row"] { white-space: nowrap; font-weight: 600; }
+.crit-table td { vertical-align: top; }
+
+.yn {
+  display: inline-block;
+  min-width: 1.1em;
+  margin-right: .25em;
+  font-size: .82em;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.yn.y { color: var(--accent, #b0472b); }
+.yn.n { color: #9a958c; }
+.yn.n:not(:first-child) { margin-left: .9em; }
+
+/* --- 07 TESTING : 시나리오 목록 --- */
+.scn-group {
+  margin: var(--sp-6, 28px) 0 var(--sp-3, 12px);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--muted, #8a857c);
+}
+.scn-group:first-child { margin-top: 0; }
+
+.scn-list { list-style: none; margin: 0; padding: 0; }
+.scn-list > li {
+  padding: var(--sp-4, 16px) 0;
+  border-top: 1px solid rgba(0, 0, 0, .08);
+}
+.scn-list > li:last-child { border-bottom: 1px solid rgba(0, 0, 0, .08); }
+
+.scn-q {
+  margin: 0 0 var(--sp-2, 8px);
+  font-weight: 600;
+  line-height: 1.6;
+}
+.scn-tag {
+  display: inline-block;
+  margin-right: .55em;
+  padding: .1em .5em;
+  border-radius: 4px;
+  background: var(--accent, #b0472b);
+  color: #fff;
+  font-size: .72em;
+  font-weight: 700;
+  letter-spacing: .04em;
+  vertical-align: .12em;
+}
+
+.scn-meta {
+  display: grid;
+  grid-template-columns: 3.2em 1fr;
+  gap: .3em .8em;
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.65;
+}
+.scn-meta dt { color: var(--muted, #8a857c); font-weight: 600; }
+.scn-meta dd { margin: 0; color: var(--ink-2, #4a463f); }
+
+@media (max-width: 600px) {
+  .scn-meta { grid-template-columns: 1fr; gap: 0 0; }
+  .scn-meta dt { margin-top: .4em; }
+}
+
+.detail-toggle + .detail-toggle { margin-top: 0; }
+
+/* PROJECT 05 — TESTING TEXT SPACING */
+
+.testing-rule-note {
+  margin-top: 32px !important;
+}
+
+.testing-result-note {
+  margin-top: 26px !important;
+}
+
+/* PROJECT 05 — RESEARCH TABLE SPACING */
+
+.research-route-note {
+  margin-top: 28px !important;
+}
+
+/* =========================================================
+   PROJECT DETAIL — NATURAL REPLAY REVEAL
+   Project 01 ~ 05
+   ========================================================= */
+
+.project-page .detail-reveal {
+  --detail-reveal-y: 24px;
+
+  opacity: 0;
+
+  /*
+    transform 대신 translate 개별 속성을 사용.
+    기존 hover transform과 충돌하지 않음.
+  */
+  translate: 0 var(--detail-reveal-y);
+
+  will-change: opacity, translate;
+}
+
+
+/* 화면 안으로 들어왔을 때 */
+
+.project-page
+.detail-reveal.detail-reveal-visible {
+
+  animation:
+    project-detail-reveal-in
+    0.85s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    var(--detail-reveal-delay, 0ms)
+    both;
+}
+
+
+/* 실제 움직임 */
+
+@keyframes project-detail-reveal-in {
+
+  from {
+    opacity: 0;
+    translate: 0 var(--detail-reveal-y);
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+}
+
+
+/* 모바일에서는 이동 거리를 조금 줄임 */
+
+@media (max-width: 620px) {
+
+  .project-page .detail-reveal {
+    --detail-reveal-y: 18px;
+  }
+
+}
+
+
+/* 접근성 */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .project-page .detail-reveal,
+  .project-page
+  .detail-reveal.detail-reveal-visible {
+
+    opacity: 1;
+    translate: none;
+
+    animation: none !important;
+  }
+
 }

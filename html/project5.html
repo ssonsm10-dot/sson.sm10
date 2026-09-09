@@ -407,7 +407,7 @@
 
           <p>
             그러니까 전통시장의 손익은 "몇 명이 왔는가"보다 "오늘 안에 다
-            팔았는가"에 더 크게 묶여 있었습니다. 매출이 오르는 와중에도
+            팔았는가"에 더 크게 묶여 있었습니다. <br>매출이 오르는 와중에도
             점포가 사라지고 있던 이유가 여기 있었습니다.
           </p>
 
@@ -935,7 +935,7 @@
         <p>
           특히 걸린 건 <strong>평균 60.8세</strong>라는 상인
           연령이었습니다. 이 숫자만 보면 "앱은 무리"라는 결론이
-          자연스러운데, 그 결론이 맞다면 서비스 자체가 성립하지 않습니다.
+          자연스러운데, <br>그 결론이 맞다면 서비스 자체가 성립하지 않습니다.
           책상에서 판단할 문제가 아니었습니다.
         </p>
 
@@ -981,7 +981,7 @@
             </table>
           </div>
  
-          <p>
+          <p class="research-route-note">
             문제는 응답자를 어떻게 모으느냐였습니다. 장사 중인 상인에게
             설문을 부탁하는 일은 온라인 모집으로 해결되지 않습니다. 그래서
             <strong>네 가지 경로를 동시에 열었습니다.</strong>
@@ -1307,7 +1307,7 @@
           <p>
             페르소나를 설명글로 두지 않고,
             <strong>단계 → 니즈 → 행동 → 실현 기능</strong> 네 열로
-            분해했습니다. 시나리오가 그대로 요구사항으로 넘어가게 만들기
+            분해했습니다. <br>시나리오가 그대로 요구사항으로 넘어가게 만들기
             위해서였습니다.
           </p>
 
@@ -1575,77 +1575,180 @@
 
           <details class="detail-toggle">
             <summary>RICE 산정표 10건 · Kano 매트릭스</summary>
-
+ 
             <div class="toggle-body">
-              <!-- ⚠️ 상위 5건 정도만 요약해 표로 넣으면 충분합니다. -->
+ 
               <p>
-                Reach · Impact · Confidence · Effort 기준을 포함한 전체
-                산정표. 여기에 상위 항목을 표로 옮기세요.
+                Reach · Impact · Confidence · Effort를 각각 매기고
+                <strong>(R × I × C) ÷ E</strong>로 점수를 냈습니다. 회원가입·
+                결제·장바구니처럼 커머스라면 당연히 있어야 하는 기능은
+                후보에서 제외하고, 잇담만의 기능 10개만 비교했습니다.
               </p>
-            </div>
-          </details>
-
-        </div>
-
-
-        <!-- 002 -->
-        <div class="subsection">
-
-          <div class="subsection-head">
-            <span class="subsection-number">002</span>
-            <h3>뺀 이유를 기록으로 남겼습니다</h3>
-          </div>
-
-          <p>
-            빠진 기능은 반드시 다시 논의됩니다. 그때 "왜 뺐더라"를 되짚지
-            않으려고, 결정할 때마다 <strong>근거와 포기한 것</strong>을 함께
-            적었습니다.
-          </p>
-
-          <div class="compare-table-wrap">
-            <table class="compare-table">
-              <thead>
-                <tr>
-                  <th scope="col" class="is-own">결정</th>
-                  <th scope="col">근거</th>
-                  <th scope="col">포기한 것</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td class="is-own">배송을 MVP에서 제외</td>
-                  <td>Effort 5, 전통시장 환경과 충돌</td>
-                  <td>소비자의 최대 불편 (직접 이동)</td>
-                </tr>
-
-                <tr>
-                  <td class="is-own">판매자 수수료를 0%로 시작</td>
-                  <td>최대 리스크는 수익성이 아니라 상인 참여</td>
-                  <td>초기 수익 전부</td>
-                </tr>
-
-                <tr>
-                  <td class="is-own">외부 AI 데이터셋 확보 포기</td>
-                  <td>확보·재가공 비용 과도</td>
-                  <td>초기 인식 정확도</td>
-                </tr>
-
-                <tr>
-                  <td class="is-own">온라인에서 다 끝내지 않음</td>
-                  <td>방문 유도가 서비스의 정체성</td>
-                  <td>"여전히 가야 하는 거죠?"라는 불만</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <details class="detail-toggle">
-            <summary>의사결정 로그 7건 전체</summary>
-
-            <div class="toggle-body">
-              <!-- ⚠️ 나머지 3건을 위와 같은 형식으로 추가하세요. -->
-              <p>나머지 결정 3건을 같은 형식으로 여기에 넣으세요.</p>
+ 
+              <div class="compare-table-wrap">
+                <table class="compare-table rice-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">순위</th>
+                      <th scope="col">기능</th>
+                      <th scope="col">R</th>
+                      <th scope="col">I</th>
+                      <th scope="col">C</th>
+                      <th scope="col">E</th>
+                      <th scope="col">점수</th>
+                      <th scope="col">결정</th>
+                    </tr>
+                  </thead>
+ 
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td class="is-own">시장한끼 (한 끼 묶음)</td>
+                      <td>3</td><td>3</td><td>0.8</td><td>1</td>
+                      <td class="is-own">7.2</td>
+                      <td class="is-own">MVP 채택</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">2</th>
+                      <td class="is-own">AI 상품 등록 도우미</td>
+                      <td>3</td><td>3</td><td>0.9</td><td>2</td>
+                      <td class="is-own">4.05</td>
+                      <td class="is-own">MVP 채택</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>전통시장 상품 배송</td>
+                      <td>5</td><td>5</td><td>0.7</td><td>5</td>
+                      <td>3.5</td>
+                      <td class="is-no">Update 3 · 외부 협약 전제</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>지도 상 점포 위치 표시</td>
+                      <td>4</td><td>2</td><td>0.8</td><td>2</td>
+                      <td>3.2</td>
+                      <td>Update 2</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>심화 인사이트</td>
+                      <td>3</td><td>3</td><td>0.9</td><td>4</td>
+                      <td>2.0</td>
+                      <td>기본형으로 축소 · 유료화 보류</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>기본 인사이트 제공</td>
+                      <td>3</td><td>2</td><td>0.9</td><td>3</td>
+                      <td>1.8</td>
+                      <td>Update 1</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>상품 상세 내용 저장 관리</td>
+                      <td>2</td><td>1</td><td>0.7</td><td>1</td>
+                      <td>1.4</td>
+                      <td>Update 1</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>식재료 보관 방법 명시</td>
+                      <td>2</td><td>1</td><td>0.7</td><td>1</td>
+                      <td>1.4</td>
+                      <td>Update 1</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>픽업 존 구현</td>
+                      <td>2</td><td>5</td><td>0.7</td><td>5</td>
+                      <td>1.4</td>
+                      <td class="is-no">Update 3 · 외부 협약 전제</td>
+                    </tr>
+ 
+                    <tr>
+                      <th scope="row">10</th>
+                      <td>구매자 상품 추천 기능</td>
+                      <td>2</td><td>2</td><td>0.8</td><td>4</td>
+                      <td>0.8</td>
+                      <td>Update 2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+ 
+              <p class="rice-note">
+                배송은 Reach 5 · Impact 5로 두 항목 모두 최고점을 받았지만,
+                Effort도 5였습니다. 점수를 끌어올린 것과 실행을 막은 것이
+                같은 기능 안에 있었습니다.
+              </p>
+ 
+ 
+              <p class="barlist-title" style="margin-top: 44px;">
+                Kano 매트릭스 <span>노력 대비 만족도</span>
+              </p>
+ 
+              <p class="rice-note" style="margin-top: 12px;">
+                가로축은 기능을 구현하는 데 드는 노력(자본·시간·난이도),
+                세로축은 구현했을 때의 이용자 만족도(리서치 기반)입니다.
+              </p>
+ 
+              <div class="detail-summary detail-summary--four">
+ 
+                <article class="summary-card">
+                  <span class="summary-number">적은 노력 · 높은 만족</span>
+                  <h3>Performance</h3>
+                  <p>
+                    시장한끼 · 지도 상 점포 위치 · 기본 인사이트<br />
+                    적은 노력으로 높은 만족을 얻는 구간. MVP 포함 가능성이
+                    가장 높습니다.
+                  </p>
+                </article>
+ 
+                <article class="summary-card">
+                  <span class="summary-number">적은 노력 · 낮은 만족</span>
+                  <h3>Update 우선</h3>
+                  <p>
+                    상품 상세 저장 · 식재료 보관 · AI 등록 · 심화 인사이트<br />
+                    노력이 적으니 빠르게 붙여보고 반응을 확인할 수 있습니다.
+                  </p>
+                </article>
+ 
+                <article class="summary-card">
+                  <span class="summary-number">많은 노력 · 낮은 만족</span>
+                  <h3>Update 후순위</h3>
+                  <p>
+                    구매자 상품 추천<br />
+                    기능의 존재 가치 자체를 다시 판단할 필요가 있는
+                    구간입니다.
+                  </p>
+                </article>
+ 
+                <article class="summary-card">
+                  <span class="summary-number">많은 노력 · 높은 만족</span>
+                  <h3>Delighter</h3>
+                  <p>
+                    배송 · 픽업 존<br />
+                    자원이 많이 필요하지만 만족도는 높은 구간. 장기 플랜에
+                    적합합니다.
+                  </p>
+                </article>
+ 
+              </div>
+ 
+              <p class="rice-note">
+                배송과 픽업 존이 같은 사분면에 있었습니다. 둘 다 만들면
+                좋지만 지금은 감당할 수 없는 기능이라는 뜻이었고, 그래서
+                삭제가 아니라 로드맵 Update 3으로 옮겼습니다.
+              </p>
+ 
             </div>
           </details>
 
@@ -1960,15 +2063,128 @@
             공유하는 방식</strong>입니다.
           </p>
 
-          <figure>
-            <div class="detail-main-image detail-main-image--wide image-placeholder">
-              <span>IA — BUYER / SELLER</span>
+           <div class="ia-map">
+ 
+            <div class="ia-entry">
+              <span class="ia-entry-label">공통 진입점</span>
+              <p class="ia-entry-name">공통 랜딩 → 메인</p>
+              <p class="ia-entry-desc">
+                서비스 소개 4단계를 거쳐 메인으로 들어오고, 상단 토글
+                하나로 역할을 전환합니다.
+              </p>
             </div>
+ 
+            <div class="ia-split">
+ 
+              <!-- 구매자 -->
+              <div class="ia-branch is-buyer">
+                <p class="ia-branch-head">
+                  구매자 <span>Depth 1 · 6</span>
+                </p>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">탐색</p>
+                  <p class="ia-node-sub">시장 카드 · 검색 결과 · 조건 필터</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">상품 상세</p>
+                  <p class="ia-node-sub">마감 시간 · 잔여 수량 · 정가·할인가</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">시장한끼</p>
+                  <p class="ia-node-sub">메뉴 선택 · 재료 자동 구성 · 점포별 교체</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">구매</p>
+                  <p class="ia-node-sub">장바구니 · 결제 · 픽업 확인</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">마이페이지</p>
+                  <p class="ia-node-sub">구매 내역 · 관심 상품 · 관심 가게</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">알림</p>
+                  <p class="ia-node-sub">거래 상태 · 마감 임박</p>
+                </div>
+              </div>
+ 
+              <!-- 판매자 -->
+              <div class="ia-branch is-seller">
+                <p class="ia-branch-head">
+                  판매자 <span>Depth 1 · 6</span>
+                </p>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">판매자 랜딩</p>
+                  <p class="ia-node-sub">이용 안내 4단계</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">상품 등록</p>
+                  <p class="ia-node-sub">사진 촬영 · AI 분류 · 원가·할인율 입력</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">물품 관리</p>
+                  <p class="ia-node-sub">판매 중 상품 · 마감 설정 · 재고 수정</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">심화 인사이트</p>
+                  <p class="ia-node-sub">상권 비교 · 가격 전략 · 구독 관리</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">마이페이지</p>
+                  <p class="ia-node-sub">가게 정보 · 도움말</p>
+                </div>
+ 
+                <div class="ia-node">
+                  <p class="ia-node-name">알림</p>
+                  <p class="ia-node-sub">판매 발생 · 픽업 요청</p>
+                </div>
+              </div>
+ 
+            </div>
+          </div>
+ 
+          <p class="detail-note">
+            두 역할의 하위 화면은 한 곳도 겹치지 않습니다. 겹치는 것은
+            공통 랜딩과 메인뿐이고, 그래서 앱을 두 개 설치할 필요가
+            없으면서도 각 역할 안에서는 다른 역할의 화면이 전혀 보이지
+            않습니다.
+          </p>
+ 
+          <details class="detail-toggle">
+            <summary>와이어프레임 전체</summary>
+ 
+            <div class="toggle-body">
+              <p>
+                구매자용(주황)과 판매자용(파랑) 영역을 분리해 제작했고,
+                아래쪽 공통 랜딩에서 두 흐름이 만납니다.
+              </p>
+ 
+              <figure class="wireframe-figure">
 
-            <figcaption class="detail-caption">
-              구매자 IA · 판매자 IA · 와이어프레임 전체
-            </figcaption>
-          </figure>
+  <div class="wireframe-image">
+    <img
+      src="../Image/PJ5_images/wireframe_full.png"
+      alt="Figma에서 제작한 전체 와이어프레임"
+    />
+  </div>
+
+  <figcaption class="detail-caption">
+    Figma에서 제작한 와이어프레임 전체 · 화면 간 이동 경로 포함
+  </figcaption>
+
+</figure>
+            </div>
+          </details>
 
         </div>
 
@@ -2010,16 +2226,182 @@
             </table>
           </div>
 
-          <figure>
-            <div class="detail-main-image detail-main-image--wide image-placeholder">
-              <span>SCREEN SPEC</span>
+           <p>
+            화면마다 영역을 번호로 나누고, 각 영역이 무엇을 보여주고 어떤
+            조건에서 어떻게 동작하는지를 적었습니다. 아래는 메인 화면
+            설계서의 정의입니다.
+          </p>
+ 
+          <div class="spec-doc">
+            <div class="spec-doc-head">
+              <span class="spec-doc-id">FLW_HOM_001</span>
+              <span class="spec-doc-name">잇담 메인 화면 (지도 홈)</span>
+              <span class="spec-doc-date">2026.01.05</span>
             </div>
+ 
+            <div class="compare-table-wrap">
+              <table class="compare-table spec-table">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">영역</th>
+                    <th scope="col">정의</th>
+                  </tr>
+                </thead>
+ 
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>상단 헤더 · 브랜딩</td>
+                    <td>
+                      좌측에 서비스명 노출 · 우측 아이콘 탭으로 장바구니와
+                      알림 화면 이동
+                    </td>
+                  </tr>
+ 
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>검색 입력창</td>
+                    <td>
+                      placeholder "요리, 식료, 원하는 식재료를
+                      검색해보세요!" · 검색 대상은 상품명과 식재료 키워드
+                    </td>
+                  </tr>
+ 
+                  <tr class="is-exception">
+                    <th scope="row">3</th>
+                    <td>현재 위치 · 거리 정보</td>
+                    <td>
+                      가장 가까운 시장과 거리(m) 표시 ·
+                      <strong>위치 권한 미허용 시 "위치 권한이 필요합니다"
+                      안내와 권한 요청 CTA 제공</strong>
+                    </td>
+                  </tr>
+ 
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>구매자 · 판매자 모드 전환</td>
+                    <td>
+                      기본값은 구매자(초기 진입 기준) · 전환 시 각 역할의
+                      홈 화면으로 이동
+                    </td>
+                  </tr>
+ 
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>지도 영역 (시장 핀 · 현재 핀)</td>
+                    <td>
+                      현재 위치 핀과 시장 핀 구분 · 핀 탭 시 해당 시장
+                      선택 상태로 변경되고 하단 카드가 갱신
+                    </td>
+                  </tr>
+ 
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>하단 시장 카드 (캐러셀)</td>
+                    <td>
+                      선택된 시장을 카드로 노출 · 시장명, 대표 이미지,
+                      등록 상품 수 요약 지표
+                    </td>
+                  </tr>
+ 
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>하단 탭바 내비게이션</td>
+                    <td>
+                      시장한끼 / 탐색 / 홈 / 주문내역 / 마이페이지 ·
+                      현재 탭은 강조 표시
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+ 
+          <p class="detail-note">
+            위 표의 3번이 앞서 정리한 예외 흐름 중 하나입니다. 예외를 따로
+            모아둔 문서가 아니라, 각 영역의 정의 안에 조건과 함께
+            적어두었습니다. 개발자가 그 화면을 만들 때 같은 자리에서 보게
+            하기 위해서였습니다.
+          </p>
+ 
+          <details class="detail-toggle">
+            <summary>화면 설계서 원본 5종</summary>
+ 
+            <div class="toggle-body">
+              <p>
+                구매자 메인, 판매자 메인, 시장한끼 장보기, 상품 상세, 상품
+                등록 화면의 설계서입니다. 왼쪽에 화면, 오른쪽에 영역별
+                정의를 나란히 두는 형식으로 통일했습니다.
+              </p>
+ 
+              <!-- ⚠️ 파일명을 실제 경로로 바꾸세요. 필요한 만큼만 남기고 지워도 됩니다. -->
+              <figure class="detail-figure" style="margin-top: 20px;">
+                <div class="detail-main-image detail-main-image--tall">
+                  <img
+                    class="screen-spec-img" 
+                    src="../Image/PJ5_images/spec_hom.png"
+                    alt="FLW_HOM_001 메인 화면 설계서"
+                  />
+                </div>
+                <figcaption class="detail-caption">
+                  FLW_HOM_001 · 잇담 메인 화면 (지도 홈)
+                </figcaption>
+              </figure>
+ 
+              <figure class="detail-figure" style="margin-top: 28px;">
+                <div class="detail-main-image detail-main-image--tall">
+                  <img
+                    class="screen-spec-img" 
+                    src="../Image/PJ5_images/spec_sel.png"
+                    alt="FLW_SEL_001 판매자 메인 화면 설계서"
+                  />
+                </div>
+                <figcaption class="detail-caption">
+                  FLW_SEL_001 · 판매자 메인 화면
+                </figcaption>
+              </figure>
+ 
+              <figure class="detail-figure" style="margin-top: 28px;">
+                <div class="detail-main-image detail-main-image--tall">
+                  <img
+                    class="screen-spec-img" 
+                    src="../Image/PJ5_images/spec_meal.png"
+                    alt="FLW_MKT_MEAL_001 시장한끼 장보기 화면 설계서"
+                  />
+                </div>
+                <figcaption class="detail-caption">
+                  FLW_MKT_MEAL_001 · 시장한끼 장보기
+                </figcaption>
+              </figure>
+ 
+              <figure class="detail-figure" style="margin-top: 28px;">
+                <div class="detail-main-image detail-main-image--tall">
+                  <img
+                    class="screen-spec-img" 
+                    src="../Image/PJ5_images/spec_prd.png"
+                    alt="FLW_PRD_001 상품 상세 화면 설계서"
+                  />
+                </div>
+                <figcaption class="detail-caption">
+                  FLW_PRD_001 · 상품 상세 페이지
+                </figcaption>
+              </figure>
 
-            <figcaption class="detail-caption">
-              FLW_HOM_001 · FLW_SEL_001 · FLW_MKT_MEAL_001 ·
-              FLW_PRD_001 · FLW_SEL_REG_001 화면 설계서
-            </figcaption>
-          </figure>
+              <figure class="detail-figure" style="margin-top: 28px;">
+                <div class="detail-main-image detail-main-image--tall">
+                  <img
+                    class="screen-spec-img" 
+                    src="../Image/PJ5_images/spec_sel_reg.png"
+                    alt="FLW_SEL_REG_001 판매자 상품 등록 화면 설계서"
+                  />
+                </div>
+                <figcaption class="detail-caption">
+                  FLW_SEL_REG_001 · 판매자 상품 등록 확면
+                </figcaption>
+              </figure>
+            </div>
+          </details>
 
         </div>
 
@@ -2046,7 +2428,169 @@
             했습니다. 이 데이터가 나중에 국내에 존재하지 않는
             <strong>'전통시장 폐기 위험 상품 데이터셋'</strong>이 됩니다.
           </p>
+<p>
+            이 판단은 데이터베이스 설계로 이어졌습니다. 전체
+            <span class="hl">22개 테이블</span> 중 세 개가 이 구조를
+            담당합니다.
+          </p>
+ 
+ 
+          <!-- AI 학습 -->
+          <div class="erd-card">
+            <div class="erd-card-head">
+              <span class="erd-name">AI_IMAGE_TRAINING</span>
+              <span class="erd-role">판매자의 상품 등록이 곧 학습 데이터</span>
+            </div>
+ 
+            <div class="erd-cols">
+              <div class="erd-col">
+                <span class="erd-key">image_path</span>
+                <span class="erd-type">VARCHAR(255)</span>
+                <span class="erd-desc">등록 시 업로드된 상품 이미지 경로</span>
+              </div>
+ 
+              <div class="erd-col">
+                <span class="erd-key">category_id</span>
+                <span class="erd-type">INT</span>
+                <span class="erd-desc">판매자가 확정한 카테고리가 그대로 라벨이 됨</span>
+              </div>
+ 
+              <div class="erd-col is-key">
+                <span class="erd-key">label_source</span>
+                <span class="erd-type">ENUM</span>
+                <span class="erd-desc">seller · admin · auto — 라벨을 누가 붙였는지 구분</span>
+              </div>
+ 
+              <div class="erd-col">
+                <span class="erd-key">is_verified</span>
+                <span class="erd-type">BOOLEAN</span>
+                <span class="erd-desc">검수 여부. 미검수 데이터를 학습에서 분리</span>
+              </div>
+ 
+              <div class="erd-col">
+                <span class="erd-key">split</span>
+                <span class="erd-type">ENUM</span>
+                <span class="erd-desc">train · val · test — 학습·검증 분할</span>
+              </div>
+            </div>
+ 
+            <p class="erd-note">
+              라벨 출처와 검수 여부를 분리해둔 이유는, 판매자가 붙인 라벨을
+              바로 학습에 쓰면 오류가 그대로 누적되기 때문입니다. 모으는
+              것과 쓰는 것을 다른 단계로 나눴습니다.
+            </p>
+          </div>
+ 
+ 
+          <!-- 이벤트 로그 -->
+          <div class="erd-card">
+            <div class="erd-card-head">
+              <span class="erd-name">EVENT_LOG</span>
+              <span class="erd-role">사용자 행동을 전량 적재</span>
+            </div>
+ 
+            <div class="erd-cols">
+              <div class="erd-col">
+                <span class="erd-key">event_name</span>
+                <span class="erd-type">VARCHAR(50)</span>
+                <span class="erd-desc">무엇을 했는지 (view_product, add_cart 등)</span>
+              </div>
+ 
+              <div class="erd-col">
+                <span class="erd-key">entity_type / entity_id</span>
+                <span class="erd-type">VARCHAR · BIGINT</span>
+                <span class="erd-desc">무엇에 대해 했는지</span>
+              </div>
+ 
+              <div class="erd-col is-key">
+                <span class="erd-key">properties</span>
+                <span class="erd-type">JSON</span>
+                <span class="erd-desc">어떤 맥락에서 했는지. 스키마 변경 없이 확장 가능</span>
+              </div>
+ 
+              <div class="erd-col">
+                <span class="erd-key">session</span>
+                <span class="erd-type">VARCHAR(100)</span>
+                <span class="erd-desc">한 번의 방문 안에서 행동을 이어 보기 위한 키</span>
+              </div>
+            </div>
+ 
+            <div class="formula-block" style="margin-top: 22px;">
+              <div class="formula-row">
+                <p class="formula-body">
+                  event_name = <span class="formula-result">view_product</span><br />
+                  entity_type = product &nbsp; entity_id = 301<br />
+                  properties = { 'from': 'search', 'rank': 2 }
+                </p>
+              </div>
+            </div>
+ 
+            <p class="erd-note">
+              같은 상품 조회라도 검색에서 왔는지 추천에서 왔는지, 몇 번째
+              결과였는지가 남습니다. 나중에 "추천이 실제로 구매로
+              이어졌는가"를 판단하려면 이 맥락이 필요했습니다.
+            </p>
+          </div>
+ 
+ 
+          <!-- 중간 테이블 -->
+          <div class="erd-card">
+            <div class="erd-card-head">
+              <span class="erd-name">SELLER_STORE</span>
+              <span class="erd-role">판매자와 점포를 잇는 중간 테이블</span>
+            </div>
+ 
+            <div class="erd-cols">
+              <div class="erd-col is-key">
+                <span class="erd-key">seller_id + store_id</span>
+                <span class="erd-type">UNIQUE</span>
+                <span class="erd-desc">한 점포에 관리자가 여러 명, 한 판매자가 여러 점포인 경우 모두 수용</span>
+              </div>
+ 
+              <div class="erd-col">
+                <span class="erd-key">is_primary</span>
+                <span class="erd-type">BOOLEAN</span>
+                <span class="erd-desc">주 점포 여부. 알림·정산의 기준</span>
+              </div>
+ 
+              <div class="erd-col">
+                <span class="erd-key">joined_at / left_at</span>
+                <span class="erd-type">TIMESTAMP</span>
+                <span class="erd-desc">참여 시작과 종료. 이력을 지우지 않고 남김</span>
+              </div>
+            </div>
+ 
+            <p class="erd-note">
+              판매자와 점포를 1:1로 묶으면 실제 시장의 운영 형태를 담을 수
+              없습니다. 중간 테이블로 매핑해 데이터 중복과 불일치를
+              줄였습니다.
+            </p>
+          </div>
+ 
+ 
+          <details class="detail-toggle">
+            <summary>ERD 전체 22개 테이블</summary>
+ 
+            <div class="toggle-body">
+              <p>
+                계정·거래·상품·마감·알림·인사이트 도메인을 포함한 전체
+                구조입니다. 위 세 테이블이 붉게 표시된 부분입니다.
+              </p>
+ 
+              <figure class="detail-figure erd-figure" style="margin-top: 20px;">
+  <div class="detail-main-image detail-main-image--wide">
+    <img
+      src="../Image/PJ5_images/erd_full.png"
+      alt="잇담 서비스 ERD 전체 22개 테이블"
+    />
+  </div>
 
+  <figcaption class="detail-caption">
+    서비스 개선과 안정성을 함께 고려해 확장 설계한 ERD
+  </figcaption>
+</figure>
+            </div>
+          </details>
           <p class="detail-quote">
             데이터를 모으는 기능이 아니라, 서비스를 쓰면 데이터가 남는
             구조를 만든 것이 이 설계의 핵심이었습니다.
@@ -2094,12 +2638,12 @@
           </div>
         </div>
 
-        <p>
-          기능마다 이런 카드를 만들었습니다. 구매 완료는 1분, 첫 진입은
-          10초. 성장 인사이트는 기준이 조금 달랐습니다.
-          <strong>"1원이라도 낼 의향이 있으면 Y."</strong> 유료 기능이 될
-          예정이었으니, 좋다는 말은 판정 기준이 될 수 없었습니다.
-        </p>
+        <p class="testing-rule-note">
+  기능마다 이런 카드를 만들었습니다. 구매 완료는 1분, 첫 진입은 10초.
+  성장 인사이트는 기준이 조금 달랐습니다.
+  <strong>"1원이라도 낼 의향이 있으면 Y."</strong>
+  유료 기능이 될 예정이었으니, 좋다는 말은 판정 기준이 될 수 없었습니다.
+</p>
 
         <p>
           진행 중에는 힌트도, 유도 질문도 주지 않았습니다. 상황만 제시하고
@@ -2117,16 +2661,115 @@
         </div>
 
         <details class="detail-toggle">
-          <summary>기능 카드 6종 · 시나리오 7건</summary>
+  <summary>기능 카드 6종 · Y 판정 규칙</summary>
 
-          <div class="toggle-body">
-            <!-- ⚠️ C1·C2·BC-1·BC-2·SC-1·SC-2 판정 규칙과 B1~S4 시나리오 표를 여기에 넣으세요. -->
-            <p>
-              C1 · C2 · BC-1 · BC-2 · SC-1 · SC-2 판정 규칙과 B1~S4
-              시나리오 표를 여기에 넣으세요.
-            </p>
-          </div>
-        </details>
+  <div class="toggle-body">
+    <div class="table-scroll">
+      <table class="compare-table crit-table">
+        <thead>
+          <tr><th>기능 카드</th><th>무엇을 보는가</th><th>Y 판정 조건</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">C1. UI/UX 시인성</th>
+            <td>시나리오별 첫 진입점 도달 시간</td>
+            <td><span class="yn y">Y</span> 10초 이내 <span class="yn n">N</span> 10초 초과</td>
+          </tr>
+          <tr>
+            <th scope="row">C2. 랜딩 페이지 이해도</th>
+            <td>랜딩 체험 후 기능 인터뷰 반응</td>
+            <td><span class="yn y">Y</span> 긍정 <span class="yn n">N</span> 중립·부정</td>
+          </tr>
+          <tr>
+            <th scope="row">BC-1. 구매자 물품 구매</th>
+            <td>탐색부터 장바구니 담기까지 시간</td>
+            <td><span class="yn y">Y</span> 1분 이내 <span class="yn n">N</span> 1분 초과</td>
+          </tr>
+          <tr>
+            <th scope="row">BC-2. “시장한끼” 물품 구매</th>
+            <td>기능 사용 후 인터뷰 반응</td>
+            <td><span class="yn y">Y</span> 긍정 <span class="yn n">N</span> 중립·부정</td>
+          </tr>
+          <tr>
+            <th scope="row">SC-1. 성장 인사이트 확인</th>
+            <td>랜딩 확인 후 지불 의향</td>
+            <td><span class="yn y">Y</span> 1원이라도 낼 의향 있음 <span class="yn n">N</span> 구매 가치 없음</td>
+          </tr>
+          <tr>
+            <th scope="row">SC-2. 판매자 물품 등록</th>
+            <td>물품 등록 시작부터 완료까지 시간</td>
+            <td><span class="yn y">Y</span> 3분 이내 <span class="yn n">N</span> 3분 초과</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+
+<details class="detail-toggle">
+  <summary>시나리오 7건 · 멈춤 조건과 기록 항목</summary>
+
+  <div class="toggle-body">
+
+    <p class="scn-group">구매자 시나리오 · 3건</p>
+    <ol class="scn-list">
+      <li>
+        <p class="scn-q"><span class="scn-tag">B1</span>“시장한끼”를 통해 소고기미역국 식재료를 구매해주세요.</p>
+        <dl class="scn-meta">
+          <dt>멈춤</dt><dd>결제 직전 도달 또는 8분 경과</dd>
+          <dt>기록</dt><dd>시장한끼 버튼 찾기 10초 이내 (Y/N)</dd>
+        </dl>
+      </li>
+      <li>
+        <p class="scn-q"><span class="scn-tag">B2</span>현재 위치와 가장 가까운 시장에서 아무 물품이나 장바구니에 담아 주세요.</p>
+        <dl class="scn-meta">
+          <dt>멈춤</dt><dd>최대 6분 경과</dd>
+          <dt>기록</dt><dd>“시장 카드” 진입 (Y/N) · 탐색 → 시장 진입 20초 이내 (Y/N)</dd>
+        </dl>
+      </li>
+      <li>
+        <p class="scn-q"><span class="scn-tag">B3</span>구매하려고 담아놓았던 장바구니를 확인하고 싶습니다.</p>
+        <dl class="scn-meta">
+          <dt>멈춤</dt><dd>적절 조치 경로 찾음 또는 3분 경과</dd>
+          <dt>기록</dt><dd>판매자 → 구매자 토글 전환 30초 이내 (Y/N) · 구매자 메인에서 장바구니 클릭 30초 이내 (Y/N)</dd>
+        </dl>
+      </li>
+    </ol>
+
+    <p class="scn-group">판매자 시나리오 · 4건</p>
+    <ol class="scn-list">
+      <li>
+        <p class="scn-q"><span class="scn-tag">S1</span>당신은 60대 판매자입니다. 처음으로 잇담을 통해 물품을 등록해주세요.</p>
+        <dl class="scn-meta">
+          <dt>멈춤</dt><dd>판매 등록 완료 또는 판매자용 토글 버튼 못 찾음 (1분)</dd>
+          <dt>기록</dt><dd>판매자용 토글 버튼 누름 1분 이내 (Y/N) · 물품등록 진입까지 걸린 시간</dd>
+        </dl>
+      </li>
+      <li>
+        <p class="scn-q"><span class="scn-tag">S2</span>판매가 종료되었습니다. 물품 마감을 해주세요.</p>
+        <dl class="scn-meta">
+          <dt>멈춤</dt><dd>물품 마감 완료 또는 4분 경과</dd>
+          <dt>기록</dt><dd>물품관리 진입 15초 이내 (Y/N) · 물품마감 완료까지 걸린 시간</dd>
+        </dl>
+      </li>
+      <li>
+        <p class="scn-q"><span class="scn-tag">S3</span>판매 등록 과정이 기억이 안 납니다. 다시 한번 확인해볼까요?</p>
+        <dl class="scn-meta">
+          <dt>멈춤</dt><dd>적절 조치 경로 찾음 또는 3분 경과</dd>
+          <dt>기록</dt><dd>도움말 진입 15초 이내 (Y/N)</dd>
+        </dl>
+      </li>
+      <li>
+        <p class="scn-q"><span class="scn-tag">S4</span>판매자로서 “성장 인사이트” 기능을 찾아 설명을 확인해주세요.</p>
+        <dl class="scn-meta">
+          <dt>멈춤</dt><dd>적절 조치 경로 찾음 또는 3분 경과</dd>
+          <dt>기록</dt><dd>구매자 → 판매자 토글 전환 10초 이내 (Y/N) · 성장 인사이트 버튼 클릭 10초 이내 (Y/N)</dd>
+        </dl>
+      </li>
+    </ol>
+
+  </div>
+</details>
 
 
         <!-- 001 -->
@@ -2165,11 +2808,12 @@
             </table>
           </div>
 
-          <p>
-            전체 평가에서만 '보통'이 40%였습니다.
-            <strong>기능은 다 좋다고 하면서, 서비스 자체에는
-            유보적이었습니다.</strong> 인터뷰 문장에 답이 있었습니다.
-          </p>
+          <p class="testing-result-note">
+  전체 평가에서만 '보통'이 40%였습니다.
+  기능은 다 좋다고 하면서, 서비스 자체에는 유보적이었습니다.
+  <br>
+  인터뷰 문장에 답이 있었습니다.
+</p>
 
           <p class="detail-quote">
             "내게 필수 서비스는 아니다"<br />
@@ -2277,7 +2921,8 @@
 
         <p>
           부정 피드백은 9건이었습니다. 전부 반영하겠다고 하면 6주도, 6개월도
-          부족합니다. <strong>바로 되는 것 / 데이터가 쌓여야 되는 것 / 남의
+          부족합니다. 
+          <br><strong>바로 되는 것 / 데이터가 쌓여야 되는 것 / 남의
           도장이 필요한 것</strong>으로 갈랐습니다.
         </p>
 
@@ -2427,7 +3072,7 @@
 
           <p class="detail-quote">
             모든 마일스톤에 Data 레인을 넣었습니다. 만들고 나서 "잘 됐나?"를
-            묻는 게 아니라, 출시 전에 무엇을 성공이라 부를지부터 정하는
+            묻는 게 아니라, <br>출시 전에 무엇을 성공이라 부를지부터 정하는
             순서로 짰습니다.
           </p>
 
@@ -2561,7 +3206,7 @@
 
         <p>
           6주가 끝나고 발표로 마무리할 수도 있었지만, 실제로 통할지
-          확인해보고 싶었습니다. 같은 아이템을 사업계획서로 다시 써서
+          확인해보고 싶었습니다. <br>같은 아이템을 사업계획서로 다시 써서
           <strong>2026 청년창업사관학교</strong>에 지원했습니다.
         </p>
 
