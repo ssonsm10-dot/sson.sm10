@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initContactPageTransition();
   initContactPageReveal();
-
+  initContactToAboutTransition();
+  initContactToProjectsTransition();
   initProjectDetail();
 });
 
@@ -2444,6 +2445,265 @@ function initDetailReveal() {
 
 
       groupObserver.observe(root);
+
+    }
+  );
+
+}
+
+/* =========================================================
+   CONTACT → ABOUT PAGE TRANSITION
+   ========================================================= */
+
+function initContactToAboutTransition() {
+
+  const link =
+    document.querySelector(".js-about-transition");
+
+  if (!link) return;
+
+
+  /* 사용자가 모션 감소를 설정했다면
+     기본 페이지 이동을 그대로 사용 */
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+  if (reducedMotion) return;
+
+
+  /* -----------------------------------------
+     전환 화면 생성
+     ----------------------------------------- */
+
+  const transition =
+    document.createElement("div");
+
+  transition.className =
+    "about-page-transition";
+
+  transition.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  transition.innerHTML = `
+    <div class="about-page-transition-inner">
+
+      <span
+        class="about-page-transition-dot"
+      ></span>
+
+      <span
+        class="about-page-transition-text"
+      >
+        About
+      </span>
+
+    </div>
+  `;
+
+  document.body.appendChild(transition);
+
+
+  let isTransitioning = false;
+
+
+  /* -----------------------------------------
+     ABOUT 클릭
+     ----------------------------------------- */
+
+  link.addEventListener(
+    "click",
+    (event) => {
+
+      /* 새 탭 열기는 방해하지 않음 */
+      if (
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+
+      if (isTransitioning) {
+        event.preventDefault();
+        return;
+      }
+
+
+      const target =
+        link.getAttribute("href");
+
+      if (!target) return;
+
+
+      event.preventDefault();
+
+      isTransitioning = true;
+
+
+      /* 커튼 등장 */
+      requestAnimationFrame(() => {
+
+        transition.classList.add(
+          "is-active"
+        );
+
+      });
+
+
+      /* 화면이 완전히 덮인 뒤
+         Profile 페이지로 이동 */
+      window.setTimeout(() => {
+
+        window.location.href = target;
+
+      }, 780);
+
+    }
+  );
+
+
+  /* -----------------------------------------
+     브라우저 뒤로가기 대응
+     ----------------------------------------- */
+
+  window.addEventListener(
+    "pageshow",
+    () => {
+
+      isTransitioning = false;
+
+      transition.classList.remove(
+        "is-active"
+      );
+
+    }
+  );
+}
+
+/* =========================================================
+   CONTACT → PROJECTS TRANSITION
+   ========================================================= */
+
+function initContactToProjectsTransition() {
+
+  const link =
+    document.querySelector(
+      ".js-project-transition"
+    );
+
+  if (!link) return;
+
+
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+  if (reducedMotion) return;
+
+
+  /* 전환 화면 생성 */
+  const transition =
+    document.createElement("div");
+
+  transition.className =
+    "about-page-transition";
+
+  transition.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  transition.innerHTML = `
+    <div class="about-page-transition-inner">
+
+      <span
+        class="about-page-transition-dot"
+      ></span>
+
+      <span
+        class="about-page-transition-text"
+      >
+        Projects
+      </span>
+
+    </div>
+  `;
+
+  document.body.appendChild(
+    transition
+  );
+
+
+  let isTransitioning = false;
+
+
+  link.addEventListener(
+    "click",
+    (event) => {
+
+      if (
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+
+      if (isTransitioning) {
+        event.preventDefault();
+        return;
+      }
+
+
+      const target =
+        link.getAttribute("href");
+
+      if (!target) return;
+
+
+      event.preventDefault();
+
+      isTransitioning = true;
+
+
+      requestAnimationFrame(() => {
+
+        transition.classList.add(
+          "is-active"
+        );
+
+      });
+
+
+      window.setTimeout(() => {
+
+        window.location.href =
+          target;
+
+      }, 780);
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    () => {
+
+      isTransitioning = false;
+
+      transition.classList.remove(
+        "is-active"
+      );
 
     }
   );

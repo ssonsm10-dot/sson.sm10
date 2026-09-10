@@ -672,3 +672,129 @@ a {
   }
 
 }
+
+/* =========================================================
+   CONTACT → ABOUT TRANSITION
+   ========================================================= */
+
+.about-page-transition {
+  position: fixed;
+
+  z-index: 99999;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f4f2ed;
+  color: #1d1d1f;
+
+  /* 처음에는 화면 아래에 숨김 */
+  transform:
+    translate3d(0, 101%, 0);
+
+  /* 올라올 때 처음만 살짝 둥근 커튼 */
+  border-radius:
+    50% 50% 0 0 /
+    8% 8% 0 0;
+
+  pointer-events: none;
+
+  transition:
+    transform
+      0.78s
+      cubic-bezier(0.76, 0, 0.24, 1),
+
+    border-radius
+      0.78s
+      cubic-bezier(0.76, 0, 0.24, 1);
+
+  will-change:
+    transform,
+    border-radius;
+}
+
+
+/* 화면을 완전히 덮음 */
+
+.about-page-transition.is-active {
+  transform:
+    translate3d(0, 0, 0);
+
+  border-radius: 0;
+}
+
+
+/* 중앙 About 문구 */
+
+.about-page-transition-inner {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  opacity: 0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity 0.32s ease 0.25s,
+
+    transform
+      0.48s
+      cubic-bezier(0.22, 1, 0.36, 1)
+      0.25s;
+}
+
+
+/* 커튼 등장 후 문구 */
+
+.about-page-transition.is-active
+.about-page-transition-inner {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* 작은 포인트 */
+
+.about-page-transition-dot {
+  display: block;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #b0472b;
+}
+
+
+/* About */
+
+.about-page-transition-text {
+  font-size:
+    clamp(2.1rem, 3.2vw, 3.4rem);
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* 모션 감소 설정 */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-page-transition {
+    display: none;
+  }
+
+}

@@ -221,10 +221,13 @@ p {
   letter-spacing: -0.04em;
 }
 
+/* hover underline */
+
 .desktop-nav a::after {
   content: "";
 
   position: absolute;
+
   left: 0;
   bottom: -6px;
 
@@ -235,6 +238,7 @@ p {
 
   transform: scaleX(0);
   transform-origin: right;
+
   transition: transform 0.3s ease;
 }
 
