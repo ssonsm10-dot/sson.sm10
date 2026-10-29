@@ -3363,3 +3363,488 @@
     font-size: 1.5rem;
   }
 }
+
+/* =========================================================
+   PROJECT 02 — 재설계 (2026) 전용 컴포넌트 · pj2- 접두어만 사용
+   ========================================================= */
+
+/* 실제 결과로 채울 빈칸: 공개 전에 반드시 사라져야 하므로 눈에 띄게 */
+.pj2-pending {
+  display: inline;
+  padding: 2px 8px;
+  border: 1px dashed var(--accent);
+  border-radius: 6px;
+  background: rgba(176, 71, 43, 0.06);
+  color: var(--accent);
+  font-size: 0.82em;
+  line-height: 2;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.pj2-pending::before {
+  content: "〔";
+}
+
+.pj2-pending::after {
+  content: "〕";
+}
+
+/* 같은 상태를 버전별로 나란히 */
+.pj2-compare {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+
+.pj2-compare--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pj2-compare--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pj2-compare-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--tint);
+}
+
+.pj2-compare-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(29, 29, 31, 0.08);
+}
+
+.pj2-compare-label {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.pj2-compare-item.is-new .pj2-compare-label {
+  color: var(--accent);
+}
+
+/* 표 다음 문단 간격 */
+.pj2-table + p,
+.pj2-table + .spec-list,
+.pj2-table + .detail-summary {
+  margin-top: var(--gap-md);
+}
+
+/* 단독 화면 캡처 */
+.pj2-shot {
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--tint);
+}
+
+.pj2-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(29, 29, 31, 0.08);
+}
+
+.pj2-shot--narrow {
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+/* 도서 상세 상태 카드 6종 */
+.pj2-states {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+  padding: 18px;
+  border-radius: 16px;
+  background: #ececec;
+}
+
+.pj2-states img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* 인라인 SVG 도식 */
+.pj2-diagram text {
+  fill: var(--ink);
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.pj2-d-node rect,
+.pj2-d-box rect {
+  fill: #ffffff;
+  stroke: rgba(29, 29, 31, 0.22);
+  stroke-width: 1.2;
+}
+
+.pj2-d-box .pj2-d-name {
+  font-size: 15.5px;
+  font-weight: 500;
+}
+
+.pj2-d-box .pj2-d-sub,
+.pj2-d-task .pj2-d-task-sub {
+  fill: var(--muted);
+  font-size: 13px;
+}
+
+.pj2-d-box.is-accent rect,
+.pj2-d-task rect {
+  fill: rgba(176, 71, 43, 0.06);
+  stroke: var(--accent);
+  stroke-width: 1.4;
+}
+
+.pj2-d-box.is-accent .pj2-d-name,
+.pj2-d-task .pj2-d-task-name {
+  fill: var(--accent);
+  font-weight: 500;
+}
+
+.pj2-d-quiet text {
+  fill: var(--muted);
+  font-size: 13px;
+}
+
+.pj2-d-lane {
+  fill: var(--muted) !important;
+  font-size: 12.5px !important;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.pj2-d-note {
+  fill: var(--muted) !important;
+  font-size: 13px !important;
+}
+
+@media (max-width: 860px) {
+
+  .pj2-compare--3 {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .pj2-compare--2 {
+    grid-template-columns: 1fr;
+  }
+
+  .pj2-states {
+    grid-template-columns: 1fr;
+  }
+
+  .pj2-compare-item,
+  .pj2-shot,
+  .pj2-states {
+    padding: 12px;
+  }
+}
+
+/* =========================================================
+   PROJECT 02 — 흐름 개편 (2026.10) · 넓은 시각자료와 새 블록
+   ========================================================= */
+
+/* 본문(920px)보다 넓게: 최대 1100px, 화면 양옆 여백은 유지 */
+.pj2-wide {
+  --pj2-wide-w: min(1100px, calc(100vw - var(--page-x) * 2));
+  width: var(--pj2-wide-w);
+  max-width: none;
+  margin-left: calc((100% - var(--pj2-wide-w)) / 2);
+}
+
+.detail-copy > .pj2-wide,
+.subsection > .pj2-wide {
+  margin-top: var(--gap-md);
+  margin-left: calc((100% - var(--pj2-wide-w)) / 2);
+  margin-right: 0;
+}
+
+.detail-copy > .pj2-wide + p,
+.subsection > .pj2-wide + p {
+  margin-top: var(--gap-md);
+}
+
+.pj2-wide .inline-chart {
+  min-width: 720px;
+}
+
+.pj2-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(176, 71, 43, 0.5);
+}
+
+/* 사용자별 기능 */
+.pj2-roles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.pj2-role {
+  padding: 22px 24px;
+  border-radius: 14px;
+  background: var(--tint);
+}
+
+.pj2-role-who {
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.pj2-role ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pj2-role li {
+  color: var(--body-text);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+/* 기존 화면 모음 */
+.pj2-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--tint);
+}
+
+.pj2-gallery-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.pj2-gallery-item--wide {
+  grid-column: 1 / -1;
+}
+
+.pj2-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(29, 29, 31, 0.08);
+}
+
+.pj2-gallery-item span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+/* 직접 넣을 이미지 자리 */
+.pj2-slot {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  padding: 24px;
+  border: 1.5px dashed rgba(176, 71, 43, 0.45);
+  border-radius: 16px;
+  background: rgba(176, 71, 43, 0.04);
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* 현장의 말 */
+.pj2-voices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.pj2-voices blockquote {
+  margin: 0;
+  padding: 22px 24px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  background: var(--tint);
+  color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+/* 문제 정의 */
+.pj2-statement {
+  margin-top: var(--gap-md);
+  padding: 30px 32px;
+  border-radius: 16px;
+  background: var(--ink);
+}
+
+.pj2-statement span {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.pj2-statement p {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+}
+
+/* 상태 카드 3열 */
+.pj2-states--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* 단계 로드맵 */
+.pj2-roadmap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.pj2-stage {
+  padding: 24px;
+  border: 1px solid rgba(29, 29, 31, 0.12);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.pj2-stage.is-done {
+  background: var(--tint);
+  border-color: transparent;
+}
+
+.pj2-stage.is-next {
+  border-color: var(--accent);
+}
+
+.pj2-stage-when {
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.pj2-stage.is-next .pj2-stage-when {
+  color: var(--accent);
+}
+
+.pj2-stage h3 {
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.pj2-stage ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.pj2-stage li {
+  color: var(--body-text);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+/* 함께 넘길 문서 */
+.pj2-docs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.pj2-doc {
+  padding: 22px;
+  border-radius: 14px;
+  background: var(--tint);
+}
+
+.pj2-doc span {
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.pj2-doc h3 {
+  margin: 8px 0 8px;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.pj2-doc p {
+  color: var(--body-text);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+/* 넓은 영역의 도식 글자 */
+.pj2-wide .pj2-d-box .pj2-d-name {
+  font-size: 16px;
+}
+
+@media (max-width: 860px) {
+
+  .pj2-roles,
+  .pj2-roadmap {
+    grid-template-columns: 1fr;
+  }
+
+  .pj2-docs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pj2-states--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .pj2-voices,
+  .pj2-gallery,
+  .pj2-docs,
+  .pj2-states--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .pj2-gallery {
+    padding: 12px;
+  }
+
+  .pj2-statement {
+    padding: 24px 22px;
+  }
+}
