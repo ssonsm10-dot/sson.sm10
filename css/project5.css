@@ -1,0 +1,336 @@
+/* Project 05: scoped navigation, subtle depth and problem evidence. */
+.project-five .pj5-nav {position:sticky;top:55px;z-index:40;display:flex;justify-content:center;gap:25px;padding:17px 24px;background:rgba(255,255,255,.96);border-block:1px solid var(--line);overflow-x:auto;scrollbar-width:thin;}
+.project-five .pj5-nav a {flex-shrink:0;color:var(--body-text);font-size:13px;text-decoration:none;}
+.project-five .pj5-nav a:hover,.project-five .pj5-nav a:focus-visible {color:var(--accent);text-decoration:underline;text-underline-offset:5px;}
+.project-five .detail-section[id] {scroll-margin-top:125px;}
+.project-five .metric {box-shadow:0 5px 16px rgba(49,39,30,.055);}
+.project-five #ch01 .pj5-keyphrase,.project-five #ch01 strong {box-shadow:inset 0 -0.5em 0 rgba(176,71,43,.14);-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+.project-five .pj5-market-result {margin:34px 0 42px;}
+.project-five .pj5-result-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;border-block:1px solid var(--line);padding:30px 0;}
+.project-five .pj5-result {padding:0 26px;}
+.project-five .pj5-result + .pj5-result {border-left:1px solid var(--line);}
+.project-five .pj5-result > span {font-size:14px;color:var(--body-text);}
+.project-five .pj5-result p {font-size:clamp(28px,3vw,34px);line-height:1.25;letter-spacing:-.04em;margin:15px 0 10px;color:var(--ink);font-variant-numeric:tabular-nums;}
+.project-five .pj5-result p span {font-size:.55em;margin-left:4px;}
+.project-five .pj5-result small {font-size:13px;color:var(--muted);}
+.project-five .pj5-market-result figcaption {margin-top:16px;}
+@media(max-width:1100px){.project-five .pj5-nav{justify-content:flex-start;gap:22px;}}
+@media(max-width:620px){.project-five .pj5-nav{top:52px;padding:14px var(--page-x);gap:20px;}.project-five .pj5-result-grid{gap:0;padding:24px 0;}.project-five .pj5-result{padding:0 16px;}.project-five .pj5-result p{font-size:28px;}.project-five .detail-section[id]{scroll-margin-top:118px;}}
+
+/* Market estimation: titles and results first; formulas as supporting detail. */
+.project-five .pj5-calculation {max-width:var(--read-max);margin-top:38px;}
+.project-five .pj5-calc-step {padding:26px 0;border-top:1px solid var(--line);}
+.project-five .pj5-calc-heading {display:flex;align-items:center;gap:16px;}
+.project-five .pj5-calc-index {align-self:flex-start;padding-top:4px;color:var(--accent);font-size:12px;font-variant-numeric:tabular-nums;}
+.project-five .pj5-calc-meta {margin:0 0 7px;color:var(--muted);font-size:11px;line-height:1.5;}
+.project-five .pj5-calc-heading h4 {font-size:16px;line-height:1.6;font-weight:500;letter-spacing:-.02em;margin:0;}
+.project-five .pj5-calc-value {margin:0 0 0 auto;white-space:nowrap;color:var(--ink);font-size:26px;line-height:1.5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
+.project-five .pj5-calc-approx {font-size:12px;color:var(--body-text);letter-spacing:0;}
+.project-five .pj5-calc-unit {font-size:13px;margin-left:6px;color:var(--body-text);letter-spacing:0;}
+.project-five .pj5-calc-formula {margin:18px 0 0 32px;color:var(--body-text);font-size:13px;line-height:1.95;overflow-wrap:anywhere;}
+.project-five .pj5-calc-step.is-total {padding:24px;border-radius:10px;background:rgba(176,71,43,.055);border-top:0;margin-top:4px;}
+.project-five .is-total .pj5-calc-value {color:var(--accent);}
+.project-five .pj5-calc-source {font-size:11px;color:var(--muted);line-height:1.9;margin-top:20px;}
+@media(max-width:620px){.project-five .pj5-calc-heading{flex-wrap:wrap;gap:10px 12px;}.project-five .pj5-calc-value{flex-basis:100%;margin:2px 0 0 27px;font-size:24px;}.project-five .pj5-calc-formula{margin-left:27px;font-size:12px;}.project-five .pj5-calc-step.is-total{padding:20px 16px;}.project-five .pj5-calc-heading h4{font-size:15px;}}
+
+/* Supplementary calculation note: match the quiet source typography. */
+.project-five #ch02 .pj5-calculation-note {max-width:var(--read-max);font-size:12px;line-height:1.85;color:var(--muted);margin-top:20px;}
+/* Native vector positioning map, consistent with the portfolio palette. */
+.project-five .pj5-position-code {margin:38px 0;max-width:var(--detail-max);}
+.project-five .pj5-map-header {margin-bottom:12px;}
+.project-five .pj5-map-header > span {font-size:10px;letter-spacing:.12em;color:var(--muted);}
+.project-five .pj5-map-header h4 {font-size:18px;font-weight:500;line-height:1.6;margin:9px 0 0;}
+.project-five .pj5-map-scroll {overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff;}
+.project-five .pj5-map-svg {display:block;width:100%;min-width:600px;height:auto;font-family:inherit;}
+.project-five .pj5-map-highlight {fill:rgba(176,71,43,.045);}
+.project-five .pj5-map-axis {fill:none;stroke:#d5d1cb;stroke-width:1.2;}
+.project-five .pj5-map-label text {fill:var(--body-text);font-size:13px;}
+.project-five .pj5-map-node rect {fill:#fff;stroke:#dedad4;stroke-width:1;}
+.project-five .pj5-map-node text {fill:var(--ink);font-size:14px;font-weight:400;}
+.project-five .pj5-map-node .pj5-map-sub {fill:var(--muted);font-size:11px;}
+.project-five .pj5-map-note {font-size:11px;line-height:1.85;color:var(--muted);margin-top:12px;}
+/* Survey collage includes the paper forms and Google Forms together. */
+.project-five #ch03 .pj5-survey-figure {width:100%;max-width:640px;margin:30px auto;}
+.project-five #ch03 .pj5-survey-figure .detail-main-image {width:100%;height:auto;aspect-ratio:auto;padding:0;background:transparent;}
+.project-five #ch03 .pj5-survey-figure img {display:block;width:100%;height:auto;max-height:none;object-fit:contain;}
+.project-five #ch03 .pj5-survey-figure .detail-caption {font-size:12px;}
+@media(max-width:620px){.project-five #ch03 .pj5-survey-figure{max-width:92%;}.project-five .pj5-map-header h4{font-size:16px;}}
+
+/* Unify all Project 05 NOTE copy with the calculation note. */
+.project-five .detail-note,.project-five .feature-body .detail-note,.project-five #ch02 .pj5-calculation-note {font-size:12px;line-height:1.85;color:var(--muted);}
+/* Map v2: smaller, open axes, original app icons and restrained emphasis. */
+.project-five .pj5-position-code {width:100%;max-width:760px;margin:36px auto;}
+.project-five .pj5-map-scroll {border:0;border-radius:0;background:transparent;}
+.project-five .pj5-map-svg {min-width:580px;}
+.project-five .pj5-map-axis {stroke:#d8d4ce;stroke-width:1;}
+.project-five .pj5-map-label text {font-size:12px;fill:var(--muted);}
+.project-five .pj5-map-node text {font-size:14px;fill:var(--ink);font-weight:400;}
+.project-five .pj5-map-node .pj5-map-sub {font-size:11px;fill:var(--muted);}
+.project-five .pj5-position-code .detail-caption {font-size:11px;line-height:1.8;}
+@media(max-width:620px){.project-five .pj5-position-code{max-width:100%;}}
+
+.project-five .pj5-map-node.is-own text {fill:var(--ink);font-size:16px;font-weight:600;}
+.project-five .pj5-map-node.is-own .pj5-map-own-description {fill:var(--accent);font-size:10px;font-weight:400;}
+
+/* NOTE: compact padding proportional to the 12px supplementary copy. */
+.project-five .detail-note,.project-five .feature-body .detail-note,.project-five #ch02 .pj5-calculation-note {padding:16px 20px;border-radius:10px;margin-top:26px;}
+.project-five .detail-note::before {margin-bottom:7px;font-size:9px;letter-spacing:.12em;}
+/* Chapters 01–05: Project 02's restrained cards, tables and evidence toggles. */
+.project-five .pj5-editorial .section-head {margin-bottom:38px;}
+.project-five .pj5-editorial .subsection {margin-top:60px;padding-top:36px;}
+.project-five .pj5-editorial .subsection-head {margin-bottom:22px;}
+.project-five .pj5-editorial .subsection-number {font-size:11px;letter-spacing:.08em;}
+.project-five .pj5-editorial .subsection-head h3 {font-size:clamp(21px,2.2vw,27px);font-weight:500;line-height:1.55;letter-spacing:-.035em;margin-top:12px;}
+.project-five .pj5-editorial .detail-summary {gap:14px;margin-top:28px;}
+.project-five .pj5-editorial .summary-card {padding:24px;border-radius:12px;}
+.project-five .pj5-editorial .summary-number {margin-bottom:16px;font-size:11px;}
+.project-five .pj5-editorial .summary-card h3 {font-size:17px;line-height:1.65;}
+.project-five .pj5-editorial .summary-card p {margin-top:12px;font-size:14px;line-height:1.85;}
+.project-five .pj5-editorial .detail-toggle {border:0;border-block:1px solid var(--line);border-radius:0;background:transparent;margin-top:26px;}
+.project-five .pj5-editorial .detail-toggle > summary {padding:18px 4px;font-size:13px;font-weight:500;line-height:1.7;}
+.project-five .pj5-editorial .toggle-body {padding:4px 0 24px;}
+.project-five .pj5-editorial .toggle-body .detail-summary {margin-top:12px;}
+.project-five .pj5-editorial .flow {gap:10px 8px;margin-top:28px;}
+.project-five .pj5-editorial .flow-step {font-size:12px;padding:10px 14px;}
+.project-five .pj5-editorial .flow-compare {margin-top:32px;}
+.project-five .pj5-editorial .flow-track {padding:24px 0;}
+.project-five .pj5-editorial .scale-group {gap:18px;margin-top:28px;}
+.project-five .pj5-editorial .scale-item {padding:24px;border-radius:12px;}
+.project-five .pj5-editorial .scale-q {font-size:14px;line-height:1.8;}
+.project-five .pj5-editorial .scale-detail {font-size:12px;line-height:1.8;}
+.project-five .pj5-editorial .funnel {margin-top:28px;}
+.project-five .pj5-editorial :focus-visible {outline:2px solid var(--accent);outline-offset:4px;}
+@media(max-width:760px){.project-five .pj5-editorial .detail-summary--four{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:620px){.project-five .detail-note,.project-five .feature-body .detail-note,.project-five #ch02 .pj5-calculation-note{padding:14px 16px;}.project-five .pj5-editorial .subsection{margin-top:44px;padding-top:28px;}.project-five .pj5-editorial .summary-card,.project-five .pj5-editorial .scale-item{padding:20px;}.project-five .pj5-editorial .detail-summary{grid-template-columns:1fr;}.project-five .pj5-editorial .section-head{margin-bottom:30px;}}
+
+/* Recruitment routes: comfortably spaced 2 by 2 square cards. */
+.project-five .pj5-editorial .pj5-recruitment-cards {grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:580px;margin-inline:auto;}
+.project-five .pj5-editorial .pj5-recruitment-cards .summary-card {aspect-ratio:1;box-sizing:border-box;padding:30px;display:flex;flex-direction:column;justify-content:flex-start;}
+.project-five .pj5-editorial .pj5-recruitment-cards .summary-number {margin-bottom:26px;font-size:11px;}
+.project-five .pj5-editorial .pj5-recruitment-cards .summary-card h3 {font-size:18px;line-height:1.6;}
+.project-five .pj5-editorial .pj5-recruitment-cards .summary-card p {font-size:14px;line-height:1.9;margin-top:16px;}
+@media(max-width:620px){.project-five .pj5-editorial .pj5-recruitment-cards{grid-template-columns:1fr;max-width:300px;gap:16px;}.project-five .pj5-editorial .pj5-recruitment-cards .summary-card{padding:28px;}}
+
+/* Keep research before/after pills centered within each comparison row. */
+.project-five #ch03 .flow-track .flow {margin-top:0;margin-bottom:0;align-self:center;}
+
+/* Compact expanded-table spacing without changing the original table styling. */
+.project-five .detail-toggle:has(table) > summary {padding-bottom:12px;}
+.project-five .detail-toggle:has(table) > .toggle-body {padding-top:0;padding-bottom:18px;}
+.project-five .detail-toggle .toggle-body .compare-table-wrap,
+.project-five .detail-toggle .toggle-body .table-scroll {margin-top:12px;}
+.project-five .detail-toggle .toggle-body > .compare-table-wrap:first-child,
+.project-five .detail-toggle .toggle-body > .table-scroll:first-child {margin-top:0;}
+.project-five .detail-toggle .toggle-body table {margin-top:0;}
+
+/* Requirements: sequencing decisions instead of a percentage bar. */
+.project-five .pj5-release-plan {max-width:var(--read-max);margin-top:32px;}
+.project-five .pj5-release-plan > h4 {font-size:17px;font-weight:500;line-height:1.65;margin:0 0 20px;}
+.project-five .pj5-release-stages {display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:12px;align-items:stretch;}
+.project-five .pj5-release-stage {padding:25px 24px;background:var(--tint);border-radius:12px;display:flex;flex-direction:column;}
+.project-five .pj5-release-stage .pj5-release-phase {font-size:11px;color:var(--accent);line-height:1.7;margin:0 0 16px;}
+.project-five .pj5-release-stage h5 {font-size:22px;line-height:1.5;font-weight:500;letter-spacing:-.025em;margin:0 0 14px;}
+.project-five .pj5-release-stage h5 span {font-size:16px;color:var(--body-text);margin-left:8px;font-weight:400;}
+.project-five .pj5-release-stage .pj5-release-principle {font-size:15px;color:var(--ink);font-weight:500;margin:0 0 10px;}
+.project-five .pj5-release-stage > p {font-size:13px;line-height:1.9;color:var(--body-text);margin:0 0 24px;}
+.project-five .pj5-release-example {margin-top:auto;padding-top:18px;border-top:1px solid #dedbd5;}
+.project-five .pj5-release-example > span {font-size:10px;color:var(--muted);line-height:1.6;}
+.project-five .pj5-release-example p {font-size:12px;line-height:1.85;color:var(--body-text);margin:8px 0 0;}
+.project-five .pj5-release-arrow {align-self:center;text-align:center;font-size:20px;color:var(--muted);}
+.project-five .pj5-release-footnote {font-size:11px;line-height:1.85;color:var(--muted);margin:14px 0 0;}
+@media(max-width:620px){.project-five .pj5-release-stages{grid-template-columns:1fr;gap:12px;}.project-five .pj5-release-arrow{transform:rotate(90deg);}.project-five .pj5-release-stage{padding:24px;}}
+
+/* Release scope: white surfaces, clear numbers and one restrained accent. */
+.project-five .pj5-release-stages {gap:16px;}
+.project-five .pj5-release-stage {background:#fff;border:1px solid #e2dfda;border-radius:12px;padding:28px 24px;position:relative;}
+.project-five .pj5-release-stage:first-child {border-top:3px solid var(--accent);padding-top:26px;}
+.project-five .pj5-release-stage:last-child {border-top:3px solid #cbc7c0;padding-top:26px;}
+.project-five .pj5-release-stage .pj5-release-phase {color:var(--muted);font-size:10px;letter-spacing:.07em;margin-bottom:20px;}
+.project-five .pj5-release-stage h5 {display:flex;flex-direction:column;gap:10px;font-size:16px;margin-bottom:22px;}
+.project-five .pj5-release-stage h5 span {font-size:36px;line-height:1.2;font-weight:500;color:var(--ink);letter-spacing:-.04em;margin-left:0;}
+.project-five .pj5-release-stage:first-child h5 span {color:var(--accent);}
+.project-five .pj5-release-stage .pj5-release-principle {font-size:14px;}
+.project-five .pj5-release-stage > p {font-size:12px;line-height:1.85;}
+.project-five .pj5-release-example {border-top:1px solid #ece9e5;padding-top:16px;}
+.project-five .pj5-release-arrow {width:28px;height:28px;display:grid;place-items:center;border:1px solid #e5e1dc;border-radius:50%;font-size:14px;color:var(--body-text);background:#fff;}
+@media(max-width:620px){.project-five .pj5-release-arrow{justify-self:center;}.project-five .pj5-release-stage h5{flex-direction:row;align-items:baseline;justify-content:space-between;}.project-five .pj5-release-stage h5 span{font-size:32px;}}
+
+/* Screen design narrative: scoped to chapter 06 */
+#ch06 .pj5-design-intro-note,#ch06 .pj5-design-caution{font-size:12px;line-height:1.8;color:#85817c}
+#ch06 .pj5-design-module{padding:62px 0;border-top:1px solid #e7e4df;margin-top:52px}
+#ch06 .pj5-design-kicker{font-size:11px;letter-spacing:.08em;color:#ac5e47;margin:0 0 14px;font-weight:600}
+#ch06 .pj5-design-module header h3{font-size:28px;line-height:1.5;margin:0 0 34px;letter-spacing:-.04em}
+#ch06 .pj5-design-grid{display:grid;grid-template-columns:minmax(200px,.9fr) minmax(0,2.1fr);gap:38px;align-items:start}
+#ch06 .pj5-design-reason>p{font-size:14px;line-height:1.95;margin:0 0 24px}
+#ch06 .pj5-design-reason .pj5-reason-label{font-size:10px;letter-spacing:.08em;color:#999089;margin:0 0 7px;font-weight:700}
+#ch06 .pj5-design-reason ol{counter-reset:design;list-style:none;padding:0;margin:32px 0 0}
+#ch06 .pj5-design-reason li{counter-increment:design;padding:0 0 20px 27px;position:relative}
+#ch06 .pj5-design-reason li:before{content:counter(design);position:absolute;left:0;top:2px;border:1px solid #d5b4a7;border-radius:50%;width:18px;height:18px;text-align:center;line-height:17px;font-size:10px;color:#a45f47}
+#ch06 .pj5-design-reason li b{font-size:13px;font-weight:600}
+#ch06 .pj5-design-reason li p{font-size:12px;line-height:1.9;color:#77726c;margin:8px 0 0}
+#ch06 .pj5-design-stage{display:flex;gap:18px;background:#f5f5f2;border-radius:16px;padding:28px 20px;align-items:flex-start;justify-content:center;overflow:hidden}
+#ch06 .pj5-screen{margin:0;flex:1;min-width:0;max-width:260px}
+#ch06 .pj5-screen img{display:block;width:100%;height:auto;border-radius:9px;border:1px solid #e3e3dd;box-shadow:0 5px 18px #22222209}
+#ch06 .pj5-screen figcaption{font-size:10px;line-height:1.7;color:#77766e;margin-top:13px;text-align:center}
+#ch06 .is-single .pj5-screen{max-width:290px}
+#ch06 .pj5-design-flow{font-size:12px;padding:17px 0;margin:25px 0 0;border-bottom:1px solid #e8e5e0;color:#706a64;line-height:1.9}
+#ch06 .pj5-design-caution{margin-top:13px}
+#ch06 .pj5-design-archive{margin-top:35px}
+@media(max-width:760px){#ch06 .pj5-design-grid{grid-template-columns:1fr;gap:22px}#ch06 .pj5-design-module{padding:36px 0;margin-top:30px}#ch06 .pj5-design-module header h3{font-size:23px}#ch06 .pj5-design-stage{padding:20px 14px;gap:12px}#ch06 .pj5-design-reason ol{margin-top:20px}#ch06 .pj5-design-reason li{padding-bottom:16px}}
+
+/* Project 02-inspired screen presentation */
+#ch06 .pj5-design-module{border:0;padding:24px 0 40px;margin-top:65px}
+#ch06 .pj5-design-module header{max-width:820px;margin-bottom:32px}
+#ch06 .pj5-design-module header h3{font-size:30px;line-height:1.6;margin-bottom:25px}
+#ch06 .pj5-module-lead{font-size:15px;line-height:2.1;color:#76716c;margin:0}
+#ch06 .pj5-design-box{border:1px solid #e6e3df;border-radius:20px;overflow:hidden;background:#fff}
+#ch06 .pj5-box-label{padding:26px 30px 0;font-size:12px;color:#8b827a;letter-spacing:.03em}
+#ch06 .pj5-design-stage{border-radius:0;background:#fff;padding:28px 40px 36px;gap:30px}
+#ch06 .pj5-screen{max-width:260px}
+#ch06 .pj5-original{display:block;width:100%;padding:0;background:#f6f5f2;border:1px solid #e1dfdb;border-radius:11px;overflow:hidden;cursor:zoom-in;text-align:right;color:#777;font:inherit}
+#ch06 .pj5-original img{border:0;border-radius:0;box-shadow:none;width:100%}
+#ch06 .pj5-original span{display:block;padding:12px 13px;font-size:11px;border-top:1px solid #e4e1dd}
+#ch06 .pj5-original:hover{border-color:#b98674}
+#ch06 .pj5-original:focus-visible{outline:2px solid #aa614a;outline-offset:4px}
+#ch06 .pj5-screen-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:0 30px 30px}
+#ch06 .pj5-screen-principles>div{border-top:1px solid #dedad5;padding-top:18px}
+#ch06 .pj5-screen-principles span{font-size:11px;color:#b7674c}
+#ch06 .pj5-screen-principles h4,#ch06 .pj5-use h4,#ch06 .pj5-process-paragraph h4{font-size:15px;line-height:1.7;font-weight:600;margin:12px 0}
+#ch06 .pj5-screen-principles p{font-size:12px;line-height:1.95;color:#827c75;margin:0}
+#ch06 .pj5-use{padding:24px 30px 30px;background:#f8f7f5;border-top:1px solid #eeebe7}
+#ch06 .pj5-use h4{margin-top:0}
+#ch06 .pj5-use ol{padding-left:19px;margin:0}
+#ch06 .pj5-use li{font-size:13px;line-height:2;color:#77716a;padding:4px 0 4px 7px}
+#ch06 .pj5-design-flow{border:0;margin-top:12px;padding-bottom:0}
+#ch06 .pj5-screen-process{margin-top:28px;border-top:1px solid #dedad5;border-bottom:1px solid #dedad5;border-radius:0;background:transparent}
+#ch06 .pj5-screen-process summary{font-size:14px;padding:20px 0}
+#ch06 .pj5-screen-process .toggle-body{padding:22px 0 30px}
+#ch06 .pj5-process-question{padding:24px 28px;background:#fbf2ed;border-radius:14px;margin:0 0 32px}
+#ch06 .pj5-process-question span{font-size:11px;color:#b2664b}
+#ch06 .pj5-process-question p{font-size:20px;line-height:1.8;margin:15px 0 0;color:#443b35;max-width:650px}
+#ch06 .pj5-process-paragraph{margin-bottom:30px}
+#ch06 .pj5-process-paragraph p{font-size:14px;line-height:2.1;color:#7b746e;margin:8px 0}
+#ch06 .pj5-process-note{font-size:11px;color:#9a9189}
+.pj5-lightbox{width:min(1120px,96vw);max-width:96vw;height:94vh;max-height:94vh;padding:0;border:1px solid #dedbd6;border-radius:14px;background:#f5f4f1;color:#333}
+.pj5-lightbox::backdrop{background:#161a1cd9}
+.pj5-lightbox-bar{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:white;border-bottom:1px solid #ddd;gap:20px}
+.pj5-lightbox-bar p{font:13px/1.5 sans-serif;margin:0}
+.pj5-lightbox-close{background:#f3f2ef;border:1px solid #ddd;border-radius:7px;padding:9px 14px;font-size:13px;cursor:pointer;white-space:nowrap}
+.pj5-lightbox-scroll{height:calc(100% - 62px);overflow:auto;padding:24px;text-align:center;overscroll-behavior:contain}
+.pj5-lightbox-scroll img{display:block;width:auto;max-width:100%;height:auto;margin:0 auto;background:white}
+body.pj5-modal-open{overflow:hidden}
+@media(max-width:700px){#ch06 .pj5-design-module header h3{font-size:24px}#ch06 .pj5-design-stage{padding:24px 16px;gap:12px;overflow:auto;justify-content:flex-start}#ch06 .pj5-screen{flex:0 0 75%;max-width:250px}#ch06 .pj5-screen:only-child{margin:auto}#ch06 .pj5-box-label{padding:22px 20px 0}#ch06 .pj5-screen-principles{grid-template-columns:1fr;padding:0 20px 24px;gap:18px}#ch06 .pj5-use{padding:22px 20px}#ch06 .pj5-process-question{padding:22px}#ch06 .pj5-process-question p{font-size:18px}.pj5-lightbox-scroll{padding:12px}}
+
+.pj5-lightbox{position:fixed;inset:0;margin:auto;box-sizing:border-box;width:94vw;max-width:1120px}.pj5-lightbox *{box-sizing:border-box}.pj5-lightbox-bar{width:100%}
+
+.pj5-lightbox-bar{justify-content:flex-start}.pj5-lightbox-close{order:-1;flex-shrink:0}
+
+/* Left narrative / right screens; process typography copied from Project 02. */
+#ch06 .pj5-box-layout{display:grid;grid-template-columns:29% minmax(0,1fr);align-items:start}
+#ch06 .pj5-screen-principles{display:flex;flex-direction:column;gap:27px;padding:32px 26px 36px 30px}
+#ch06 .pj5-screen-principles>div{padding-top:20px}
+#ch06 .pj5-screen-principles h4{font-size:15px;margin:12px 0 10px}
+#ch06 .pj5-screen-principles p{font-size:13px;line-height:1.9}
+#ch06 .pj5-design-stage{padding:32px 25px 36px;gap:20px;min-width:0}
+#ch06 .pj5-screen{max-width:330px}
+#ch06 .pj5-screen:only-child{max-width:370px}
+#ch06 .pj5-original span{font-size:10px;line-height:1.4;padding:6px 10px}
+#ch06 .pj5-screen-process{margin-top:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0;background:transparent}
+#ch06 .pj5-screen-process summary{cursor:pointer;padding:20px 4px;color:var(--body-text);font-size:14px;font-weight:500;list-style:revert}
+#ch06 .pj5-screen-process>.pj5-process-question{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 20px;align-items:center;margin:24px 0 30px;padding:18px 26px;border:0;border-radius:12px;background:#fbf3ee;box-sizing:border-box}
+#ch06 .pj5-process-question>span{font-size:11px;color:var(--accent)}
+#ch06 .pj5-process-question>small{display:block;max-width:620px;justify-self:end;text-align:right;font-size:11px;line-height:1.6;color:var(--muted)}
+#ch06 .pj5-screen-process>.pj5-process-question>p{grid-column:1 / -1;margin:0;font-size:20px;line-height:1.65;max-width:none;color:var(--ink)}
+#ch06 .pj5-screen-process>h4{margin:30px 0 8px;font-size:16px;font-weight:500;line-height:1.7}
+#ch06 .pj5-screen-process>p{font-size:14px;margin:0 0 18px;line-height:1.9;color:var(--body-text);max-width:760px}
+@media(max-width:700px){#ch06 .pj5-box-layout{grid-template-columns:1fr}#ch06 .pj5-screen-principles{padding:22px 20px;gap:18px}#ch06 .pj5-design-stage{padding:20px 16px 28px}#ch06 .pj5-screen{flex:0 0 80%;max-width:310px}#ch06 .pj5-screen:only-child{max-width:330px}}
+@media(max-width:600px){#ch06 .pj5-screen-process>.pj5-process-question{padding:18px 20px;grid-template-columns:1fr;gap:8px}#ch06 .pj5-process-question>small{grid-row:3;justify-self:end}}
+
+/* 01 only: compact narrative and one generous screen */
+#ch06 .pj5-home-editorial header{margin-bottom:30px;max-width:790px}
+#ch06 .pj5-home-editorial .pj5-module-lead{max-width:720px}
+#ch06 .pj5-home-editorial .pj5-box-layout{grid-template-columns:35% minmax(0,1fr)}
+#ch06 .pj5-home-editorial .pj5-screen-principles{padding:48px 12px 48px 36px;gap:42px}
+#ch06 .pj5-home-editorial .pj5-screen-principles>div{border:0;padding:0}
+#ch06 .pj5-home-editorial .pj5-screen-principles span{font-size:11px;letter-spacing:.05em}
+#ch06 .pj5-home-editorial .pj5-screen-principles h4{font-size:16px;font-weight:500;margin:11px 0 10px}
+#ch06 .pj5-home-editorial .pj5-screen-principles p{font-size:13px;line-height:1.9;margin:0}
+#ch06 .pj5-home-editorial .pj5-design-stage{padding:36px 32px 30px;background:#f8f8f5}
+#ch06 .pj5-home-editorial .pj5-screen:only-child{max-width:350px;width:100%}
+#ch06 .pj5-home-editorial .pj5-original{border:0;border-radius:10px;background:transparent}
+#ch06 .pj5-home-editorial .pj5-screen figcaption{display:flex;justify-content:space-between;align-items:center;gap:8px;text-align:left;margin-top:12px;font-size:10px}
+#ch06 .pj5-home-enlarge{border:0;background:none;padding:3px 0;color:#77716b;font:inherit;font-size:10px;cursor:zoom-in;white-space:nowrap}
+#ch06 .pj5-home-enlarge:hover{text-decoration:underline;text-underline-offset:3px}
+#ch06 .pj5-home-editorial .pj5-screen-process{margin-top:26px}
+#ch06 .pj5-home-editorial .pj5-home-evidence{font-size:11px;color:var(--muted);margin-top:24px}
+@media(max-width:700px){#ch06 .pj5-home-editorial .pj5-box-layout{grid-template-columns:1fr}#ch06 .pj5-home-editorial .pj5-screen-principles{padding:28px 24px;gap:25px}#ch06 .pj5-home-editorial .pj5-design-stage{padding:26px 22px}#ch06 .pj5-home-editorial .pj5-screen:only-child{flex-basis:100%;max-width:330px}}
+
+/* 02 only: working seller registration prototype */
+#ch06 .pj5-register-module .pj5-register-live{background:#eef0ed;border:1px solid #e5e9e3;border-radius:20px;overflow:hidden;margin-top:30px}
+#ch06 .pj5-register-live iframe{display:block;width:100%;height:930px;border:0;background:#eef0ed}
+@media(max-width:800px){#ch06 .pj5-register-live iframe{height:1100px}#ch06 .pj5-register-module .pj5-register-live{border-radius:14px}}
+
+/* Screen-design chapter background; 02 live layout only */
+.project-five #ch06{background:#eef0ed}
+#ch06 .pj5-register-module .pj5-register-live{background:transparent;border:0;border-radius:0;overflow:visible;margin-top:24px}
+#ch06 .pj5-register-live iframe{height:640px;background:#eef0ed}
+#ch06 .pj5-register-module .pj5-screen-process{margin-top:26px}
+#seller-register{scroll-margin-top:125px}
+@media(max-width:800px){#ch06 .pj5-register-live iframe{height:760px}}
+@media(max-width:520px){#ch06 .pj5-register-live iframe{height:1060px}}
+
+@media(min-width:801px){#ch06 .pj5-register-live iframe{height:570px}}
+
+#ch06 .pj5-explore-live{margin-top:24px}#ch06 .pj5-explore-live iframe{display:block;width:100%;height:570px;border:0;background:#eef0ed}#buyer-explore{scroll-margin-top:125px}@media(max-width:800px){#ch06 .pj5-explore-live iframe{height:760px}}@media(max-width:520px){#ch06 .pj5-explore-live iframe{height:1060px}}
+
+#ch06 .pj5-meal-live{margin-top:24px}#ch06 .pj5-meal-live iframe{display:block;width:100%;height:570px;border:0;background:#eef0ed}#market-meal{scroll-margin-top:125px}@media(max-width:800px){#ch06 .pj5-meal-live iframe{height:760px}}@media(max-width:520px){#ch06 .pj5-meal-live iframe{height:1060px}}
+
+#ch06 .pj5-purchase-live{margin-top:24px}#ch06 .pj5-purchase-live iframe{display:block;width:100%;height:570px;border:0;background:#eef0ed}#product-purchase{scroll-margin-top:125px}@media(max-width:800px){#ch06 .pj5-purchase-live iframe{height:760px}}@media(max-width:520px){#ch06 .pj5-purchase-live iframe{height:1060px}}
+
+#ch06 .pj5-closing-live{margin-top:24px}#ch06 .pj5-closing-live iframe{display:block;width:100%;height:570px;border:0;background:#eef0ed}#sales-closing{scroll-margin-top:125px}@media(max-width:800px){#ch06 .pj5-closing-live iframe{height:760px}}@media(max-width:520px){#ch06 .pj5-closing-live iframe{height:1060px}}
+
+/* Keep the domain heading and its disclosure together. */
+.project-five #ch05 .pj5-domain-heading{margin-bottom:10px}
+.project-five #ch05 .pj5-domain-toggle{margin-top:0}
+
+
+/* Adjacent requirement disclosures share one divider. */
+.project-five #ch05 .pj5-domain-toggle{margin-bottom:0}
+.project-five #ch05 .pj5-domain-toggle + .detail-toggle{margin-top:0;border-top:0}
+
+/* Adjacent testing disclosures share one divider. */
+.project-five #ch07 .pj5-test-cards-toggle{margin-bottom:0}
+.project-five #ch07 .pj5-test-cards-toggle + .detail-toggle{margin-top:0;border-top:0}
+
+/* Equal-height testing disclosure rows with centered labels. */
+.project-five #ch07 .pj5-test-cards-toggle>summary,
+.project-five #ch07 .pj5-test-cards-toggle + .detail-toggle>summary{display:flex;align-items:center;min-height:64px;box-sizing:border-box;padding:20px 22px;line-height:24px;margin:0}
+
+.project-five #ch07 .pj5-positive-feedback tbody td:nth-child(2),
+.project-five #ch07 .pj5-positive-feedback tbody td:nth-child(3){vertical-align:middle}
+
+/* Code-native cover, using the current UI rather than a composite image. */
+.project-five .pj5-cover{position:relative;isolation:isolate;min-height:610px;background:#eef2ec;border:1px solid #e5ebe1;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:40% 60%;margin:0}
+.project-five .pj5-cover:after{content:'';position:absolute;z-index:-1;width:560px;height:560px;right:-40px;top:60px;border:1px solid #dbe5d7;border-radius:50%;box-shadow:0 0 0 65px #e6ede224,0 0 0 130px #e1e9dc30}
+.project-five .pj5-cover-copy{padding:62px 0 45px 44px;align-self:center;z-index:4}
+.project-five .pj5-cover-eyebrow{font-size:9px;letter-spacing:.14em;color:#819280;margin:0 0 30px}
+.project-five .pj5-cover-brand{display:flex;align-items:center;gap:10px;color:#287454;margin-bottom:25px}.project-five .pj5-cover-brand svg{width:45px;height:45px}.project-five .pj5-cover-brand>span{font-size:38px;font-weight:700;letter-spacing:-2px}
+.project-five .pj5-cover-copy h2{font-size:30px;line-height:1.55;letter-spacing:-1.2px;color:#253b2c;margin:0 0 18px;font-weight:550}
+.project-five .pj5-cover-desc{font-size:13px;line-height:1.9;color:#81917e;margin:0 0 26px}
+.project-five .pj5-cover-tags{display:flex;flex-wrap:wrap;gap:6px;max-width:280px}.project-five .pj5-cover-tags>span{font-size:9px;border:1px solid #d8e2d2;border-radius:20px;padding:6px 9px;color:#6d826c}
+.project-five .pj5-cover-devices{position:relative;height:610px;align-self:center;pointer-events:none}
+.project-five .pj5-cover-device{position:absolute;width:195px;height:422px;border:5px solid #26342b;box-sizing:content-box;border-radius:25px;overflow:hidden;background:white;box-shadow:0 20px 35px #243d2418}
+.project-five .pj5-cover-device iframe{display:block;width:390px;height:844px;transform:scale(.5);transform-origin:top left;border:0;pointer-events:none}
+.project-five .cover-main{left:31%;top:88px;z-index:3;transform:rotate(-4deg)}
+.project-five .cover-meal{left:2%;top:154px;z-index:1;transform:rotate(-12deg);opacity:.94}
+.project-five .cover-register{left:60%;top:143px;z-index:2;transform:rotate(9deg);opacity:.97}
+@media(max-width:950px){.project-five .pj5-cover{grid-template-columns:38% 62%;min-height:540px}.project-five .pj5-cover-copy{padding-left:28px}.project-five .pj5-cover-copy h2{font-size:25px}.project-five .pj5-cover-devices{height:540px;transform:scale(.85);transform-origin:center left;width:118%}.project-five .cover-main{top:55px}.project-five .cover-meal,.project-five .cover-register{top:115px}}
+@media(max-width:650px){.project-five .pj5-cover{display:block;min-height:730px;border-radius:18px}.project-five .pj5-cover-copy{padding:34px 28px 0}.project-five .pj5-cover-eyebrow{margin-bottom:18px;font-size:8px}.project-five .pj5-cover-brand{margin-bottom:16px}.project-five .pj5-cover-brand>span{font-size:29px}.project-five .pj5-cover-brand svg{width:35px;height:35px}.project-five .pj5-cover-copy h2{font-size:25px}.project-five .pj5-cover-desc{font-size:12px;margin-bottom:15px}.project-five .pj5-cover-devices{height:430px;width:520px;position:absolute;left:50%;margin-left:-260px;bottom:-25px;transform:scale(.78);transform-origin:center bottom}.project-five .cover-main{left:30%;top:0}.project-five .cover-meal{left:4%;top:70px}.project-five .cover-register{left:59%;top:65px}}
+
+.project-five .pj5-cover-brand .pj5-original-basket{display:block;width:51px;height:56px;flex:none;background:currentColor;-webkit-mask-image:url('../Image/PJ5_images/itdam-original-logo.png');mask-image:url('../Image/PJ5_images/itdam-original-logo.png');-webkit-mask-size:188px 56px;mask-size:188px 56px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:left center;mask-position:left center}.project-five .pj5-cover-brand>span:last-child{font-weight:650}.project-five .pj5-cover-brand{gap:9px}
+@media(max-width:650px){.project-five .pj5-cover-brand .pj5-original-basket{width:40px;height:44px;-webkit-mask-size:147px 44px;mask-size:147px 44px}}
+
+/* Question callouts in the screen-design section: harmonized green. */
+.project-five #ch06 .pj5-screen-process>.pj5-process-question{background:#e2ebe0;border:1px solid #d4e0d1;grid-template-columns:1fr;gap:12px}
+.project-five #ch06 .pj5-process-question>span{color:#477050}
+.project-five #ch06 .pj5-screen-process>.pj5-process-question>p{color:#2e4834}

@@ -1,0 +1,27 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><link rel="stylesheet" href="../css/project5.css"><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Apple SD Gothic Neo',sans-serif;width:1280px;height:440px;overflow:hidden}.project-five .pj5-cover{height:440px;min-height:440px;border:0;border-radius:0;grid-template-columns:40% 60%}.project-five .pj5-cover-copy{padding:30px 0 30px 62px}.project-five .pj5-cover-eyebrow{margin-bottom:18px}.project-five .pj5-cover-brand{margin-bottom:20px}.project-five .pj5-cover-copy h2{font-size:34px;line-height:1.4}.project-five .pj5-cover-desc{margin-bottom:15px;font-size:13px}.project-five .pj5-cover-devices{height:440px;transform:scale(.92);transform-origin:center top}.project-five .cover-main{top:25px;left:32%}.project-five .cover-meal{top:95px;left:5%}.project-five .cover-register{top:80px;left:59%}.project-five .pj5-cover:after{top:-30px}h2,p{margin:0}
+/* Fit the card itself: no captured bitmap or fixed canvas. */
+html{height:100%;width:100%}body{width:100%;height:100%;overflow:hidden}
+.project-five .pj5-cover{width:100%;height:100%;min-height:0;grid-template-columns:39% 61%;border:0;border-radius:0;box-sizing:border-box}
+.project-five .pj5-cover-copy{padding:clamp(15px,3vw,44px);padding-right:0;align-self:center}
+.project-five .pj5-cover-eyebrow{font-size:clamp(6px,.7vw,10px);margin-bottom:clamp(10px,1.4vw,20px)}
+.project-five .pj5-cover-brand{margin-bottom:clamp(8px,1.5vw,20px);gap:8px}
+.project-five .pj5-cover-brand>span:last-child{font-size:clamp(20px,3vw,38px)}
+.project-five .pj5-cover-brand .pj5-original-basket{width:40px;height:44px;-webkit-mask-size:147px 44px;mask-size:147px 44px}
+.project-five .pj5-cover-copy h2{font-size:clamp(17px,2.6vw,34px);line-height:1.45;margin-bottom:clamp(8px,1.2vw,16px)}
+.project-five .pj5-cover-desc{font-size:clamp(8px,1vw,13px);margin-bottom:clamp(10px,1.5vw,20px)}
+.project-five .pj5-cover-tags>span{font-size:clamp(6px,.65vw,9px);padding:5px 7px}
+.project-five .pj5-cover-devices{position:relative;width:100%;height:100%;margin:0;left:auto;bottom:auto;transform:none}
+.project-five .pj5-cover-device{--screen-scale:.44;width:calc(390px * var(--screen-scale));height:calc(844px * var(--screen-scale));border-width:4px;border-radius:22px}
+.project-five .pj5-cover-device iframe{transform:scale(var(--screen-scale))}
+.project-five .cover-main{left:32%;top:7%;transform:rotate(-4deg)}
+.project-five .cover-meal{left:1%;top:23%;transform:rotate(-10deg)}
+.project-five .cover-register{left:62%;top:20%;transform:rotate(8deg)}
+@media(max-width:1050px){.project-five .pj5-cover-device{--screen-scale:.36}.project-five .pj5-cover-tags{display:none}}
+@media(max-width:800px){.project-five .pj5-cover-device{--screen-scale:.28}.project-five .pj5-cover-brand .pj5-original-basket{width:30px;height:33px;-webkit-mask-size:111px 33px;mask-size:111px 33px}}
+@media(max-width:600px){.project-five .pj5-cover{display:grid;grid-template-columns:40% 60%;min-height:0}.project-five .pj5-cover-copy{padding:18px 0 18px 18px}.project-five .pj5-cover-eyebrow{display:none}.project-five .pj5-cover-brand{gap:5px}.project-five .pj5-cover-brand>span:last-child{font-size:22px}.project-five .pj5-cover-copy h2{font-size:17px}.project-five .pj5-cover-desc{font-size:8px;line-height:1.8}.project-five .pj5-cover-devices{height:100%;width:100%;left:auto;margin:0;bottom:auto;transform:none}.project-five .pj5-cover-device{--screen-scale:.23;border-radius:14px;border-width:3px}.project-five .cover-main{left:25%;top:12%}.project-five .cover-meal{left:0;top:28%}.project-five .cover-register{left:55%;top:24%}}
+
+.project-five .pj5-cover-device{--screen-scale:var(--fit-scale,.3)}.project-five .cover-main{top:8%}.project-five .cover-meal{top:15%}.project-five .cover-register{top:15%}
+</style><body class="project-five"><figure class="pj5-cover" aria-label="잇담의 새로운 구매자 홈, 시장한끼와 상품 등록 화면">
+  <div class="pj5-cover-copy"><p class="pj5-cover-eyebrow">ITDAM · LOCAL MARKET CONNECTION</p><div class="pj5-cover-brand"><span class="pj5-original-basket" aria-hidden="true"></span><span>잇담</span></div><h2>전통시장을 잇고,<br>가치를 담다.</h2><p class="pj5-cover-desc">오늘 남은 상품이,<br>이웃의 한 끼로 이어지도록.</p><div class="pj5-cover-tags"><span>주변 시장 탐색</span><span>메뉴 기반 장보기</span><span>판매자 상품 등록</span></div></div>
+  <div class="pj5-cover-devices" aria-hidden="true"><div class="pj5-cover-device cover-side cover-meal"><iframe src="../Image/PJ5_images/prototype/meal.html?hero" title="시장한끼 화면 미리보기" tabindex="-1" loading="eager"></iframe></div><div class="pj5-cover-device cover-main"><iframe src="../Image/PJ5_images/prototype/explore.html?hero" title="구매자 홈 화면 미리보기" tabindex="-1" loading="eager"></iframe></div><div class="pj5-cover-device cover-side cover-register"><iframe src="../Image/PJ5_images/prototype/register.html?hero#form" title="상품 등록 화면 미리보기" tabindex="-1" loading="eager"></iframe></div></div>
+</figure><script>function fitCover(){document.body.style.setProperty('--fit-scale',Math.min(innerHeight*.76/844,innerWidth*.17/390))}fitCover();new ResizeObserver(fitCover).observe(document.body);</script></body></html>
