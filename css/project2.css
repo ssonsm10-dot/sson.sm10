@@ -869,3 +869,17 @@
 .project-two .case-collaboration-details[open] { padding-bottom:28px; }
 
 .project-two #test-ab .case-ab-criteria-note { max-width:none; margin:0 0 30px; font-size:12px; line-height:1.95; color:var(--muted); }
+
+/* Synthetic record preview: isolated from measured test records. */
+.project-two .case-synthetic-record-view { margin:0 0 18px; border:1px solid #e1e4df; border-radius:10px; overflow:hidden; }
+.project-two .case-synthetic-record-view > summary { padding:15px 18px; background:#f6f7f4; font-size:13px; }
+.project-two .case-synthetic-record-view .case-source-sheet { margin:0; border:0; border-radius:0; }
+.project-two .case-synthetic-source .case-source-sheet table { width:1800px; }
+.project-two .case-synthetic-source .case-source-sheet th, .project-two .case-synthetic-source .case-source-sheet td { vertical-align:middle; }
+.project-two .case-synthetic-source .case-source-sheet tr > :nth-child(2) { width:145px; }
+.project-two .case-synthetic-source .case-source-sheet tr > :nth-child(3) { width:110px; }
+.project-two .case-synthetic-source .case-source-sheet tr > :nth-child(n+4) { width:160px; }
+.project-two .case-synthetic-source .case-synthetic-notes table { width:1160px; }
+.project-two .case-synthetic-source .case-synthetic-notes tr > :nth-child(4) { width:110px; }
+.project-two .case-synthetic-source .case-synthetic-notes tr > :nth-child(n+5) { width:340px; white-space:normal; overflow-wrap:anywhere; line-height:1.85; }
+.project-two .case-synthetic-source .case-source-sheet-bar { flex-wrap:wrap; }
