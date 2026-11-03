@@ -1195,46 +1195,31 @@
                 세로축은 구현했을 때의 기대 만족도입니다. 리서치와 기능 검토를 바탕으로 팀이 당시 판단한 상대적 분류이며, 실제 구현 시간이나 효과를 측정한 결과는 아닙니다.
               </p>
 
-              <div class="detail-summary detail-summary--four">
-
-                <article class="summary-card">
-                  <span class="summary-number">적은 노력 · 높은 만족</span>
+              <div class="pj5-effort-grid" aria-label="구현 노력과 기대 만족도 사분면">
+                <article class="pj5-effort-card is-priority">
+                  <span class="pj5-effort-label">적은 노력 · 높은 만족</span>
                   <h3>우선 검토</h3>
-                  <p>
-                    시장한끼 · 지도 상 점포 위치 · 판매 현황<br />
-                    구현 노력 대비 기대 만족도가 높은 구간입니다. 실제 도입 시점은 데이터 확보 조건과 함께 판단했습니다.
-                  </p>
+                  <p class="pj5-effort-items">시장한끼 · 지도 상 점포 위치 · 판매 현황</p>
+                  <p class="pj5-effort-description">구현 노력 대비 기대 만족도가 높은 구간입니다. 실제 도입 시점은 데이터 확보 조건과 함께 판단했습니다.</p>
                 </article>
-
-                <article class="summary-card">
-                  <span class="summary-number">적은 노력 · 낮은 만족</span>
-                  <h3>Update 우선</h3>
-                  <p>
-                    상품 상세 저장 · 식재료 보관 · AI 등록 고도화<br />
-                    AI 등록 고도화는 인식 정확도 개선과 자동 입력 항목 확대를 뜻합니다. 팀은 당시 다른 후보에 비해 구현 노력이 적은 개선으로 판단했습니다. MVP의 상품명·카테고리 제안과는 범위를 구분했습니다.
-                  </p>
-                </article>
-
-                <article class="summary-card">
-                  <span class="summary-number">많은 노력 · 낮은 만족</span>
-                  <h3>Update 후순위</h3>
-                  <p>
-                    구매자 상품 추천<br />
-                    기능의 존재 가치 자체를 다시 판단할 필요가 있는
-                    구간입니다.
-                  </p>
-                </article>
-
-                <article class="summary-card">
-                  <span class="summary-number">많은 노력 · 높은 만족</span>
+                <article class="pj5-effort-card">
+                  <span class="pj5-effort-label">많은 노력 · 높은 만족</span>
                   <h3>장기 검토</h3>
-                  <p>
-                    배송 · 픽업 존<br />
-                    자원이 많이 필요하지만 만족도는 높은 구간. 장기 플랜에
-                    적합합니다.
-                  </p>
+                  <p class="pj5-effort-items">배송 · 픽업 존</p>
+                  <p class="pj5-effort-description">자원이 많이 필요하지만 만족도는 높은 구간. 장기 플랜에 적합합니다.</p>
                 </article>
-
+                <article class="pj5-effort-card">
+                  <span class="pj5-effort-label">적은 노력 · 낮은 만족</span>
+                  <h3>Update 우선</h3>
+                  <p class="pj5-effort-items">상품 상세 저장 · 식재료 보관 · AI 등록 고도화</p>
+                  <p class="pj5-effort-description">AI 등록 고도화는 인식 정확도 개선과 자동 입력 항목 확대를 뜻합니다. 팀은 당시 다른 후보에 비해 구현 노력이 적은 개선으로 판단했습니다. MVP의 상품명·카테고리 제안과는 범위를 구분했습니다.</p>
+                </article>
+                <article class="pj5-effort-card">
+                  <span class="pj5-effort-label">많은 노력 · 낮은 만족</span>
+                  <h3>Update 후순위</h3>
+                  <p class="pj5-effort-items">구매자 상품 추천</p>
+                  <p class="pj5-effort-description">기능의 존재 가치 자체를 다시 판단할 필요가 있는 구간입니다.</p>
+                </article>
               </div>
 
               <p class="rice-note">
@@ -1323,7 +1308,7 @@
             <div class="domain-item"><span class="domain-key">F</span><span class="domain-name">시장 · 가게</span><span class="domain-count">6</span></div>
             <div class="domain-item is-key"><span class="domain-key">G</span><span class="domain-name">마감</span><span class="domain-count">6</span></div>
             <div class="domain-item"><span class="domain-key">H</span><span class="domain-name">상품 관리</span><span class="domain-count">6</span></div>
-            <div class="domain-item"><span class="domain-key">I</span><span class="domain-name">판매 현황 (기본 인사이트)</span><span class="domain-count">2</span></div>
+            <div class="domain-item"><span class="domain-key">I</span><span class="domain-name">판매 현황</span><span class="domain-count">2</span></div>
             <div class="domain-item"><span class="domain-key">J</span><span class="domain-name">알림</span><span class="domain-count">6</span></div>
             <div class="domain-item"><span class="domain-key">K</span><span class="domain-name">계정 관리</span><span class="domain-count">2</span></div>
             <div class="domain-item"><span class="domain-key">L</span><span class="domain-name">신뢰도</span><span class="domain-count">6</span></div>
@@ -1347,7 +1332,7 @@
 
             <div class="toggle-body">
               <div class="compare-table-wrap">
-                <table class="compare-table req-table">
+                <table class="compare-table req-table pj5-representative-req">
                   <thead>
                     <tr>
                       <th scope="col">요건 ID</th>
