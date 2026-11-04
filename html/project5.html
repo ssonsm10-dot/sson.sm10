@@ -727,6 +727,10 @@
 
           </div>
 
+          <p>
+            가장 많이 나온 주차·동선 불편 중 주차 공간 확충은 이번 서비스의 범위에 포함하지 않았습니다. 방문 전 상품 비교로 시장 안에서 탐색하는 부담을 줄이는 데 집중했으며, 점포별 픽업 동선은 후속 개선 과제로 남겼습니다.
+          </p>
+
           <p class="detail-quote">
             설문에서는 판매와 구매에 대한 의향을 확인했습니다. 다음 과제는 그 의향이 실제 등록과 구매로 이어질 수 있는 흐름을 만드는 것이었습니다.
           </p>
@@ -775,7 +779,7 @@
           <h2>퇴근길 30분과 마감 20분을, 서비스의 기준으로 삼다</h2>
 
           <p class="detail-headline">
-            두 사람의 시간 안에서 작동해야 했습니다
+            두 사용자의 시간 안에서 작동해야 했습니다
           </p>
         </div>
 
@@ -1565,7 +1569,7 @@
           <p>
             화면 설계서를 쓸 때 정상 흐름보다
             <strong>예외 흐름을 먼저 정의</strong>했습니다. 개발 중에
-            되묻게 되는 지점이 거기고, 그때 생기는 커뮤니케이션 비용이
+            되묻게 되는 지점에 집중했고, 그때 생기는 커뮤니케이션 시간이
             일정을 가장 많이 잡아먹는다고 판단했습니다.
           </p>
 
@@ -1591,180 +1595,76 @@
             </table>
           </div>
 
-           <p>
-            화면마다 영역을 번호로 나누고, 각 영역이 무엇을 보여주고 어떤
-            조건에서 어떻게 동작하는지를 적었습니다. 아래는 메인 화면
-            설계서의 정의입니다.
-          </p>
-
-          <div class="spec-doc">
-            <div class="spec-doc-head">
-              <span class="spec-doc-id">FLW_HOM_001</span>
-              <span class="spec-doc-name">잇담 메인 화면 (지도 홈)</span>
-              <span class="spec-doc-date">2026.01.05</span>
-            </div>
-
-            <div class="compare-table-wrap">
-              <table class="compare-table spec-table">
-                <thead>
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">영역</th>
-                    <th scope="col">정의</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>상단 헤더 · 브랜딩</td>
-                    <td>
-                      좌측에 서비스명 노출 · 우측 아이콘 탭으로 장바구니와
-                      알림 화면 이동
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>검색 입력창</td>
-                    <td>
-                      placeholder “요리, 식료, 원하는 식재료를
-                      검색해보세요!” · 검색 대상은 상품명과 식재료 키워드
-                    </td>
-                  </tr>
-
-                  <tr class="is-exception">
-                    <th scope="row">3</th>
-                    <td>현재 위치 · 거리 정보</td>
-                    <td>
-                      가장 가까운 시장과 거리(m) 표시 ·
-                      <strong>위치 권한 미허용 시 “위치 권한이 필요합니다”
-                      안내와 권한 요청 CTA 제공</strong>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>구매자 · 판매자 모드 전환</td>
-                    <td>
-                      기본값은 구매자(초기 진입 기준) · 전환 시 각 역할의
-                      홈 화면으로 이동
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>지도 영역 (시장 핀 · 현재 핀)</td>
-                    <td>
-                      현재 위치 핀과 시장 핀 구분 · 핀 탭 시 해당 시장
-                      선택 상태로 변경되고 하단 카드가 갱신
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">6</th>
-                    <td>하단 시장 카드 (캐러셀)</td>
-                    <td>
-                      선택된 시장을 카드로 노출 · 시장명, 대표 이미지,
-                      등록 상품 수 요약 지표
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">7</th>
-                    <td>하단 탭바 내비게이션</td>
-                    <td>
-                      시장한끼 / 탐색 / 홈 / 주문 내역 / 마이페이지 ·
-                      현재 탭은 강조 표시
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <p class="detail-note">
-            위 표의 3번이 앞서 정리한 예외 흐름 중 하나입니다. 예외를 따로
-            모아둔 문서가 아니라, 각 영역의 정의 안에 조건과 함께
-            적어두었습니다. 개발자가 그 화면을 만들 때 같은 자리에서 보게
-            하기 위해서였습니다.
-          </p>
-
-          <details class="detail-toggle">
-            <summary>화면 설계서 원본 5종</summary>
-
+          <p>현재 화면을 기준으로 구매자 메인·판매자 메인·시장한끼·상품 상세·상품 등록의 영역과 동작을 정리했습니다. 화면 미리보기와 정의를 함께 보고, 구현 시 처리할 예외 조건은 별도로 확인할 수 있습니다.</p>
+          <details class="detail-toggle pj5-spec-library">
+            <summary>현재 화면 기준 설계서 5종</summary>
             <div class="toggle-body">
-              <p>
-                구매자 메인, 판매자 메인, 시장한끼 장보기, 상품 상세, 상품
-                등록 화면의 설계서입니다. 왼쪽에 화면, 오른쪽에 영역별
-                정의를 나란히 두는 형식으로 통일했습니다.
-              </p>
-
-              <!-- ⚠️ 파일명을 실제 경로로 바꾸세요. 필요한 만큼만 남기고 지워도 됩니다. -->
-              <figure class="detail-figure" style="margin-top: 20px;">
-                <div class="detail-main-image detail-main-image--tall">
-                  <img
-                    class="screen-spec-img"
-                    src="../Image/PJ5_images/spec_hom.png"
-                    alt="FLW_HOM_001 메인 화면 설계서"
-                  />
+              <p class="pj5-spec-intro">화면별 영역 · 동작 · 예외 조건</p>
+              <details class="pj5-spec-sheet" open>
+                <summary><span class="pj5-spec-index">01</span><span>구매자 메인<small>FLW_HOM_001</small></span><span class="pj5-spec-expand" aria-hidden="true">＋</span></summary>
+                <div class="pj5-spec-layout">
+                  <div class="pj5-spec-preview"><div class="pj5-spec-device"><iframe src="../Image/PJ5_images/prototype/spec/explore.html" title="구매자 메인 현재 화면 미리보기" loading="lazy"></iframe></div><p>현재 시안 · 화면 내부 스크롤 가능</p></div>
+                  <div class="pj5-spec-definitions"><ol>
+<li><span>01</span><div><h4>헤더와 역할 전환</h4><p>지역명·장바구니·알림을 표시합니다. 구매자·판매자 토글을 바꾸면 해당 역할의 홈과 하단 메뉴로 전환합니다.</p></div></li>
+<li><span>02</span><div><h4>시장 검색과 필터</h4><p>시장명을 검색하고 전체 시장·마감 상품·가까운 순으로 탐색 조건을 선택합니다.</p></div></li>
+<li><span>03</span><div><h4>지도와 시장 선택</h4><p>현재 위치와 시장 핀을 구분합니다. 핀을 누르면 선택한 시장과 하단 카드가 함께 바뀝니다.</p></div></li>
+<li><span>04</span><div><h4>선택 시장 카드</h4><p>시장명·거리·대표 사진·마감 상품 수와 상품 미리보기를 제공합니다. 마감 상품 보기로 해당 시장 목록에 진입합니다.</p></div></li>
+<li><span>05</span><div><h4>관심 시장과 하단 메뉴</h4><p>관심 시장을 저장할 수 있습니다. 시장한끼·탐색·홈·주문 내역·마이페이지로 주요 경로를 구분합니다.</p></div></li>
+</ol><div class="pj5-spec-boundary"><strong>구현 범위와 예외 조건</strong><p>지도·거리·상품은 예시 데이터입니다. 실제 위치 권한 요청과 지도 API는 연결하지 않았습니다. 위치 권한 거부 시 안내와 재요청 경로는 구현 시 처리할 예외 조건입니다.</p></div></div>
                 </div>
-                <figcaption class="detail-caption">
-                  FLW_HOM_001 · 잇담 메인 화면 (지도 홈)
-                </figcaption>
-              </figure>
-
-              <figure class="detail-figure" style="margin-top: 28px;">
-                <div class="detail-main-image detail-main-image--tall">
-                  <img
-                    class="screen-spec-img"
-                    src="../Image/PJ5_images/spec_sel.png"
-                    alt="FLW_SEL_001 판매자 메인 화면 설계서"
-                  />
+              </details>
+              <details class="pj5-spec-sheet">
+                <summary><span class="pj5-spec-index">02</span><span>판매자 메인<small>FLW_SEL_001</small></span><span class="pj5-spec-expand" aria-hidden="true">＋</span></summary>
+                <div class="pj5-spec-layout">
+                  <div class="pj5-spec-preview"><div class="pj5-spec-device"><iframe src="../Image/PJ5_images/prototype/spec/explore-seller.html" title="판매자 메인 현재 화면 미리보기" loading="lazy"></iframe></div><p>현재 시안 · 화면 내부 스크롤 가능</p></div>
+                  <div class="pj5-spec-definitions"><ol>
+<li><span>01</span><div><h4>점포 정보와 역할 전환</h4><p>시장명과 가게명을 표시합니다. 토글로 구매자 홈에 돌아갈 수 있으며 판매자 전용 하단 메뉴를 제공합니다.</p></div></li>
+<li><span>02</span><div><h4>판매 현황·판매 리스트</h4><p>판매 현황은 기간별 금액과 카테고리 비중을, 판매 리스트는 판매한 상품·수량·금액을 보여줍니다.</p></div></li>
+<li><span>03</span><div><h4>기간 선택과 판매 금액</h4><p>일·주·월 버튼으로 선택 기간의 예시 판매액을 확인합니다. 거래 기록으로 바로 확인할 기본 현황입니다.</p></div></li>
+<li><span>04</span><div><h4>성장 인사이트 진입</h4><p>비교·추세 분석과 구독 관리는 Update 1 범위입니다. 현재 버튼은 후속 기능 안내를 표시합니다.</p></div></li>
+<li><span>05</span><div><h4>등록·관리 진입</h4><p>상품 등록과 상품 관리 버튼을 구분합니다. 현재 메인 시안에서는 해당 흐름의 위치를 안내합니다.</p></div></li>
+</ol><div class="pj5-spec-boundary"><strong>구현 범위와 예외 조건</strong><p>판매액·판매 내역·카테고리 비중은 디자인 확인용 예시입니다. 거래 집계 서버와 심화 인사이트는 연결하지 않았습니다.</p></div></div>
                 </div>
-                <figcaption class="detail-caption">
-                  FLW_SEL_001 · 판매자 메인 화면
-                </figcaption>
-              </figure>
-
-              <figure class="detail-figure" style="margin-top: 28px;">
-                <div class="detail-main-image detail-main-image--tall">
-                  <img
-                    class="screen-spec-img"
-                    src="../Image/PJ5_images/spec_meal.png"
-                    alt="FLW_MKT_MEAL_001 시장한끼 장보기 화면 설계서"
-                  />
+              </details>
+              <details class="pj5-spec-sheet">
+                <summary><span class="pj5-spec-index">03</span><span>시장한끼 장보기<small>FLW_MKT_MEAL_001</small></span><span class="pj5-spec-expand" aria-hidden="true">＋</span></summary>
+                <div class="pj5-spec-layout">
+                  <div class="pj5-spec-preview"><div class="pj5-spec-device"><iframe src="../Image/PJ5_images/prototype/spec/meal.html" title="시장한끼 장보기 현재 화면 미리보기" loading="lazy"></iframe></div><p>현재 시안 · 화면 내부 스크롤 가능</p></div>
+                  <div class="pj5-spec-definitions"><ol>
+<li><span>01</span><div><h4>시장별 메뉴 탐색</h4><p>가까운 시장별로 만들 수 있는 메뉴를 제공합니다. 시장을 먼저 선택하거나 메뉴를 직접 고를 수 있습니다.</p></div></li>
+<li><span>02</span><div><h4>메뉴 검색</h4><p>메뉴명으로 선택지를 좁힙니다. 상세 구매 흐름은 소고기 미역국 예시를 기준으로 구성했습니다.</p></div></li>
+<li><span>03</span><div><h4>레시피와 재료 경로</h4><p>메뉴 선택 뒤 레시피 보기와 재료 선택을 구분합니다. 레시피의 조리 순서를 확인한 뒤에도 재료 선택으로 이동합니다.</p></div></li>
+<li><span>04</span><div><h4>재료별 상품 비교</h4><p>재료마다 점포·가격·재고를 확인하고 상품을 하나씩 고릅니다. 상품 교체와 정렬 변경을 지원합니다.</p></div></li>
+<li><span>05</span><div><h4>총액과 담기 완료</h4><p>선택한 재료의 상품 금액·할인 금액을 합산합니다. 담기 완료 뒤 장바구니 확인 또는 메뉴 탐색을 선택합니다.</p></div></li>
+</ol><div class="pj5-spec-boundary"><strong>구현 범위와 예외 조건</strong><p>시장·가격·재고와 레시피는 시안용 예시입니다. 기본 양념은 별도 준비하며, 여러 점포의 수령 동선을 최적화하는 기능과 실제 주문은 연결하지 않았습니다.</p></div></div>
                 </div>
-                <figcaption class="detail-caption">
-                  FLW_MKT_MEAL_001 · 시장한끼 장보기
-                </figcaption>
-              </figure>
-
-              <figure class="detail-figure" style="margin-top: 28px;">
-                <div class="detail-main-image detail-main-image--tall">
-                  <img
-                    class="screen-spec-img"
-                    src="../Image/PJ5_images/spec_prd.png"
-                    alt="FLW_PRD_001 상품 상세 화면 설계서"
-                  />
+              </details>
+              <details class="pj5-spec-sheet">
+                <summary><span class="pj5-spec-index">04</span><span>상품 상세·구매<small>FLW_PRD_001</small></span><span class="pj5-spec-expand" aria-hidden="true">＋</span></summary>
+                <div class="pj5-spec-layout">
+                  <div class="pj5-spec-preview"><div class="pj5-spec-device"><iframe src="../Image/PJ5_images/prototype/spec/purchase.html" title="상품 상세·구매 현재 화면 미리보기" loading="lazy"></iframe></div><p>현재 시안 · 화면 내부 스크롤 가능</p></div>
+                  <div class="pj5-spec-definitions"><ol>
+<li><span>01</span><div><h4>상품 사진과 관심 저장</h4><p>상품 사진과 원산지를 보여주며 관심 상품을 저장할 수 있습니다.</p></div></li>
+<li><span>02</span><div><h4>가격·단위·재고</h4><p>할인 전 가격·할인율·판매가와 판매 단위를 구분하고, 구매 가능한 남은 수량을 표시합니다.</p></div></li>
+<li><span>03</span><div><h4>점포와 수령 조건</h4><p>가게명·영업시간·시장과 도보 거리를 제공합니다. 수령할 점포와 방문 전 확인할 조건을 안내합니다.</p></div></li>
+<li><span>04</span><div><h4>수량 선택</h4><p>하단 창에서 재고 범위 안으로 수량을 조절합니다. 수량에 따라 금액을 갱신하고 바로 구매·장바구니 담기를 구분합니다.</p></div></li>
+<li><span>05</span><div><h4>장바구니와 결제 확인</h4><p>선택 상품과 수량에 맞게 총액·할인 금액을 계산합니다. 바로 구매는 해당 상품 수량만 결제 수단 선택에 반영합니다.</p></div></li>
+</ol><div class="pj5-spec-boundary"><strong>구현 범위와 예외 조건</strong><p>실제 결제와 주문은 진행되지 않습니다. 재고 소진 시 구매 비활성화, 동시 구매에 따른 재고 재확인은 구현 시 처리할 예외 조건입니다.</p></div></div>
                 </div>
-                <figcaption class="detail-caption">
-                  FLW_PRD_001 · 상품 상세 페이지
-                </figcaption>
-              </figure>
-
-              <figure class="detail-figure" style="margin-top: 28px;">
-                <div class="detail-main-image detail-main-image--tall">
-                  <img
-                    class="screen-spec-img"
-                    src="../Image/PJ5_images/spec_sel_reg.png"
-                    alt="FLW_SEL_REG_001 판매자 상품 등록 화면 설계서"
-                  />
+              </details>
+              <details class="pj5-spec-sheet">
+                <summary><span class="pj5-spec-index">05</span><span>판매자 상품 등록<small>FLW_SEL_REG_001</small></span><span class="pj5-spec-expand" aria-hidden="true">＋</span></summary>
+                <div class="pj5-spec-layout">
+                  <div class="pj5-spec-preview"><div class="pj5-spec-device"><iframe src="../Image/PJ5_images/prototype/spec/register.html#form" title="판매자 상품 등록 현재 화면 미리보기" loading="lazy"></iframe></div><p>현재 시안 · 화면 내부 스크롤 가능</p></div>
+                  <div class="pj5-spec-definitions"><ol>
+<li><span>01</span><div><h4>사진 촬영·앨범 선택</h4><p>상품이 선명하게 담기도록 촬영 방법을 안내합니다. 촬영 또는 앨범 선택으로 정보 입력을 시작합니다.</p></div></li>
+<li><span>02</span><div><h4>제안 정보 확인</h4><p>사진 인식 예시로 상품명·카테고리를 제안하고 판매자가 확인·수정할 수 있게 합니다.</p></div></li>
+<li><span>03</span><div><h4>판매 조건 입력</h4><p>원산지·판매 단위를 선택하고 수량·할인 전 가격을 입력합니다. 외국산 선택 시 국가를 추가로 고릅니다.</p></div></li>
+<li><span>04</span><div><h4>판매가·판매 기간</h4><p>할인율에 따라 판매가를 자동 계산합니다. 판매 기간이 지나면 판매가 종료된다는 조건을 안내합니다.</p></div></li>
+<li><span>05</span><div><h4>확인·수정·등록 완료</h4><p>등록 전 확인에서 사진·상품명·가격·수량·기간·설명을 모아 보여줍니다. 수정 경로와 최종 등록을 분리합니다.</p></div></li>
+</ol><div class="pj5-spec-boundary"><strong>구현 범위와 예외 조건</strong><p>촬영은 예시 사진으로 진행하며 실제 AI 인식·서버 등록은 연결하지 않았습니다. 인식 실패 시 직접 입력, 필수값 누락 시 안내는 구현 시 처리할 예외 조건입니다.</p></div></div>
                 </div>
-                <figcaption class="detail-caption">
-                  FLW_SEL_REG_001 · 판매자 상품 등록 화면
-                </figcaption>
-              </figure>
+              </details>
             </div>
           </details>
 
@@ -1983,11 +1883,12 @@
         <div class="formula-block">
           <div class="formula-row">
             <p class="formula-body">
-              S1. “당신은 60대 판매자입니다. 처음으로 물품을 등록해주세요”<br />
-              &nbsp;&nbsp;→ 판매자 토글을 1분 안에 찾으면
+              B1. “시장한끼를 통해 소고기미역국 식재료를 구매해주세요.”<br />
+              &nbsp;&nbsp;→ 시장한끼 버튼을 10초 이내에 찾으면
               <span class="formula-result">Y</span><br />
-              &nbsp;&nbsp;→ 등록 완료까지 3분 이하면
-              <span class="formula-result">Y</span>
+              &nbsp;&nbsp;→ 10초를 초과하면
+              <span class="formula-result">N</span><br />
+              관찰은 결제 직전까지 진행하되, 8분이 지나면 종료했습니다.
             </p>
           </div>
         </div>
@@ -2000,7 +1901,7 @@
 </p>
 
         <p>
-          진행 중에는 힌트나 유도 질문 없이 상황을 제시했습니다. 완료 여부·소요 시간·도움 요청·되돌아가기 등을 기록 항목으로 두었지만, <strong>소요 시간 기록이 일부 누락되어 전체 참여자의 시간 기준 충족률은 집계하지 않았습니다.</strong> 결과는 확인 가능한 이해도 응답과 인터뷰 내용을 중심으로 정리했습니다.
+          진행 중에는 힌트나 유도 질문 없이 상황을 제시했습니다. <strong>과업별로 사전에 정한 시간 기준의 충족 여부를 Y/N으로 기록했습니다.</strong> 다만 정확한 소요 시간은 모든 참여자에게 기록하지 않아, 평균 소요 시간은 산출하지 않았습니다. 아래에서는 이해도 응답과 인터뷰 내용을 중심으로 결과를 정리했습니다.
         </p>
 
         <div class="flow">
@@ -2146,11 +2047,13 @@
             <tr><th scope="row">상품 마감</th><td>개별·일괄·자동 마감에서 선택권을 준다는 점이 장점으로 언급됐습니다.</td><td>현재 시안에서는 개별·일괄 마감을 직접 비교할 수 있습니다. 확인 창에 대상과 영향을 표시했으며, 자동 마감은 상품 등록의 판매 기간으로 안내합니다.</td></tr></tbody>
           </table></div>
 
+          <h4 style="margin-top: 32px;">신선도 정보와 등록 부담 사이의 과제가 남았습니다</h4>
+          <p>구매자는 사진만으로 신선도를 판단하기 어렵다고 했고, 판매자는 영업 중 입력 부담을 우려했습니다. 신선도 정보는 필요하지만, 입력 항목을 늘리는 것만으로 해결하기는 어려웠습니다. <strong>어떤 정보를 어떤 방식으로 제공할지, 구매자의 판단과 판매자의 입력 부담을 함께 검증할 과제로 남겼습니다.</strong></p>
+
           <p style="margin-top: 32px;">가장 중요한 한계는 서비스 전체에 대한 의견에서 나왔습니다.
           <strong>가격과 기능에 대한 긍정 평가와 별개로, 인터뷰에서는 꼭 써야 할 이유가 약하다는 의견도 나왔습니다.</strong></p>
           <p class="detail-quote">“내게는 필수 서비스는 아님”<br>“시장한끼 말고는 ‘꼭 써야 할 이유’가 약함”</p>
-          <p>그래서 다음 과제는 기능을 더 늘리는 것보다,
-          <strong>어떤 상황의 사용자에게 반복해서 필요한 서비스인지 좁히고, 실제 재사용으로 확인하는 것</strong>이라고 보았습니다.</p>
+          <p>그래서 다음에는 기능을 더하기보다, <strong>누가 어떤 상황에서 잇담을 다시 찾는지 확인하고, 그 상황에서 계속 쓰고 싶은 서비스로 개선해야 한다고 보았습니다.</strong></p>
         </div>
 
         <!-- 002 -->
@@ -2179,6 +2082,10 @@
             이 의견을 반영해, <strong>거래액과 함께 폐기 위험 상품의 판매 전환율을 핵심 지표로 두었습니다.</strong> 판매 전환율은 등록된 폐기 위험 상품 중 실제로 팔린 비율입니다. 이 지표로 확인하려는 것은 <strong>폐기 위험 상품을 실제 거래로 연결했는지</strong>입니다. 실제 폐기량이 줄었는지는 판매 이후의 소비·폐기 여부를 별도로 확인해야 합니다.
           </p>
 
+          <p>
+            <strong>온라인 판매가 준비 물량을 늘리는지도 별도로 확인해야 합니다.</strong> 초기 실증에서는 참여 점포의 서비스 도입 전후 준비 물량·판매량·폐기량을 함께 기록하고, 요일과 계절 등 판매 조건의 차이도 살펴볼 계획입니다. 판매 전환율이 높아졌더라도 준비 물량과 폐기량이 함께 늘었다면, 폐기 감소 효과가 있었다고 판단하지 않겠습니다.
+          </p>
+
           <div class="flow">
             <span class="flow-step">등록된 폐기 위험 상품</span>
             <span class="flow-arrow" aria-hidden="true">→</span>
@@ -2188,18 +2095,6 @@
         </div>
 
 
-        <!-- 003 -->
-        <div class="subsection">
-
-          <div class="subsection-head">
-            <span class="subsection-number">003</span>
-            <h3>다음 개선에서도 유지할 설계를 정했습니다</h3>
-          </div>
-          <p>긍정 반응은 기능을 더 넣는 근거보다, <strong>다음 개선에서도 지킬 구조를 정하는 기준</strong>으로 사용했습니다.</p>
-          <div class="compare-table-wrap"><table class="compare-table pj5-positive-feedback"><thead><tr><th scope="col">시장한끼</th><th scope="col">상품 등록</th><th scope="col">상품 마감</th></tr></thead><tbody><tr><td>메뉴에서 필요한 재료를 비교하고 장바구니로 이어지는 구조</td><td>자동 입력으로 부담을 줄이되, 판매자가 결과를 확인·수정하는 구조</td><td>상품 하나와 가게 전체를 구분해 마감 범위를 선택하는 구조</td></tr></tbody></table></div>
-          <p style="margin-top: 32px;">이 구조는 유지하면서 점포별 픽업 동선, 반복 등록, 마감 범위의 이해를 후속 검증에서 확인할 계획입니다.</p>
-
-        </div>
 
       </div>
     </section>
@@ -2274,39 +2169,6 @@
 
           <div class="subsection-head">
             <span class="subsection-number">001</span>
-            <h3>신선도 고지는 후속 검증 과제로 남겼습니다</h3>
-          </div>
-
-          <p class="detail-quote">
-            “상품의 신선도 고지는 어디에 있나요?”
-          </p>
-
-          <p>
-            사진만 보고 신선도를 판단하게 하는 흐름은
-            <strong>판단의 책임을 구매자에게 떠넘기는 것</strong>이라는
-            지적이었습니다.
-          </p>
-
-          <p>
-            그런데 표기 기준을 만들면 상인의 등록 부담이 늘어납니다. 같은
-            테스트에서 “장사 중에 방해되면 바로 안 쓴다”는 말이 나왔던 터라,
-            입력 항목을 하나 늘리는 결정을 가볍게 할 수 없었습니다. 임의로
-            정하지 않고 <strong>미해결 과제로 명시해 남겼습니다.</strong>
-          </p>
-
-          <p class="detail-note">
-            모든 피드백에 답을 내는 것보다, 답을 못 낸 지점을 정확히 아는 게
-            더 중요하다고 판단했습니다.
-          </p>
-
-        </div>
-
-
-        <!-- 002 -->
-        <div class="subsection">
-
-          <div class="subsection-head">
-            <span class="subsection-number">002</span>
             <h3>언제 할지가 아니라, 누가 무엇을 할지까지 정했습니다</h3>
           </div>
 
@@ -2387,11 +2249,11 @@
         </div>
 
 
-        <!-- 003 -->
+        <!-- 002 -->
         <div class="subsection">
 
           <div class="subsection-head">
-            <span class="subsection-number">003</span>
+            <span class="subsection-number">002</span>
             <h3>무엇을 성공이라 부를지 정했습니다</h3>
           </div>
 
@@ -2447,11 +2309,11 @@
         </div>
 
 
-        <!-- 004 -->
+        <!-- 003 -->
         <div class="subsection">
 
           <div class="subsection-head">
-            <span class="subsection-number">004</span>
+            <span class="subsection-number">003</span>
             <h3>수수료는 마지막에 붙이기로 했습니다</h3>
           </div>
 
@@ -2552,19 +2414,22 @@
             <strong>그 돈을 어떤 작업에 쓰고, 왜 그만큼 필요한지</strong>까지 설명해야 했습니다.
           </p>
 
-          <p>
-            04장의 <strong>박정민 페르소나를 활용해 정책 담당자가 어떤 기록을 필요로 하고 어떻게 사용할지</strong> 정리했습니다. 이 관점을 지자체·상인회 MOU를 전제로 한 B2G 확장 시나리오에 연결했습니다. 정책 활용 가능성은 향후 실증과 담당자 확인이 필요한 과제로 남겼습니다.
-          </p>
-
-          <!-- ⚠️ 이 챕터가 다른 챕터보다 짧습니다.
-               사업계획서를 쓰며 새로 계산해야 했던 것, 학습 과제일 때와
-               달라진 판단 기준을 한두 문단 더 넣으면 균형이 맞습니다. -->
-
           <p class="detail-quote">
             서비스를 설계하는 것과 그 서비스에 값을 매기는 것은 다른
             훈련이었습니다.
           </p>
 
+        </div>
+
+        <!-- 002 -->
+        <div class="subsection">
+          <div class="subsection-head">
+            <span class="subsection-number">002</span>
+            <h3>거래 기록의 정책 활용 가능성도 검토했습니다</h3>
+          </div>
+          <p>
+            사업계획서에서는 거래 기록을 시장 운영과 정책에 활용할 가능성도 검토했습니다. 04장의 <strong>박정민 페르소나를 바탕으로 정책 담당자에게 필요한 기록과 활용 상황</strong>을 정리하고, 지자체·상인회와의 협약을 전제로 한 B2G 확장 시나리오로 구체화했습니다. 실제 정책에 도움이 되는지는 향후 실증과 담당자 확인이 필요한 과제로 남겼습니다.
+          </p>
         </div>
 
       </div>
@@ -2586,18 +2451,11 @@
         </div>
 
         <p>
-          그동안 “데이터를 기반으로 판단한다”고 말해왔지만, 이번에
-          <strong>데이터 자체보다 그것을 어떻게 해석하느냐에 따라 결론이
-          달라진다</strong>는 걸 알게 됐습니다. 같은 숫자를 보고도 주목하는
-          지점이 사람마다 달랐고, 그 차이에서 기획자의 판단 기준이
-          작동했습니다.
+          그동안 “데이터를 기반으로 판단한다”고 말해왔지만, 이번에는 같은 숫자도 어떤 문제에 주목하느냐에 따라 다른 결론으로 이어질 수 있다는 걸 배웠습니다. 숫자를 확인하는 데서 그치지 않고, 그 결과를 서비스의 어떤 결정에 반영할지까지 생각해야 했습니다.
         </p>
 
         <p>
-          팀장을 맡으며, 팀원의 성향과 역량을 파악해 작업을 나누는 일이
-          생각보다 어렵다는 걸 체감했습니다. 단순히 역할을 분배하는 걸 넘어
-          각자의 강점이 결과물에 자연스럽게 반영되도록 조율하는 과정이
-          필요했습니다.
+          <strong>그 판단을 팀이 실행할 수 있는 계획으로 바꾸는 일도 제 역할이었습니다.</strong> 팀장을 맡으며 기능의 필요성뿐 아니라 팀원의 역량과 남은 시간을 함께 고려해야 했습니다. 각자의 강점에 맞게 작업을 나누고 범위를 조율하면서, 기획은 방향을 정하는 데서 끝나지 않는다는 걸 배웠습니다.
         </p>
 
         <div class="detail-summary">
